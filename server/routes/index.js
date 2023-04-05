@@ -16,6 +16,5 @@ module.exports = params => {
 
     router.use('/product-management', productManagementRoute(params))
 
-
     return router
 }
