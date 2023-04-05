@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server implementation for Nile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pepeL95/Nile.git"
+  },
+  "keywords": [
+    "e-commerce",
+    "Nile"
+  ],
+  "author": "Team Madison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pepeL95/Nile/issues"
+  },
+  "homepage": "https://github.com/pepeL95/Nile#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
