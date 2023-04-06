@@ -28,7 +28,7 @@ module.exports = (params) => {
       } else if (query === userQuery.getByUserName) {
         response = userHandler.getByUserName(json, data.username)
       } else if (query === userQuery.filterByRating) {
-        response = userHandler.filterByRating(json, data.descending, 3)
+        response = userHandler.filterByRating(json, data.descending, data.threshold)
       } else if (query === userQuery.filterByItemsSold) {
         response = userHandler.filterByItemsSold(json, data.descending, 100)
       } else if (query === userQuery.filterByVerified) {

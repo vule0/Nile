@@ -12,3 +12,15 @@ module.exports.userQuery = {
     getByUserName: 10,
     getAllUsers: 11
 }
+
+module.exports.productQuery = {
+    insert: 0,
+    getAllProducts: 1,
+    getByUserName: 2,
+    filterByRating: 3,
+    filterByVerified: 4,
+    updatePrice: 5,
+    updateCategory: 6,
+    updateCondition: 7,
+    deletePost: 8
+}

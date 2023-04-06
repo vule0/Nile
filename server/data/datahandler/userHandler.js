@@ -61,6 +61,7 @@ module.exports = class UserHandler {
 
   filterByRating(json, descending, threshhold) {
     if (descending === undefined) descending = false
+    if (threshhold === undefined) threshhold = 0
     const parsedJson = JSON.parse(json)
     const parsed = parsedJson.filter((e) => e.rating >= threshhold)
 
@@ -77,6 +78,7 @@ module.exports = class UserHandler {
 
   filterByItemsSold(json, descending, threshhold) {
     if (descending === undefined) descending = false
+    if (threshhold === undefined) threshhold = 0
     const parsedJson = JSON.parse(json)
     const parsed = parsedJson.filter((e) => e.items_sold >= threshhold)
     parsed.sort((e, i) => this.compareFunc(e, i, descending, "items_sold"))
