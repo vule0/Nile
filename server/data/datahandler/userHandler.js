@@ -1,6 +1,5 @@
 const fs = require("fs")
 const util = require("util")
-const { createBrotliDecompress } = require("zlib")
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
@@ -63,7 +62,7 @@ module.exports = class UserHandler {
   filterByRating(json, descending, threshhold) {
     if (descending === undefined) descending = false
     const parsedJson = JSON.parse(json)
-    const parsed = parsedJson.filter(e => e.rating >= threshhold)
+    const parsed = parsedJson.filter((e) => e.rating >= threshhold)
 
     parsed.sort((e, i) => this.compareFunc(e, i, descending, "rating"))
 
@@ -79,7 +78,7 @@ module.exports = class UserHandler {
   filterByItemsSold(json, descending, threshhold) {
     if (descending === undefined) descending = false
     const parsedJson = JSON.parse(json)
-    const parsed = parsedJson.filter(e => e.items_sold >= threshhold)
+    const parsed = parsedJson.filter((e) => e.items_sold >= threshhold)
     parsed.sort((e, i) => this.compareFunc(e, i, descending, "items_sold"))
 
     if (parsed.length === 0)
