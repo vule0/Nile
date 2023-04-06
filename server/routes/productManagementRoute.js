@@ -39,29 +39,8 @@ module.exports = (params) => {
         )
       } else if (query === productQuery.filterByVerified) {
         response = productHandler.filterByVerified(json, data.isVerified)
-      } else if (query === productQuery.insert) {
-        response = productHandler.createProduct(
-          json,
-          data.productName,
-          data.description,
-          data.category,
-          data.price,
-          data.condition,
-          data.name,
-          data.username,
-          data.rating,
-          data.isVerified
-        )
-      } else if (query === productQuery.updatePrice) {
-        response = productHandler.updatePrice(json, data.id, data.price)
-      } else if (query === productQuery.updateCategory) {
-        response = productHandler.updateCategory(json, data.id, data.category)
-      } else if (query === productQuery.updateCondition) {
-        response = productHandler.updateCondition(json, data.id, data.condition)
-      } else if (query === productQuery.deletePost) {
-        response = productHandler.deletePost(json, data.id)
       }
-
+      
       // send response to the browser
       res.json(response)
     })

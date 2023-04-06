@@ -1,21 +1,20 @@
-const express = require('express')
+const express = require("express")
 
 const router = express.Router()
 
-const userManagementRoute = require('./userManagementRoute')
+const userManagementRoute = require("./userManagementRoute")
 
-const productManagementRoute = require('./productManagementRoute')
+const productManagementRoute = require("./productManagementRoute")
 
-module.exports = params => {
+module.exports = (params) => {
+  router.get("/", (req, res) => {
+    res.send("Nothing in the root...")
+  })
 
-    router.get('/', (req, res) => {
-        res.send("Nothing in the root...")
-    })
-    
-    // pass down to respective route handler
-    router.use('/user-management', userManagementRoute(params))
+  // pass down to respective route handler
+  router.use("/user-management", userManagementRoute(params))
 
-    router.use('/product-management', productManagementRoute(params))
+  router.use("/product-management", productManagementRoute(params))
 
-    return router
+  return router
 }
