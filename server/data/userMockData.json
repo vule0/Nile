@@ -2,7 +2,7 @@
   {
     "name": "Oliver Anderson",
     "username": "oanderson",
-    "rating": 4.9,
+    "rating": 5,
     "verified": true,
     "email": "oanderson@example.com",
     "items_sold": 100
@@ -254,5 +254,13 @@
     "verified": false,
     "email": "iescott@example.com",
     "items_sold": 0
+  },
+  {
+    "name": "Jose Lopez",
+    "username": "jlopez",
+    "rating": -1,
+    "verified": false,
+    "email": "jlopez@examples.com",
+    "items_sold": 100
   }
 ]
