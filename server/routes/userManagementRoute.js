@@ -7,7 +7,7 @@ module.exports = (params) => {
   router.get("/", async (req, res) => {
     // const query = req.body.query // browser provides which query to perform
     // const data = req.body.data // object containing user information
-    const query = userQuery.filterByName // browser provides which query to perform
+    const query = userQuery.getAllUsers // browser provides which query to perform
     const data = {
         name: 'Jose Lopez ',
         username: 'jlopez',
@@ -46,7 +46,7 @@ module.exports = (params) => {
     // open file
     userHandler.readDb().then((json) => {
       let response = {status: '-2',message: 'no corresponding query'}
-      
+
       // here we can mimic the database additions/updates
       if (query === userQuery.insert) {
         response = userHandler.createUser(json, data.name, data.username, data.email)
