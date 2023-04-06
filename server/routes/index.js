@@ -7,6 +7,7 @@ const userManagementRoute = require('./userManagementRoute')
 const productManagementRoute = require('./productManagementRoute')
 
 module.exports = params => {
+
     router.get('/', (req, res) => {
         res.send("Nothing in the root...")
     })

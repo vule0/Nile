@@ -5,6 +5,15 @@ const path = require('path')
 
 const routes = require('./routes')
 
+const UserHandler = require('./data/datahandler/userHandler')
+
+const userHandler = new UserHandler(path.join(__dirname, 'data/userMockData.json'))
+
+// const ProductHandler = require('./data/datahandler/productHandler')
+
+// const productHandler = ProductHandler()
+
+
 // express server setup
 const app = express()
 
@@ -17,6 +26,6 @@ app.use(express.urlencoded({ extended: true }))
 
 app.listen(PORT, () => console.log(`App listening at port: ${PORT}`));
 
-app.use('/', routes()) // down to routes
+app.use('/', routes({userHandler})) // down to routes
 
 
