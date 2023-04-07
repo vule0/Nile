@@ -15,8 +15,7 @@
         width: 50%;
         height: 100%;
         border-radius: 8px 0px 0px 8px;
-        background: #c5d2e7;
-        background-color: #89e5ff;
+        background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
         
     }
 
@@ -24,10 +23,11 @@
         width: 50%;
         height: 100%;
         border-radius: 0px 8px 8px 0px;
-        // background-color: #E0E7FF;
+        background-color: #E0E7FF;
     }
 }
 
 .Category-main-container:hover {
     transform: scale(1.02);
 }
+

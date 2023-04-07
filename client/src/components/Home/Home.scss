@@ -1,9 +1,11 @@
 .Home-main-container {
-    width: 100vw;
+    // width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
     
 
     &>.wrapper {;
@@ -11,7 +13,17 @@
     }
 
     &>.top-div {
-        height: 10vh;
+        // filter: blur(5px);
+        backdrop-filter: blur(5px);
+        position: fixed;
+        height: 8vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: white;
+        background-color: rgba(255,255,255,0.5);
+        box-shadow: -2px -2px 5px lightgray, 
+            2px  2px 5px lightgray;
 
     }
 
@@ -22,7 +34,7 @@
         flex-direction: row;
         justify-content: space-evenly;
 
-        &>.card {
+        &>.card {            
             height: 100%;
             border-radius: 8px;
             box-shadow: -2px -2px 5px lightgray, 
@@ -43,12 +55,16 @@
         }
 
         &>.left-card {
+            margin-top: 5%;
             width: 50vw;
+            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 
         }
 
         &>.right-card {
-            background-color: bisque;
+            padding: 15px;
+            margin-top: 8%;
+            background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
             width: 40vw;
             
         }

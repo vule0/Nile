@@ -8,7 +8,7 @@ import Divider from "@mui/material/Divider"
 import DraftsIcon from "@mui/icons-material/Drafts"
 import Avatar from '@mui/material/Avatar';
 
-const Category = ({ size, left }) => {
+const ProductCard = ({ size, left }) => {
   return (
     <div className="Category-main-container">
       <div className="left-div">
@@ -53,4 +53,4 @@ const Category = ({ size, left }) => {
   )
 }
 
-export default Category
+export default ProductCard
