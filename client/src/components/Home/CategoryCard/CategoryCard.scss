@@ -1,6 +1,7 @@
 .CategoryCard-main-div {
     width: 90%;
     min-height: 400px;
+    border: 1px, 1px, 1px, 1px, lightgray;
     border-radius: 8px;
     box-shadow: -2px -2px 5px lightgray, 
             2px  2px 5px lightgray;
@@ -23,4 +24,5 @@
 
 .CategoryCard-main-div:hover {
     transform: scale(1.02);
+    background-color: #D1D5DB;
 }
