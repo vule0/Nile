@@ -3,6 +3,14 @@ import TopBar from "../TopBar/TopBar"
 import ProductCard from "./ProductCard/ProductCard"
 import CategoryCard from "./CategoryCard/CategoryCard"
 
+// images
+import fashionCategory from "../../assets/imgs/fashionCategory.jpg"
+import electronicsCategory from "../../assets/imgs/electronicsCategory.jpg"
+import fitnessCategory from "../../assets/imgs/fitnessCategory.jpg"
+import homeCategory from "../../assets/imgs/homeCategory.jpg"
+import jewleryCategory from "../../assets/imgs/jewleryCategory.jpg"
+import kitchenCategory from "../../assets/imgs/kitchenCategory.jpg"
+import watchesCategory from "../../assets/imgs/watchesCategory.jpg"
 const Home = ({ setMenu, setCategory, menu }) => {
   return (
     <div className="Home-main-container">
@@ -28,13 +36,13 @@ const Home = ({ setMenu, setCategory, menu }) => {
           <h1 align="left">Explore by Categories</h1>
           <div className="vertical">
             <span style={{ height: "10px" }} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Fashion"} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Jewelry"} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Electronics"} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Home"} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Fitness"} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Watches"} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Kitchen"} />
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Home"} img={homeCategory}/>
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Fashion"} img={fashionCategory}/>
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Jewelry"} img={jewleryCategory}/>
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Electronics"} img={electronicsCategory} />
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Fitness"} img={fitnessCategory}/>
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Watches"} img={watchesCategory}/>
+            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Kitchen"} img={kitchenCategory}/>
           </div>
         </div>
       </div>
