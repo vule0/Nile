@@ -1,5 +1,4 @@
 import './TopBar.scss'
-import Divider from "@mui/material/Divider"
 import { Avatar, stepClasses } from "@mui/material"
 import { IconButton } from "@mui/material"
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"

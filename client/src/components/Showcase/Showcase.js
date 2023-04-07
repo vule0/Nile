@@ -4,7 +4,7 @@ const Showcase = ({category, setMenu, setCategory, menu}) => {
   return (
     <div className='Showcase-main-container'>
         <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory}/>
-        {category}
+        {category} Category
     </div>
   )
 }
