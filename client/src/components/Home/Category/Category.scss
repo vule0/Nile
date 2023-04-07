@@ -1,0 +1,33 @@
+.Category-main-container {
+    width: 90%;
+    min-height: 400px;
+    border-radius: 8px;
+    box-shadow: -2px -2px 5px lightgray, 
+            2px  2px 5px lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    
+    &>.left-div {
+        width: 50%;
+        height: 100%;
+        border-radius: 8px 0px 0px 8px;
+        background: #c5d2e7;
+        background-color: #89e5ff;
+        
+    }
+
+    &>.right-div {
+        width: 50%;
+        height: 100%;
+        border-radius: 0px 8px 8px 0px;
+        // background-color: #E0E7FF;
+    }
+}
+
+.Category-main-container:hover {
+    transform: scale(1.02);
+}

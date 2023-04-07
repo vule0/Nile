@@ -1,4 +1,56 @@
 .Home-main-container {
-
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
     
+
+    &>.wrapper {;
+        width: 100vw;
+    }
+
+    &>.top-div {
+        height: 10vh;
+
+    }
+
+    &>.bottom-div {
+        height: 90vh;
+        padding-top: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        &>.card {
+            height: 100%;
+            border-radius: 8px;
+            box-shadow: -2px -2px 5px lightgray, 
+            2px  2px 5px lightgray;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            &>.vertical {
+                overflow-y: scroll;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px;
+
+            }
+        }
+
+        &>.left-card {
+            width: 50vw;
+
+        }
+
+        &>.right-card {
+            background-color: bisque;
+            width: 40vw;
+            
+        }
+    }
 }
