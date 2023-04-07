@@ -1,4 +1,4 @@
-import "./Category.scss"
+import "./ProductCard.scss"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
 import ListItemButton from "@mui/material/ListItemButton"
