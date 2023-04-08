@@ -6,7 +6,7 @@ import User from "./components/User/User"
 import Showcase from "./components/Showcase/Showcase"
 import { menus, productCategory } from "./utils/enum"
 function App() {
-  const [menu, setMenu] = useState(menus.showcase)
+  const [menu, setMenu] = useState(menus.home)
   const [category ,setCategory] = useState(productCategory.misc)
   return (
     <div className="App">
