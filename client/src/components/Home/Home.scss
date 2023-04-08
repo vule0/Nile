@@ -3,50 +3,46 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
   background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
 
-  & > .bottom-div {
-    height: 90vh;
-    padding-top: 50px;
+  & > .zStack {
+    width: 100vw;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    & > .card {
-      height: 100%;
-      border-radius: 8px;
-      box-shadow: -2px -2px 5px lightgray, 2px 2px 5px lightgray;
+    flex-direction: column;
+    align-items: center;
+    & > .selectors {
+      position: relative;
+      bottom: 40px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-     
-      
-      & > .vertical {
-        // -ms-overflow-style: none;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: scroll;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 200px;
+      height: 20px;
+      z-index: 1;
+
+      & > .selector {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border-color: gray;
+        background-color: white;
+        box-shadow: -1px -1px 3px lightgray, 1px 1px 3px gray;
+        cursor: pointer;
+        transition: 0.2s linear;
       }
     }
+  }
 
-    & > .left-card {
-      margin-top: 5%;
-      width: 50vw;
-      background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-    }
+  &>.recommended-div {
+    &>.row {
+      width: 100vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
 
-    & > .right-card {
-      padding: 15px;
-      margin-top: 8%;
-      background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-      width: 40vw;
     }
   }
 }

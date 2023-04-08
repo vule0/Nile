@@ -1,7 +1,5 @@
 import "./CategoryCard.scss"
-import { Button } from "@mui/material"
 import { menus, productCategory } from "../../../utils/enum"
-
 
 import { styled } from "@mui/material/styles"
 import Box from "@mui/material/Box"
@@ -13,8 +11,8 @@ const CategoryCard = ({setMenu, setCategory, category, img}) => {
         {
           url: `${img}`,
           title: `${category}`,
-          width: "100%",
-          height: '400px'
+          width: "95%",
+          height: '60vh'
         },
       ]
       
@@ -23,11 +21,10 @@ const CategoryCard = ({setMenu, setCategory, category, img}) => {
         height: 200,
         [theme.breakpoints.down("sm")]: {
           width: "100% !important", // Overrides inline-style
-          height: "100% !important",
+
         },
         "&:hover, &.Mui-focusVisible": {
           zIndex: 1,
-          // transform: 'scale(1.02)',
           "& .MuiImageBackdrop-root": {
             opacity: 0.15,
           },
@@ -46,8 +43,8 @@ const CategoryCard = ({setMenu, setCategory, category, img}) => {
         right: 0,
         top: 0,
         bottom: 0,
-        backgroundSize: "cover",
-        backgroundPosition: "center 40%",
+        backgroundSize: "100%",
+        backgroundPosition: `center 60%`
       })
       
       const Image = styled("span")(({ theme }) => ({
@@ -84,7 +81,7 @@ const CategoryCard = ({setMenu, setCategory, category, img}) => {
       }))
     
     return (
-      <Box sx={{mt:'10px', mb:'10px', display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }} onClick={
+      <Box sx={{display:'flex', justifyContent: 'center', mt:'10px', mb:'10px', display: 'flex', flexWrap: 'wrap', width: '100%' }} onClick={
           () => {
               setCategory(category)
               setMenu(menus.showcase)
@@ -96,7 +93,7 @@ const CategoryCard = ({setMenu, setCategory, category, img}) => {
             key={image.title}
             style={{
               width: image.width,
-              height: image.height
+              height: image.height,
             }}
           >
             <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
