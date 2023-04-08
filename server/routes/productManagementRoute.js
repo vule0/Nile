@@ -5,22 +5,22 @@ const router = express.Router()
 module.exports = (params) => {
   const { productHandler } = params
   router.get("/", async (req, res) => {
-    // const query = req.body.query // browser provides which query to perform
-    // const data = req.body.data // object containing user information
-    const query = productQuery.deletePost // browser provides which query to perform
-    const data = {
-      id: "P1001",
-      productName: "Leather Handbag",
-      description: "A stylish and spacious handbag made of genuine leather.",
-      category: "Clothing",
-      price: 149000000000.99,
-      condition: "New",
-      name: "Jose Lopez",
-      username: "oanderson",
-      rating: 5.0,
-      isVerified: true,
-      threshold: 3
-    } // object containing user information
+    const data = req.body.data // object containing user information
+    const query = data.query // browser provides which query to perform
+    // const query = productQuery.deletePost // browser provides which query to perform
+    // const data = {
+    //   id: "P1001",
+    //   productName: "Leather Handbag",
+    //   description: "A stylish and spacious handbag made of genuine leather.",
+    //   category: "Clothing",
+    //   price: 149000000000.99,
+    //   condition: "New",
+    //   name: "Jose Lopez",
+    //   username: "oanderson",
+    //   rating: 5.0,
+    //   isVerified: true,
+    //   threshold: 3
+    // } // object containing user information
 
     // open file
     productHandler.readDb().then((json) => {
@@ -47,12 +47,20 @@ module.exports = (params) => {
   })
 
   router.post("/", async (req, res) => {
+    const data = req.body // object containing user information
+    const query = data.query // browser provides which query to perform
+    // const query = undefined
+    console.log(data)
     // open file
+    if (query !== undefined)
     productHandler.readDb().then((json) => {
       let response = { status: "-2", message: "no corresponding query" }
 
       // here we can mimic the database additions/updates
-      if (query === productQuery.insert) {
+      if (query === productQuery.getAllProducts) {
+        response = productHandler.getAllProducts(json)
+      }
+      else if (query === productQuery.insert) {
         response = productHandler.createProduct(
           json,
           data.productName,
@@ -78,6 +86,7 @@ module.exports = (params) => {
       // send response to the browser
       res.json(response)
     })
+    else res.end()
   })
 
   return router

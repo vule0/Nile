@@ -65,23 +65,13 @@ const Home = ({ setMenu, setCategory, menu }) => {
       <h1>Just For You</h1>
       <div className="recommended-div">
             <div className="row" style={{marginBottom:'30px'}}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard name={'Name Lastname'} username={'username'} price={100.99}/>
+            <ProductCard name={'Name Lastname'} username={'username'} price={100.99}/>
+            <ProductCard name={'Name Lastname'} username={'username'} price={100.99}/>
+            <ProductCard name={'Name Lastname'} username={'username'} price={100.99}/>
+            <ProductCard name={'Name Lastname'} username={'username'} price={100.99}/>
+            <ProductCard name={'Name Lastname'} username={'username'} price={100.99}/>
             </div>
-
-            <div className="row" style={{marginBottom:'30px'}}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            </div>
-
-            {/* <div className="row" style={{marginBottom:'30px'}}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            </div> */}
-
       </div>
 
     </div>
