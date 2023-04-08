@@ -76,11 +76,11 @@ const Home = ({ setMenu, setCategory, menu }) => {
             <ProductCard />
             </div>
 
-            <div className="row" style={{marginBottom:'30px'}}>
+            {/* <div className="row" style={{marginBottom:'30px'}}>
             <ProductCard />
             <ProductCard />
             <ProductCard />
-            </div>
+            </div> */}
 
       </div>
 
@@ -89,37 +89,3 @@ const Home = ({ setMenu, setCategory, menu }) => {
 }
 
 export default Home
-
-{
-  /* <div className="wrapper bottom-div">
-        <div className="card left-card">
-          <h1>Recommended to You</h1>
-          <div className="vertical">
-            <span style={{ height: "10px" }} />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </div>
-        </div>
-
-        <div className=" card right-card vertical-scroll">
-          <h1 align="left">Explore by Categories</h1>
-          <div className="vertical">
-            <span style={{ height: "10px" }} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Home"} img={homeCategory}/>
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Fashion"} img={fashionCategory}/>
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Jewelry"} img={jewleryCategory}/>
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Electronics"} img={electronicsCategory} />
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Fitness"} img={fitnessCategory}/>
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Watches"} img={watchesCategory}/>
-            <CategoryCard setCategory={setCategory} setMenu={setMenu} category={"Kitchen"} img={kitchenCategory}/>
-          </div>
-        </div>
-      </div> */
-}
