@@ -23,4 +23,11 @@ module.exports.productQuery = {
   updateCategory: 6,
   updateCondition: 7,
   deletePost: 8,
+  filterByCategory:9,
+  getRecommended: 10
+}
+
+module.exports.routes = {
+  postProduct: 'http://localhost:3001/product-management',
+  postUser: 'http://localhost:3001/user-management'
 }

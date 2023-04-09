@@ -3,6 +3,8 @@ const util = require("util")
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
+
+
 module.exports = class ProductHandler {
   constructor(db) {
     this.db = db
@@ -12,8 +14,12 @@ module.exports = class ProductHandler {
   readDb() {
     return readFile(this.db)
   }
+  
+  // heplers
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  }
 
-  // compare function
   compareFunc(e, i, descending = false, feature) {
     if (descending) {
       if (e["seller"][feature] < i["seller"][feature]) return 1
@@ -27,6 +33,21 @@ module.exports = class ProductHandler {
   }
 
   // retrievals
+getRecommended(json) {
+  const parsed = JSON.parse(json)
+  let i0 = Math.floor(Math.random() * (parsed.length - 6));
+  let i1 = i0 + 6
+  let response = []
+  while (i0 < i1) {
+    response.push(parsed[i0])
+    i0++
+  }
+  console.log(parsed.length)
+  console.log(i0)
+  console.log(response)
+  return response
+}
+
   getAllProducts(json) {
     const parsed = JSON.parse(json)
     const products = parsed.filter((e) => e)
@@ -48,7 +69,10 @@ module.exports = class ProductHandler {
         message:
           "No user with the specified information exists in the database",
       }
-    else return products
+      else {
+        return products
+      }
+      
   }
 
   // filters
@@ -64,6 +88,22 @@ module.exports = class ProductHandler {
       return {
         status: 100,
         message: "Empty database",
+      }
+
+    return parsed
+  }
+
+  filterByCategory(json, category) {
+    if (category === 'Miscellaneous')
+      return this.getAllProducts(json)
+    console.log(category)
+    const parsedJson = JSON.parse(json)
+    const parsed = parsedJson.filter((e) => e.category === category)
+
+    if (parsed.length === 0)
+      return {
+        status: 100,
+        message: "Not a valid category",
       }
 
     return parsed
