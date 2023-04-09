@@ -3,8 +3,6 @@ const util = require("util")
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
-
-
 module.exports = class ProductHandler {
   constructor(db) {
     this.db = db
@@ -14,10 +12,10 @@ module.exports = class ProductHandler {
   readDb() {
     return readFile(this.db)
   }
-  
+
   // heplers
   getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min) + min) // The maximum is exclusive and the minimum is inclusive
   }
 
   compareFunc(e, i, descending = false, feature) {
@@ -33,20 +31,31 @@ module.exports = class ProductHandler {
   }
 
   // retrievals
-getRecommended(json) {
-  const parsed = JSON.parse(json)
-  let i0 = Math.floor(Math.random() * (parsed.length - 6));
-  let i1 = i0 + 6
-  let response = []
-  while (i0 < i1) {
-    response.push(parsed[i0])
-    i0++
+  getByProductId(json, productId) {
+    const parsed = JSON.parse(json)
+    const result = parsed.filter((e) => e.id === productId)
+
+    if (result.length === 0)
+      return [{
+        status: 100,
+        message:
+          "No Product Found",
+      }]
+    console.log(result)
+    return result
   }
-  console.log(parsed.length)
-  console.log(i0)
-  console.log(response)
-  return response
-}
+
+  getRecommended(json) {
+    const parsed = JSON.parse(json)
+    let i0 = Math.floor(Math.random() * (parsed.length - 6))
+    let i1 = i0 + 6
+    let response = []
+    while (i0 < i1) {
+      response.push(parsed[i0])
+      i0++
+    }
+    return response
+  }
 
   getAllProducts(json) {
     const parsed = JSON.parse(json)
@@ -69,10 +78,9 @@ getRecommended(json) {
         message:
           "No user with the specified information exists in the database",
       }
-      else {
-        return products
-      }
-      
+    else {
+      return products
+    }
   }
 
   // filters
@@ -94,9 +102,7 @@ getRecommended(json) {
   }
 
   filterByCategory(json, category) {
-    if (category === 'Miscellaneous')
-      return this.getAllProducts(json)
-    console.log(category)
+    if (category === "Miscellaneous") return this.getAllProducts(json)
     const parsedJson = JSON.parse(json)
     const parsed = parsedJson.filter((e) => e.category === category)
 
@@ -142,14 +148,12 @@ getRecommended(json) {
     const parsed = JSON.parse(json)
     let response = {}
     if (!verified)
-        return {
+      return {
         status: -1,
         message:
           "Not a verified user. Not allowed to sell product in our platform yet. Check your verification status to obtain information about your verfication process",
       }
-    if (
-      !(category && price && condition && name && uname && rating)
-    )
+    if (!(category && price && condition && name && uname && rating))
       return {
         status: -1,
         message:

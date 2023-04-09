@@ -31,6 +31,8 @@ module.exports = (params) => {
           response = productHandler.updateCategory(json, data.id, data.category)
         } else if (query === productQuery.deletePost) {
           response = productHandler.deletePost(json, data.id)
+        } else if (query === productQuery.getByProductId) {
+          response = productHandler.getByProductId(json, data.productId)
         } else if (query === productQuery.filterByCategory) {
           response = productHandler.filterByCategory(json, data.category)
         } else if (query === productQuery.filterByRating) {
@@ -61,7 +63,7 @@ module.exports = (params) => {
         }
 
         // send response to the browser
-        console.log(response)
+        // console.log(response)
         res.json(response)
       })
     else res.end()

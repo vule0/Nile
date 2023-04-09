@@ -34,7 +34,7 @@ const categories = [
   "Electronics",
 ]
 
-const Home = ({ setMenu, setCategory, menu, category }) => {
+const Home = ({ setMenu, setCategory, menu, category, setPostId, postId }) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
 
@@ -86,7 +86,7 @@ const Home = ({ setMenu, setCategory, menu, category }) => {
                 username={e.seller.username}
                 price={e.price}
                 productName={e['product name']}
-                onClick={() => {setCategory(productCategory.misc); setMenu(menus.detailed)}}
+                onClick={() => {setCategory(productCategory.misc); setPostId(e.id); setMenu(menus.detailed)}}
               />
             )
           })}

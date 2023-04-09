@@ -43,7 +43,8 @@ module.exports.productQueryCodes = {
   updateCondition: 7,
   deletePost: 8,
   filterByCategory: 9,
-  getRecommended: 10
+  getRecommended: 10,
+  getByProductId: 11
 }
 
 module.exports.routes = {

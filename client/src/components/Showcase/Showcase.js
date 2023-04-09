@@ -21,7 +21,7 @@ import {
   userQueryCodes,
 } from "../../utils/enum"
 
-const Showcase = ({ category, setMenu, setCategory, menu }) => {
+const Showcase = ({ category, setMenu, setCategory, menu, setPostId }) => {
   const data = {
     query: productQueryCodes.filterByCategory,
     username: "wchen",
@@ -127,7 +127,7 @@ const Showcase = ({ category, setMenu, setCategory, menu }) => {
                   username={e.seller.username}
                   price={e.price}
                   productName={e['product name']}
-                  onClick={() => {setCategory(category); setMenu(menus.detailed)}}
+                  onClick={() => {setCategory(category); setMenu(menus.detailed); setPostId(e.id)}}
                 />
               )
             })

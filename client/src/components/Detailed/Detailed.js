@@ -1,5 +1,8 @@
 import TopBar from "../TopBar/TopBar"
 import "./Detailed.scss"
+import { fecthData } from "../../utils/helperFunctions/helper"
+import { productQueryCodes, routes } from "../../utils/enum"
+import { useEffect, useState} from "react"
 //MUI Imports
 import { ImageList, ImageListItem } from "@mui/material"
 import List from "@mui/material/List"
@@ -15,7 +18,20 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
+
+
 const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
+  const [postArr, setPost] = useState([])
+
+  useEffect(() => {
+    const data = {
+      query: productQueryCodes.getByProductId,
+      productId: postId
+    }
+    fecthData(routes.postProduct, data, setPost, 1)
+    console.log(postArr)
+  }, [])
+
   return (
     <div className="Detailed-main-div">
       <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
@@ -46,8 +62,8 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
           >
             <ListItem sx={{ width: "30vw", minWidth:'300px'}}>
               <ListItemText
-                primary={<Typography sx={{fontWeight:'bold', fontSize:'1.5rem'}}>Description</Typography>}
-                secondary="Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text."
+                primary={<Typography sx={{fontWeight:'bold', fontSize:'1.5rem'}}>{postArr.length === 0 ? '' : postArr[0]['product name']}</Typography>}
+                secondary={postArr.length === 0 ? '' : postArr[0].description}
               />
             </ListItem>
             
@@ -60,8 +76,8 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary="Sold By: Name LastName"
-                secondary="username: username"
+                primary={`Sold By: ${postArr.length === 0 ? '' : postArr[0].seller.name}`}
+                secondary={`username: ${postArr.length === 0 ? '' : postArr[0].seller.username}`}
               />
             </ListItemButton>
 
@@ -73,7 +89,7 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
                   <AttachMoneyIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary="Price" secondary="$99.99" />
+              <ListItemText primary="Price" secondary={`$${postArr.length === 0 ? '' : postArr[0].price}`} />
             </ListItem>
 
             <Divider />
@@ -85,8 +101,8 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary="Seller Rating: 4.5"
-                secondary={<Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />}
+                primary={`Seller Rating: ${postArr.length === 0 ? '' : postArr[0].seller.rating}`}
+                secondary={<Rating name="half-rating-read" value={postArr.length === 0 ? 0 : postArr[0].seller.rating} precision={0.5} readOnly />}
               />
             </ListItem>
 
@@ -98,7 +114,7 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
                   <RocketLaunchIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary="Items Sold" secondary="140" />
+              <ListItemText primary="Items Sold" secondary={"140"} />
             </ListItem>
 
             <Divider />
