@@ -41,6 +41,8 @@ module.exports.filterByPrice = (
   threshholdR,
   descending = false
 ) => {
+  if (!threshholdL) threshholdL = 0
+  if(!threshholdR) threshholdR = 1000
   const oneDimensionalArray = dArray.flat()
   const result = oneDimensionalArray.filter(
     (e) => e.price >= threshholdL && e.price <= threshholdR
@@ -55,6 +57,7 @@ module.exports.filterByPrice = (
 }
 
 module.exports.filterByRating = (dArray, threshhold) => {
+  if(!threshhold) threshhold = 0
   const oneDimensionalArray = dArray.flat()
   const result = oneDimensionalArray.filter(
     (e) => e.seller.rating >= threshhold
