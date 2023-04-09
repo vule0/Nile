@@ -3,6 +3,7 @@ module.exports.menus = {
   user: 1,
   messages: 2,
   showcase: 3,
+  detailed: 4
 }
 
 module.exports.productCategory = {

@@ -13,7 +13,7 @@ import kitchenCategory from "../../assets/imgs/kitchenCategory.jpg"
 import watchesCategory from "../../assets/imgs/watchesCategory.jpg"
 import { useEffect, useState } from "react"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import { productQueryCodes, routes } from '../../utils/enum'
+import { menus, productCategory, productQueryCodes, routes } from '../../utils/enum'
 
 const imgs = [
   homeCategory,
@@ -34,7 +34,7 @@ const categories = [
   "Electronics",
 ]
 
-const Home = ({ setMenu, setCategory, menu }) => {
+const Home = ({ setMenu, setCategory, menu, category }) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
 
@@ -53,7 +53,7 @@ const Home = ({ setMenu, setCategory, menu }) => {
 
   return (
     <div className="Home-main-container">
-      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} />
+      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
 
       <span style={{ marginTop: "10vh" }} />
 
@@ -86,6 +86,7 @@ const Home = ({ setMenu, setCategory, menu }) => {
                 username={e.seller.username}
                 price={e.price}
                 productName={e['product name']}
+                onClick={() => {setCategory(productCategory.misc); setMenu(menus.detailed)}}
               />
             )
           })}

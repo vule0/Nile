@@ -15,6 +15,7 @@ import FilterListIcon from "@mui/icons-material/FilterList"
 // Enum Imports
 import {
   routes,
+  menus,
   productCategory,
   productQueryCodes,
   userQueryCodes,
@@ -56,7 +57,7 @@ const Showcase = ({ category, setMenu, setCategory, menu }) => {
 
   return (
     <div className="Showcase-main-container">
-      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} />
+      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category}/>
       <Stack className="showcase-scroll">
         <div className="header">
           <p>{category} Category</p>
@@ -126,6 +127,7 @@ const Showcase = ({ category, setMenu, setCategory, menu }) => {
                   username={e.seller.username}
                   price={e.price}
                   productName={e['product name']}
+                  onClick={() => {setCategory(category); setMenu(menus.detailed)}}
                 />
               )
             })

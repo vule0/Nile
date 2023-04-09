@@ -10,9 +10,9 @@ const getInitials = (name) => {
   return `${split[0][0]}${split[1][0]}`
 }
 
-const ProductCard = ({ name, username, price, productName }) => {
+const ProductCard = ({ name, username, price, productName, onClick }) => {
   return (
-    <div className="Category-main-container">
+    <div className="Category-main-container" onClick={onClick}>
       <div className="up-div">{/* Main Image */}</div>
       <div className="bottom-div">
         <nav aria-label="secondary mailbox folders">

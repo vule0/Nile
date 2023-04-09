@@ -7,14 +7,14 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined"
 import { menus, productCategory } from "../../utils/enum"
 import Tooltip from "@mui/material/Tooltip"
 
-const TopBar = ({ menu, setMenu, setCategory }) => {
+const TopBar = ({ menu, setMenu, setCategory, category }) => {
   return (
     <div className="wrapper top-div">
       <span style={{ width: "50px" }} />
       <Tooltip title='Home'>
         <IconButton
           className={menu === menus.home ? "active" : "inactive"}
-          onClick={() => setMenu(menus.home)}
+          onClick={() => {setMenu(menus.home); setCategory(category)}}
         >
           <Avatar>N</Avatar>
         </IconButton>
@@ -46,7 +46,7 @@ const TopBar = ({ menu, setMenu, setCategory }) => {
           className={menu === menus.showcase ? "active" : "inactive"}
           onClick={() => {
             setMenu(menus.showcase)
-            setCategory(productCategory.misc)
+            setCategory(category)
           }}
         >
           <SellOutlinedIcon fontSize="large" />
