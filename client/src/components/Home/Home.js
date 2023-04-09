@@ -11,7 +11,9 @@ import homeCategory from "../../assets/imgs/homeCat.jpg"
 import jewleryCategory from "../../assets/imgs/jewleryCategory.jpg"
 import kitchenCategory from "../../assets/imgs/kitchenCategory.jpg"
 import watchesCategory from "../../assets/imgs/watchesCategory.jpg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { fecthData } from "../../utils/helperFunctions/helper"
+import { productQueryCodes, routes } from '../../utils/enum'
 
 const imgs = [
   homeCategory,
@@ -25,7 +27,7 @@ const imgs = [
 const categories = [
   "Home",
   "Fashion",
-  "Jewlery",
+  "Jewelry",
   "Fitness",
   "Kitchen",
   "Watches",
@@ -34,16 +36,27 @@ const categories = [
 
 const Home = ({ setMenu, setCategory, menu }) => {
   const [selector, setSelector] = useState(0)
+  const [recommendedData, setRecommendedData] = useState([])
+
+  const getRecommendedData = () => {
+    const data = { query: productQueryCodes.getRecommended }
+    fecthData(routes.postProduct, data, setRecommendedData, 1)
+  }
+
   const handleClick = (event) => {
     setSelector(event.currentTarget.id)
   }
 
+  useEffect(() => {
+    getRecommendedData()
+  }, [])
+
   return (
     <div className="Home-main-container">
       <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} />
-      
+
       <span style={{ marginTop: "10vh" }} />
-      
+
       <div className="zStack">
         <CategoryCard
           setCategory={setCategory}
@@ -64,26 +77,20 @@ const Home = ({ setMenu, setCategory, menu }) => {
 
       <h1>Just For You</h1>
       <div className="recommended-div">
-            <div className="row" style={{marginBottom:'30px'}}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            </div>
-
-            <div className="row" style={{marginBottom:'30px'}}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            </div>
-
-            {/* <div className="row" style={{marginBottom:'30px'}}>
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            </div> */}
-
+        <div className="row" style={{ marginBottom: "30px" }}>
+          {recommendedData.map((e, i) => {
+            return (
+              <ProductCard
+                key={i}
+                name={e.seller.name}
+                username={e.seller.username}
+                price={e.price}
+                productName={e['product name']}
+              />
+            )
+          })}
+        </div>
       </div>
-
     </div>
   )
 }
