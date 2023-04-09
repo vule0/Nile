@@ -85,6 +85,7 @@ const Home = ({ setMenu, setCategory, menu }) => {
                 name={e.seller.name}
                 username={e.seller.username}
                 price={e.price}
+                productName={e['product name']}
               />
             )
           })}

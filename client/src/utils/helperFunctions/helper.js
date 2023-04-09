@@ -42,30 +42,27 @@ module.exports.filterByPrice = (
   descending = false
 ) => {
   if (!threshholdL) threshholdL = 0
-  if(!threshholdR) threshholdR = 1000
+  if (!threshholdR) threshholdR = 1000
   const oneDimensionalArray = dArray.flat()
   const result = oneDimensionalArray.filter(
     (e) => e.price >= threshholdL && e.price <= threshholdR
   )
 
-  if (result.length === 0) {
-    return []
-  }
+  if (result.length === 0) return []
+
   result.sort((e, i) => compareFunc(e, i, descending, "price"))
 
   return createPagination(result, 9)
 }
 
 module.exports.filterByRating = (dArray, threshhold) => {
-  if(!threshhold) threshhold = 0
+  if (!threshhold) threshhold = 0
   const oneDimensionalArray = dArray.flat()
   const result = oneDimensionalArray.filter(
     (e) => e.seller.rating >= threshhold
   )
 
-  if (result.length === 0) {
-    return []
-  }
+  if (result.length === 0) return []
 
   return createPagination(result, 9)
 }
