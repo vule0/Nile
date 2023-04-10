@@ -14,7 +14,7 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
       <Tooltip title='Home'>
         <IconButton
           className={menu === menus.home ? "active" : "inactive"}
-          onClick={() => {setMenu(menus.home); setCategory(category)}}
+          onClick={() => {setMenu(menus.home); setCategory(productCategory.misc)}}
         >
           <Avatar>N</Avatar>
         </IconButton>

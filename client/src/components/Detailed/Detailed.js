@@ -2,7 +2,8 @@ import TopBar from "../TopBar/TopBar"
 import "./Detailed.scss"
 import { fecthData } from "../../utils/helperFunctions/helper"
 import { productQueryCodes, routes } from "../../utils/enum"
-import { useEffect, useState} from "react"
+import { getInitials } from "../../utils/helperFunctions/helper"
+import { useEffect, useState } from "react"
 //MUI Imports
 import { ImageList, ImageListItem } from "@mui/material"
 import List from "@mui/material/List"
@@ -11,30 +12,29 @@ import ListItemText from "@mui/material/ListItemText"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import ListItemButton from "@mui/material/ListItemButton"
 import Avatar from "@mui/material/Avatar"
-import {Typography, Divider} from "@mui/material"
-import MessageIcon from '@mui/icons-material/Message';
-import Rating from '@mui/material/Rating';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-
-
+import { Typography, Divider } from "@mui/material"
+import MessageIcon from "@mui/icons-material/Message"
+import Rating from "@mui/material/Rating"
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
+import ThumbUpIcon from "@mui/icons-material/ThumbUp"
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch"
 
 const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
   const [postArr, setPost] = useState([])
 
   useEffect(() => {
-    const data = {
-      query: productQueryCodes.getByProductId,
-      productId: postId
-    }
+    const data = { query: productQueryCodes.getByProductId, productId: postId }
     fecthData(routes.postProduct, data, setPost, 1)
-    console.log(postArr)
   }, [])
 
   return (
     <div className="Detailed-main-div">
-      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
+      <TopBar
+        menu={menu}
+        setMenu={setMenu}
+        setCategory={setCategory}
+        category={category}
+      />
       <div>
         <ImageList
           sx={{ mt: "10vh", width: "60vw", minWidth: "510px" }}
@@ -60,24 +60,30 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
-            <ListItem sx={{ width: "30vw", minWidth:'300px'}}>
+            <ListItem sx={{ width: "30vw", minWidth: "300px" }}>
               <ListItemText
-                primary={<Typography sx={{fontWeight:'bold', fontSize:'1.5rem'}}>{postArr.length === 0 ? '' : postArr[0]['product name']}</Typography>}
-                secondary={postArr.length === 0 ? '' : postArr[0].description}
+                primary={
+                  <Typography sx={{ fontWeight: "bold", fontSize: "1.5rem" }}>
+                    {postArr.length === 0 ? "UNKNOWN" : postArr[0]["product name"]}
+                  </Typography>
+                }
+                secondary={postArr.length === 0 ? "UNKNOWN" : postArr[0].description}
               />
             </ListItem>
-            
+
             <Divider />
-            
+
             <ListItemButton>
               <ListItemAvatar>
-                <Avatar>
-                  NL
-                </Avatar>
+                <Avatar>{getInitials(`${postArr.length === 0 ? "UN KNOWN" : postArr[0].seller.name}`)}</Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={`Sold By: ${postArr.length === 0 ? '' : postArr[0].seller.name}`}
-                secondary={`username: ${postArr.length === 0 ? '' : postArr[0].seller.username}`}
+                primary={`Sold By: ${
+                  postArr.length === 0 ? "UNKNOWN" : postArr[0].seller.name
+                }`}
+                secondary={`username: ${
+                  postArr.length === 0 ? "UNKNOWN" : postArr[0].seller.username
+                }`}
               />
             </ListItemButton>
 
@@ -89,7 +95,10 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
                   <AttachMoneyIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary="Price" secondary={`$${postArr.length === 0 ? '' : postArr[0].price}`} />
+              <ListItemText
+                primary="Price"
+                secondary={`$${postArr.length === 0 ? "UNKNOWN" : postArr[0].price}`}
+              />
             </ListItem>
 
             <Divider />
@@ -97,12 +106,21 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
             <ListItem>
               <ListItemAvatar>
                 <Avatar>
-                 <ThumbUpIcon />
+                  <ThumbUpIcon />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={`Seller Rating: ${postArr.length === 0 ? '' : postArr[0].seller.rating}`}
-                secondary={<Rating name="half-rating-read" value={postArr.length === 0 ? 0 : postArr[0].seller.rating} precision={0.5} readOnly />}
+                primary={`Seller Rating: ${
+                  postArr.length === 0 ? "UNKNOWN" : postArr[0].seller.rating
+                }`}
+                secondary={
+                  <Rating
+                    name="half-rating-read"
+                    value={postArr.length === 0 ? 0 : postArr[0].seller.rating}
+                    precision={0.5}
+                    readOnly
+                  />
+                }
               />
             </ListItem>
 
@@ -119,29 +137,33 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
 
             <Divider />
 
-            <ListItemButton component="a" href="#simple-list" >
+            <ListItemButton component="a" href="#simple-list">
               <ListItemAvatar>
                 <Avatar>
-                  <MessageIcon sx={{color:'#b9efff'}}/>
+                  <MessageIcon sx={{ color: "#b9efff" }} />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText primary="Contact Seller" />
             </ListItemButton>
-
           </List>
 
-
           <ListItem>
-              <ListItemAvatar>
-                <Avatar>
-                 <ThumbUpIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Rate Your Experience"
-                secondary={<Rating name="half-rating-read" defaultValue={0} precision={0.5} />}
-              />
-            </ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <ThumbUpIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="Rate Your Experience"
+              secondary={
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={0}
+                  precision={0.5}
+                />
+              }
+            />
+          </ListItem>
         </div>
       </div>
     </div>

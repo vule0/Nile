@@ -5,10 +5,7 @@ import ListItemText from "@mui/material/ListItemText"
 import Divider from "@mui/material/Divider"
 import Avatar from "@mui/material/Avatar"
 import { Typography } from "@mui/material"
-const getInitials = (name) => {
-  const split = name.split(" ")
-  return `${split[0][0]}${split[1][0]}`
-}
+import { getInitials } from "../../../utils/helperFunctions/helper"
 
 const ProductCard = ({ name, username, price, productName, onClick }) => {
   return (

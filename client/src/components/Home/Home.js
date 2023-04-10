@@ -34,7 +34,7 @@ const categories = [
   "Electronics",
 ]
 
-const Home = ({ setMenu, setCategory, menu, category, setPostId, postId }) => {
+const Home = ({ setMenu, setCategory, menu, category, setPostId }) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
 
@@ -43,13 +43,9 @@ const Home = ({ setMenu, setCategory, menu, category, setPostId, postId }) => {
     fecthData(routes.postProduct, data, setRecommendedData, 1)
   }
 
-  const handleClick = (event) => {
-    setSelector(event.currentTarget.id)
-  }
+  const handleClick = (event) => setSelector(event.currentTarget.id)
 
-  useEffect(() => {
-    getRecommendedData()
-  }, [])
+  useEffect(() => getRecommendedData(), [])
 
   return (
     <div className="Home-main-container">

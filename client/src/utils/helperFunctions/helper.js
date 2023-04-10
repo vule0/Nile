@@ -66,3 +66,8 @@ module.exports.filterByRating = (dArray, threshhold) => {
 
   return createPagination(result, 9)
 }
+
+module.exports.getInitials = (name) => {
+  const split = name.split(" ")
+  return `${split[0][0]}${split[1][0]}`
+}
