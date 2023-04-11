@@ -1,11 +1,11 @@
 import "./TopBar.scss"
-import { Avatar, stepClasses } from "@mui/material"
+import { Avatar } from "@mui/material"
 import { IconButton } from "@mui/material"
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
+import Tooltip from "@mui/material/Tooltip"
+import { menus, productCategory } from "../../utils/enum"
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined"
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined"
-import { menus, productCategory } from "../../utils/enum"
-import Tooltip from "@mui/material/Tooltip"
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 
 const TopBar = ({ menu, setMenu, setCategory, category }) => {
   return (
