@@ -86,7 +86,7 @@ const Messages = ({ user, setMenu, setCategory, menu }) => {
           <nav aria-label="support">
             <List>
               <ListItem disablePadding divider>
-                <ListItemButton>
+                <ListItemButton className={otherPartyName === 'Support' ? 'active' : ''} onClick={() => {setMessages([]); setOtherPartyName('Support')}}>
                   <ListItemIcon>
                     <InboxIcon />
                   </ListItemIcon>
@@ -222,7 +222,7 @@ const ChatBox = ({ currentOtherParty, messages, setMessages }) => {
   )
 }
 
-const ChatBubble = ({ self = true, text, username = "UNKNOWN" }) => {
+const ChatBubble = ({ text, username = "UNKNOWN" }) => {
   return (
     <>
       <List disablePadding>
