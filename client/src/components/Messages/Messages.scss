@@ -24,6 +24,7 @@
       overflow-y: scroll;
       max-width: 300px;
       min-width: 300px;
+      border: 1px solid lightgray;
     }
     & > .message-container {
       height: 88vh;
@@ -34,21 +35,16 @@
 
       & > .messages {
         margin-bottom: 20px;
-        width: calc(100vw - 300px - 80px);
+        width: calc(100vw - 300px);
         min-width: 290;
         overflow-y: scroll;
       }
-
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      .messages::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .messages {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
     }
   }
+
+  .lib:hover {
+  background-color: #A5B4FC;
 }
+}
+
+

@@ -1,5 +1,5 @@
 import "./Messages.scss"
-import { useState } from "react"
+import { useState, useRef, useEf, useEffect } from "react"
 import TopBar from "../TopBar/TopBar"
 //MUI Imports
 import Box from "@mui/material/Box"
@@ -12,6 +12,7 @@ import Divider from "@mui/material/Divider"
 import InboxIcon from "@mui/icons-material/Inbox"
 import SendIcon from "@mui/icons-material/Send"
 import { Paper } from "@mui/material"
+
 import {
   Typography,
   TextField,
@@ -24,31 +25,41 @@ import {
 const ChatBubble = ({ text }) => {
   return (
     <>
-    <List disablePadding>
-      <ListItemButton  sx={{ backgroundColor: "#EFF6FF" }}>
-          <Avatar sx={{ position: "absolute", left: "10px", top: "4px" }}>
+      <List disablePadding>
+        <ListItemButton
+          className="lib"
+          sx={{ padding: "10px", backgroundColor: "#EFF6FF" }}
+        >
+          <Avatar sx={{ position: "absolute", left: "10px", top: "6px" }}>
             UK
           </Avatar>
           <ListItemText
             sx={{ ml: "62px", wordWrap: "break-word" }}
             primary={`${text}`}
           />
-      </ListItemButton>
-    </List>
+        </ListItemButton>
+      </List>
     </>
-    
   )
 }
 
 const Messages = ({ setMenu, setCategory, menu }) => {
+  const messageElement = useRef(null)
   const [messages, setMessages] = useState([])
+  useEffect(() => {
+    if (messageElement) {
+      messageElement.current.addEventListener("DOMNodeInserted", (event) => {
+        const { currentTarget: target } = event
+        target.scroll({ top: target.scrollHeight, behavior: "smooth" })
+      })
+    }
+  }, [])
 
   const handleSend = (event) => {
     const val = event.currentTarget.value
     if (event.key === "Enter") {
       event.preventDefault()
-      if (val === '')
-        return
+      if (val === "") return
       // send to database
 
       // display in chat box
@@ -127,88 +138,12 @@ const Messages = ({ setMenu, setCategory, menu }) => {
                   <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
                 </ListItemButton>
               </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
-
-              <ListItem disablePadding>
-                <ListItemButton component="a" href="#simple-list">
-                  <Avatar>UK</Avatar>
-                  <ListItemText sx={{ ml: "10px" }} primary="Name Lastname" />
-                </ListItemButton>
-              </ListItem>
             </List>
           </nav>
         </Box>
-        <div className="message-container">
+        <div className="message-container" >
           <Box
+          ref={messageElement}
             className="messages"
             sx={{ width: "100%", bgcolor: "background.paper" }}
           >
@@ -217,7 +152,7 @@ const Messages = ({ setMenu, setCategory, menu }) => {
             })}
           </Box>
 
-          <FormControl sx={{width:'80%'}}>
+          <FormControl sx={{ width: "80%" }}>
             <OutlinedInput
               id="outlined-adornment-weight"
               placeholder="Type Message"
