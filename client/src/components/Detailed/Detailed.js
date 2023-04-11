@@ -1,7 +1,7 @@
 import TopBar from "../TopBar/TopBar"
 import "./Detailed.scss"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import { productQueryCodes, routes } from "../../utils/enum"
+import { menus, productQueryCodes, routes } from "../../utils/enum"
 import { getInitials } from "../../utils/helperFunctions/helper"
 import { useEffect, useState } from "react"
 //MUI Imports
@@ -19,7 +19,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
 import ThumbUpIcon from "@mui/icons-material/ThumbUp"
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch"
 
-const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
+const Detailed = ({ category, setMenu, setCategory, menu, postId, setSeller }) => {
   const [postArr, setPost] = useState([])
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
 
             <ListItemButton>
               <ListItemAvatar>
-                <Avatar>{getInitials(`${postArr.length === 0 ? "UN KNOWN" : postArr[0].seller.name}`)}</Avatar>
+                <Avatar>{getInitials(`${postArr.length === 0 ? "UNKNOWN" : postArr[0].seller.name}`)}</Avatar>
               </ListItemAvatar>
               <ListItemText
                 primary={`Sold By: ${
@@ -137,7 +137,11 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId }) => {
 
             <Divider />
 
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" onClick={() => {
+              console.log(postArr[0].seller.name)
+              setSeller(`${postArr[0].seller.name}`)
+              setMenu(menus.messages)
+            }}>
               <ListItemAvatar>
                 <Avatar>
                   <MessageIcon sx={{ color: "#b9efff" }} />

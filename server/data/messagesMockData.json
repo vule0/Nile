@@ -1,0 +1,162 @@
+[
+  {
+    "to": {
+      "name": "Oliver Anderson",
+      "username": "oanderson",
+      "rating": 5,
+      "verified": true,
+      "email": "oanderson@example.com",
+      "items_sold": 100
+    },
+    "messages": [
+      {
+        "self": true,
+        "date": "feb 14th, 2023",
+        "text": "Hi I was wondering if the \"Leather bag\" was sill available?"
+      },
+      {
+        "self": false,
+        "date": "feb 14th, 2023",
+        "text": "Hi! Yes, it is still available. Would you like \"to\" meet up and take a look at it in person?"
+      },
+      {
+        "self": true,
+        "date": "feb 14th, 2023",
+        "text": "Yes, that would be perfect. Is there anything erong with it that I should be aware of?"
+      },
+      {
+        "self": false,
+        "date": "feb 14th, 2023",
+        "text": "Not treally. I've been taking cate of it very well. Like the post says....it looks like new!!"
+      },
+      {
+        "self": true,
+        "date": "feb 14th, 2023",
+        "text": "Perfect. I wanna suggest this address \"to\" meet up. Let me know if that would be fine"
+      },
+      {
+        "self": true,
+        "date": "feb 14th, 2023",
+        "text": "123 example street, City, ST"
+      },
+      {
+        "self": false,
+        "date": "feb 14th, 2023",
+        "text": "Yea, thats fine. Is 4:00PM today okay?"
+      },
+      {
+        "self": true,
+        "date": "feb 14th, 2023",
+        "text": "Perfect! I'll see u there then."
+      },
+      {
+        "self": false,
+        "date": "feb 14th, 2023",
+        "text": "Sweet! See you then!"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Ok, I am here"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Hey! I am here already...Are you close?"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Hey, just wanted to let you know that the item is just as described! Thank you so much..I will make sure to leave a good review in your profile. BTW, the post is still up, in case you forgot, people can still try to reach you to inquire about the bag. Thanks again!!"
+      }
+    ]
+  },
+  {
+    "to": {
+      "name": "Liam Sullivan",
+      "username": "lsullivan",
+      "rating": 4.7,
+      "verified": true,
+      "email": "lsullivan@example.com",
+      "items_sold": 121
+    },
+    "messages": [
+      {
+        "self": true,
+        "date": "feb 14th, 2023",
+        "text": "Hi I was wondering if the \"Leather bag\" was sill available?"
+      },
+      {
+        "self": false,
+        "date": "feb 14th, 2023",
+        "text": "Hi! Yes, it is still available. Would you like \"to\" meet up and take a look at it in person?"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Sure. Any address you want to suggest for meeting up?"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": false,
+        "text": "How about Hyde Park. By the coffee shop?"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "That sounds wonderful. I am overdue for a good coffee anyways haha"
+      }
+    ]
+  },
+  {
+    "to": {
+      "name": "Jose Lopez",
+      "username": "username",
+      "rating": 4.8,
+      "verified": true,
+      "email": "email@example.com",
+      "items_sold": 100
+    },
+    "messages": [
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Hello"
+      }
+    ]
+  },
+  {
+    "to": {
+      "name": "Jacob Taylor",
+      "username": "username",
+      "rating": 4.8,
+      "verified": true,
+      "email": "email@example.com",
+      "items_sold": 100
+    },
+    "messages": [
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Hey there Jacob"
+      }
+    ]
+  },
+  {
+    "to": {
+      "name": "Emily Zhang",
+      "username": "username",
+      "rating": 4.8,
+      "verified": true,
+      "email": "email@example.com",
+      "items_sold": 100
+    },
+    "messages": [
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Hey Emily"
+      }
+    ]
+  }
+]

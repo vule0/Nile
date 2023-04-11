@@ -48,8 +48,15 @@ module.exports.productQueryCodes = {
   getByProductId: 11
 }
 
+module.exports.messageQueryCodes = {
+  createMessage: 0,
+  getByOtherParty: 1,
+  getOtherParties: 2
+}
+
 module.exports.routes = {
   postProduct: 'http://localhost:3001/product-management',
-  postUser: 'http://localhost:3001/user-management'
+  postUser: 'http://localhost:3001/user-management',
+  postMessage: 'http://localhost:3001/message-management',
 }
 

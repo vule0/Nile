@@ -8,6 +8,7 @@
 }
 
 .Messages-main-container {
+  background-color: #d1d5db;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,19 +33,26 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
+      background-color: #d1d5db;
 
       & > .messages {
         margin-bottom: 20px;
         width: calc(100vw - 300px);
         min-width: 290;
         overflow-y: scroll;
+        background-color: #d1d5db;
+      }
+
+      .self {
+        background-color: #e5e7eb;
       }
     }
   }
 
   .lib:hover {
-  background-color: #A5B4FC;
+    background-color: #a5b4fc;
+  }
+  .active {
+    background-color: #a5b4fc;
+  }
 }
-}
-
-

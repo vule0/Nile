@@ -21,7 +21,12 @@ const compareFunc = (e, i, descending, feature) => {
   }
 }
 
-module.exports.fecthData = async (route, data, callback, dimension = 9) => {
+module.exports.fecthData = async (
+  route,
+  data,
+  callback = undefined,
+  dimension = 9
+) => {
   const options = {
     method: "POST",
     headers: {
@@ -30,9 +35,15 @@ module.exports.fecthData = async (route, data, callback, dimension = 9) => {
     body: JSON.stringify(data),
   }
   const response = await fetch(route, options)
-  const resolved = await response.json()
-  if (dimension === 1) callback(resolved)
-  else callback(createPagination(resolved, dimension))
+  let resolved = await response.json()
+
+  if (dimension !== 1) resolved = createPagination(resolved, dimension)
+
+  if (callback !== undefined) {
+    callback(resolved)
+  }
+  // console.log("Fetched")
+  return resolved
 }
 
 module.exports.filterByPrice = (
@@ -68,6 +79,7 @@ module.exports.filterByRating = (dArray, threshhold) => {
 }
 
 module.exports.getInitials = (name) => {
-  const split = name.split(" ")
+  const split = String(name).split(" ")
+  if (split.length === 1) return split[0][0]
   return `${split[0][0]}${split[1][0]}`
 }

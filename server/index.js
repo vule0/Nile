@@ -6,16 +6,13 @@ const path = require("path")
 const routes = require("./routes")
 
 const UserHandler = require("./data/datahandler/userHandler")
-
-const userHandler = new UserHandler(
-  path.join(__dirname, "data/userMockData.json")
-)
+const userHandler = new UserHandler(path.join(__dirname, "data/userMockData.json"))
 
 const ProductHandler = require("./data/datahandler/productHandler")
+const productHandler = new ProductHandler(path.join(__dirname, "data/productMockData.json"))
 
-const productHandler = new ProductHandler(
-  path.join(__dirname, "data/productMockData.json")
-)
+const MessageHandler = require("./data/datahandler/messageHandler")
+const messageHandler = new MessageHandler(path.join(__dirname, "data/messagesMockData.json"))
 
 // express server setup
 const app = express()
@@ -36,4 +33,4 @@ app.use((req, res, next) => {
 
 app.listen(PORT, () => console.log(`App listening at port: ${PORT}`))
 
-app.use("/", routes({ userHandler, productHandler })) // down to routes
+app.use("/", routes({ userHandler, productHandler, messageHandler })) // down to routes
