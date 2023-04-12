@@ -106,5 +106,22 @@
         "text": "That sounds wonderful. I am overdue for a good coffee anyways haha"
       }
     ]
+  },
+  {
+    "to": {
+      "name": "Sophia Hernandez",
+      "username": "username",
+      "rating": 4.8,
+      "verified": true,
+      "email": "email@example.com",
+      "items_sold": 100
+    },
+    "messages": [
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "hihiihihihihihi"
+      }
+    ]
   }
 ]

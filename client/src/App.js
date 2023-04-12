@@ -5,6 +5,7 @@ import Messages from "./components/Messages/Messages"
 import User from "./components/User/User"
 import Showcase from "./components/Showcase/Showcase"
 import Detailed from "./components/Detailed/Detailed"
+import Signin from "./components/Signin/Signin"
 import { menus, productCategory } from "./utils/enum"
 function App() {
   const [menu, setMenu] = useState(menus.home)
@@ -29,7 +30,7 @@ function App() {
         <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
       {menu === menus.signin && (
-        <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <Signin menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
       {menu === menus.showcase && (
         <Showcase
