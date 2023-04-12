@@ -1,6 +1,8 @@
 [
   {
     "to": {
+      "id": "P1001",
+      "product name": "Leather Handbag",
       "name": "Oliver Anderson",
       "username": "oanderson",
       "rating": 5,
@@ -17,12 +19,12 @@
       {
         "self": false,
         "date": "feb 14th, 2023",
-        "text": "Hi! Yes, it is still available. Would you like \"to\" meet up and take a look at it in person?"
+        "text": "Hi! Yes, it is still available. Would you like to meet up and take a look at it in person?"
       },
       {
         "self": true,
         "date": "feb 14th, 2023",
-        "text": "Yes, that would be perfect. Is there anything erong with it that I should be aware of?"
+        "text": "Yes, that would be perfect. Is there anything wrong with it that I should be aware of?"
       },
       {
         "self": false,
@@ -57,11 +59,6 @@
       {
         "date": "feb 14th, 2023",
         "self": true,
-        "text": "Ok, I am here"
-      },
-      {
-        "date": "feb 14th, 2023",
-        "self": true,
         "text": "Hey! I am here already...Are you close?"
       },
       {
@@ -73,6 +70,8 @@
   },
   {
     "to": {
+      "id": "P1002",
+      "product name": "Crystal Necklace",
       "name": "Liam Sullivan",
       "username": "lsullivan",
       "rating": 4.7,
@@ -105,57 +104,6 @@
         "date": "feb 14th, 2023",
         "self": true,
         "text": "That sounds wonderful. I am overdue for a good coffee anyways haha"
-      }
-    ]
-  },
-  {
-    "to": {
-      "name": "Jose Lopez",
-      "username": "username",
-      "rating": 4.8,
-      "verified": true,
-      "email": "email@example.com",
-      "items_sold": 100
-    },
-    "messages": [
-      {
-        "date": "feb 14th, 2023",
-        "self": true,
-        "text": "Hello"
-      }
-    ]
-  },
-  {
-    "to": {
-      "name": "Jacob Taylor",
-      "username": "username",
-      "rating": 4.8,
-      "verified": true,
-      "email": "email@example.com",
-      "items_sold": 100
-    },
-    "messages": [
-      {
-        "date": "feb 14th, 2023",
-        "self": true,
-        "text": "Hey there Jacob"
-      }
-    ]
-  },
-  {
-    "to": {
-      "name": "Emily Zhang",
-      "username": "username",
-      "rating": 4.8,
-      "verified": true,
-      "email": "email@example.com",
-      "items_sold": 100
-    },
-    "messages": [
-      {
-        "date": "feb 14th, 2023",
-        "self": true,
-        "text": "Hey Emily"
       }
     ]
   }
