@@ -5,9 +5,12 @@ import Messages from "./components/Messages/Messages"
 import User from "./components/User/User"
 import Showcase from "./components/Showcase/Showcase"
 import Detailed from "./components/Detailed/Detailed"
+import Sell from "./components/SellLanding/Sell/Sell"
+import SellLanding from "./components/SellLanding/SellLanding"
+
 import { menus, productCategory } from "./utils/enum"
 function App() {
-  const [menu, setMenu] = useState(menus.home)
+  const [menu, setMenu] = useState(menus.sell)
   const [postId, setPostId] = useState(0)
   const [category, setCategory] = useState(productCategory.misc)
   const [seller, setSeller] = useState(undefined)
@@ -49,6 +52,9 @@ function App() {
           postId={postId}
           category={category}
         />
+      )}
+      {menu === menus.sell && (
+        <SellLanding category={category} menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
     </div>
   )

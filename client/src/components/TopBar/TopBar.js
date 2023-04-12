@@ -6,6 +6,7 @@ import { menus, productCategory } from "../../utils/enum"
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined"
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined"
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 const TopBar = ({ menu, setMenu, setCategory, category }) => {
   return (
@@ -50,6 +51,19 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
           }}
         >
           <SellOutlinedIcon fontSize="large" />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title='Sell'>
+        <IconButton
+          sx={{ ml: "10px" }}
+          className={menu === menus.sell ? "active" : "inactive"}
+          onClick={() => {
+            setMenu(menus.sell)
+            setCategory(category)
+          }}
+        >
+          <AttachMoneyIcon fontSize="large" />
         </IconButton>
       </Tooltip>
     </div>

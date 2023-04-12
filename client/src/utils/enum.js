@@ -4,7 +4,8 @@ module.exports.menus = {
   messages: 2,
   showcase: 3,
   detailed: 4,
-  signin: 5
+  signin: 5,
+  sell: 6
 }
 
 module.exports.productCategory = {
