@@ -4,25 +4,14 @@ const router = express.Router()
 
 module.exports = (params) => {
   const { userHandler } = params
-  router.get("/", async (req, res) => {
-    // const query = req.body.query // browser provides which query to perform
-    // const data = req.body.data // object containing user information
-    const query = userQuery.getAllUsers // browser provides which query to perform
-    const data = {
-        name: 'Jose Lopez ',
-        username: 'jlopez',
-        email: 'jlopez@examples.com',
-        isVerified: true,
-        descending: false,
-        rating: -1,
-        itemsSold: 100
-    } // object containing user information
+  router.get("/", async (req, res) => {res.send('Nothing to show in this route...')})
 
+  router.post("/", async (req, res) => {
     // open file
     userHandler.readDb().then((json) => {
-      // here we can mimic the database retrievals/filters
       let response = {status: '-2',message: 'no corresponding query'}
 
+      // here we can mimic the database additions/updates
       if (query === userQuery.getAllUsers) {
         response = userHandler.getAllUsers(json)
       } else if (query === userQuery.getByUserName) {
@@ -35,20 +24,7 @@ module.exports = (params) => {
         response = userHandler.filterByVerified(json, data.isVerified)
       } else if (query === userQuery.filterByName) {
         response = userHandler.filterByName(json, data.name)
-      } 
-
-      // send response to the browser
-      res.json(response)
-    })
-  })
-
-  router.post("/", async (req, res) => {
-    // open file
-    userHandler.readDb().then((json) => {
-      let response = {status: '-2',message: 'no corresponding query'}
-
-      // here we can mimic the database additions/updates
-      if (query === userQuery.insert) {
+      } else if (query === userQuery.insert) {
         response = userHandler.createUser(json, data.name, data.username, data.email)
       } else if (query === userQuery.updateRating) {
         response = userHandler.updateRating(json, data.username, data.rating)
@@ -63,6 +39,7 @@ module.exports = (params) => {
       }
       
       // send response to the browser
+      console.log('response')
       res.json(response)
     })
   })

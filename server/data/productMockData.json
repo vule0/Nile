@@ -16,15 +16,15 @@
   {
     "id": "P1002",
     "product name": "Crystal Necklace",
-    "description": "An exquisite necklace adorned with beautiful crystals.",
-    "category": "Jewelry",
-    "price": 89.99,
+    "description": "An exquisite necklace adorned with beautiful crystals. (I am including a mystery gift with the purchase of this item). More info? dm me through Nile.com",
+    "category": "Fashion",
+    "price": "100.99",
     "condition": "New",
     "seller": {
       "name": "Liam Sullivan",
       "username": "lsullivan",
       "rating": 4.7,
-      "verified": false
+      "verified": true
     }
   },
   {
@@ -403,6 +403,20 @@
       "username": "ascott",
       "rating": 4.6,
       "verified": false
+    }
+  },
+  {
+    "id": "jnjln",
+    "product name": "MacBook Pro",
+    "description": "Selling my MacBookPro. Nothing wrong with it, just trynna to explore the Windows ecosystem. Let me know if ya interested. Dale!",
+    "category": "Electronics",
+    "price": "1800",
+    "condition": "New",
+    "seller": {
+      "name": "Liam Sullivan",
+      "username": "lsullivan",
+      "rating": 4.7,
+      "verified": true
     }
   }
 ]

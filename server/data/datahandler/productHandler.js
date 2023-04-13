@@ -36,11 +36,12 @@ module.exports = class ProductHandler {
     const result = parsed.filter((e) => e.id === productId)
 
     if (result.length === 0)
-      return [{
-        status: 100,
-        message:
-          "No Product Found",
-      }]
+      return [
+        {
+          status: 100,
+          message: "No Product Found",
+        },
+      ]
     console.log(result)
     return result
   }
@@ -66,13 +67,7 @@ module.exports = class ProductHandler {
   getByUserName(json, uname) {
     const parsed = JSON.parse(json)
     const products = parsed.filter((e) => e.seller.username === uname)
-    if (products.length > 1)
-      return {
-        status: 800,
-        message:
-          "ALERT!!!! there are more than one users with the same username",
-      }
-    else if (products.length === 0)
+    if (products.length === 0)
       return {
         status: 100,
         message:
@@ -134,6 +129,7 @@ module.exports = class ProductHandler {
   //inserts
   createProduct(
     json,
+    id = undefined,
     productName = "",
     description = "",
     category,
@@ -144,7 +140,7 @@ module.exports = class ProductHandler {
     rating,
     verified
   ) {
-    const id = "wjebdb"
+    if (!id) id = "jnjln"
     const parsed = JSON.parse(json)
     let response = {}
     if (!verified)
@@ -175,8 +171,21 @@ module.exports = class ProductHandler {
       },
     }
 
-    // add new user to parent object
-    parsed.push(newProduct)
+    let exists = {}
+    parsed.filter((e, i) => {
+      if (e.id === id) exists = { idx: i, el: e }
+    })
+
+    // check if product already exists, update it
+    if (exists.idx && exists.el) {
+      console.log("Already exists")
+      parsed[exists.idx] = newProduct
+    }
+    // otherwise, add a new product
+    else {
+      // add new user to parent object
+      parsed.push(newProduct)
+    }
 
     // add new user to json file
     writeFile(this.db, JSON.stringify(parsed, null, 2), (e) => {

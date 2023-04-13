@@ -1,19 +1,28 @@
 import "./App.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Home from "./components/Home/Home"
 import Messages from "./components/Messages/Messages"
 import User from "./components/User/User"
 import Showcase from "./components/Showcase/Showcase"
 import Detailed from "./components/Detailed/Detailed"
-import Sell from "./components/SellLanding/Sell/Sell"
 import SellLanding from "./components/SellLanding/SellLanding"
+import { menus, productCategory, routes, userQueryCodes } from "./utils/enum"
+import { fecthData } from "./utils/helperFunctions/helper"
 
-import { menus, productCategory } from "./utils/enum"
 function App() {
+  const [user, setUser] = useState({
+    name: "Liam Sullivan",
+    username: "lsullivan",
+    rating: 4.7,
+    verified: true,
+    email: "lsullivan@example.com",
+    items_sold: 121,
+  }) // this should be retieved from the signin page
   const [menu, setMenu] = useState(menus.sell)
   const [postId, setPostId] = useState(0)
   const [category, setCategory] = useState(productCategory.misc)
   const [seller, setSeller] = useState(undefined)
+
   return (
     <div className="App">
       {menu === menus.home && (
@@ -26,7 +35,12 @@ function App() {
         />
       )}
       {menu === menus.messages && (
-        <Messages menu={menu} setMenu={setMenu} setCategory={setCategory} user={seller} />
+        <Messages
+          menu={menu}
+          setMenu={setMenu}
+          setCategory={setCategory}
+          user={seller}
+        />
       )}
       {menu === menus.user && (
         <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
@@ -54,7 +68,13 @@ function App() {
         />
       )}
       {menu === menus.sell && (
-        <SellLanding category={category} menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <SellLanding
+          user={user}
+          category={category}
+          menu={menu}
+          setMenu={setMenu}
+          setCategory={setCategory}
+        />
       )}
     </div>
   )

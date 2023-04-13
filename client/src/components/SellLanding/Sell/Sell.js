@@ -8,15 +8,63 @@ import Radio from "@mui/material/Radio"
 import RadioGroup from "@mui/material/RadioGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import FormControl from "@mui/material/FormControl"
+import { fecthData } from "../../../utils/helperFunctions/helper"
+import { productQueryCodes, routes, productCategory } from "../../../utils/enum"
 
-
-const Sell = ({ menu, setMenu, setCategory, setAction }) => {
+const Sell = ({ user, postingObj = undefined, setAction }) => {
   const [files, setFiles] = useState([])
+  const [checkedCategory, setCheckedCategory] = useState(postingObj?.category)
+  const [checkedCondition, setCheckedCondition] = useState(postingObj?.condition)
+  const [price, setPrice] = useState(postingObj?.price)
+  const [productName, setProductName] = useState(postingObj ? postingObj["product name"] : undefined)
+  const [description, setDescription] = useState(postingObj?.description)
+  const conditions = [
+    "New",
+    "Like New",
+    "Good",
+    "Fair",
+    "It Is What It Is",
+    "Pretty Busted ngl",
+  ]
+
+  let objectToSubmit = {
+    query: productQueryCodes.insert,
+    id: postingObj?.id,
+    productName: productName,
+    description: description,
+    category: checkedCategory,
+    price: price,
+    condition: checkedCondition,
+    name: postingObj?.seller.name,
+    username: postingObj?.seller.username,
+    rating: postingObj?.seller.rating,
+    isVerified: postingObj?.seller.verified,
+  }
 
   const handleFileChange = (event) => {
     const file = event.target.files[0]
     console.log(file)
     if (file) setFiles((x) => [...x, file])
+  }
+
+  const handleCatagory = (event) => {
+    setCheckedCategory(event.target.value)
+  }
+
+  const handleProductName = (event) => {
+    setProductName(event.target.value)
+  }
+
+  const handlePrice = (event) => {
+    setPrice(event.target.value)
+  }
+
+  const handleDescription = (event) => {
+    setDescription(event.target.value)
+  }
+
+  const handleCondition = (event) => {
+    setCheckedCondition(event.target.value)
   }
 
   const handleErase = () => {
@@ -25,10 +73,19 @@ const Sell = ({ menu, setMenu, setCategory, setAction }) => {
   }
 
   const handleSubmit = () => {
-    const obj = {
+    const fileObj = {
       imgs: files,
     }
-    console.log(obj)
+
+    if (!postingObj) {
+      objectToSubmit.name = user.name
+      objectToSubmit.username = user.username
+      objectToSubmit.rating = user.rating
+      objectToSubmit.isVerified = user.verified
+    }
+
+    console.log(objectToSubmit)
+    fecthData(routes.postProduct, objectToSubmit, console.log(), 1)
     setAction(true)
   }
 
@@ -59,7 +116,7 @@ const Sell = ({ menu, setMenu, setCategory, setAction }) => {
           component="label"
           onChange={handleFileChange}
         >
-          Upload Image 
+          Upload Image
           <input type="file" hidden />
         </Button>
 
@@ -70,6 +127,8 @@ const Sell = ({ menu, setMenu, setCategory, setAction }) => {
             id="outlined-required"
             label="Enter Name of Post"
             sx={{ paddingRight: "10px" }}
+            defaultValue={postingObj ? postingObj["product name"] : ""}
+            onChange={handleProductName}
           />
 
           <TextField
@@ -77,6 +136,8 @@ const Sell = ({ menu, setMenu, setCategory, setAction }) => {
             required
             id="outlined-required"
             label="Enter Price $$$"
+            defaultValue={postingObj ? postingObj.price : ""}
+            onChange={handlePrice}
           />
         </Grid>
         <Grid>
@@ -88,6 +149,8 @@ const Sell = ({ menu, setMenu, setCategory, setAction }) => {
             multiline
             fullWidth
             rows={8}
+            defaultValue={postingObj ? postingObj.description : ""}
+            onChange={handleDescription}
           />
         </Grid>
 
@@ -97,24 +160,58 @@ const Sell = ({ menu, setMenu, setCategory, setAction }) => {
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"
             name="radio-buttons-group"
-            sx={{display:'flex', flexDirection:'row'}}
+            sx={{ display: "flex", flexDirection: "row" }}
           >
-            <FormControlLabel value="Fashion" control={<Radio />} label="Fashion" />
-            <FormControlLabel value="Home" control={<Radio />} label="Home" />
-            <FormControlLabel value="Fitness" control={<Radio />} label="Fitness" />
-            <FormControlLabel value="Kitchen" control={<Radio />} label="Kitchen" />
-            <FormControlLabel value="Watches" control={<Radio />} label="Watches" />
-            <FormControlLabel value="Jewelry" control={<Radio />} label="Jewelry" />
-            <FormControlLabel value="Electronics" control={<Radio />} label="Electronics" />
-            <FormControlLabel value="Other" control={<Radio />} label="Other" />
+            {Object.values(productCategory).map((e, i) => {
+              return (
+                <FormControlLabel
+                  key={i}
+                  value={e}
+                  control={<Radio />}
+                  label={e}
+                  onChange={handleCatagory}
+                  checked={checkedCategory === e}
+                />
+              )
+            })}
+          </RadioGroup>
+
+          <h4>What Condition is the Object in?</h4>
+          <RadioGroup
+            aria-labelledby="demo-radio-buttons-group-label"
+            defaultValue="female"
+            name="radio-buttons-group"
+            sx={{ display: "flex", flexDirection: "row" }}
+          >
+            {conditions.map((e, i) => {
+              return <FormControlLabel
+              key={i}
+              value={e}
+              control={<Radio />}
+              label={e}
+              onChange={handleCondition}
+              checked={checkedCondition === e}
+            />
+            })}
+            
           </RadioGroup>
         </FormControl>
 
-        <Grid sx={{ marginTop: "40px", paddingBottom: "20px"}}>
-          <Button variant="contained" component="label" onClick={handleSubmit} sx={{marginRight: "20px"}}>
-            Create Post
+        <Grid sx={{ marginTop: "40px", paddingBottom: "20px" }}>
+          <Button
+            variant="contained"
+            component="label"
+            onClick={handleSubmit}
+            sx={{ marginRight: "20px" }}
+          >
+            {postingObj ? "Update Post" : "Create Post"}
           </Button>
-          <Button variant="contained" component="label" onClick={handleErase} color="error">
+          <Button
+            variant="contained"
+            component="label"
+            onClick={handleErase}
+            color="error"
+          >
             Cancel
           </Button>
         </Grid>

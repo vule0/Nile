@@ -50,6 +50,7 @@ module.exports = (params) => {
         } else if (query === productQuery.insert) {
           response = productHandler.createProduct(
             json,
+            data.id,
             data.productName,
             data.description,
             data.category,
@@ -57,13 +58,13 @@ module.exports = (params) => {
             data.condition,
             data.name,
             data.username,
-            0,
-            false
+            data.rating,
+            data.isVerified
           )
         }
 
         // send response to the browser
-        // console.log(response)
+        console.log(response)
         res.json(response)
       })
     else res.end()
