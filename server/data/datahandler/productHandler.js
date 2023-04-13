@@ -140,7 +140,7 @@ module.exports = class ProductHandler {
     rating,
     verified
   ) {
-    if (!id) id = "jnjln"
+    if (!id) id = 'P' + String(this.getRandomInt(0, 10000))
     const parsed = JSON.parse(json)
     let response = {}
     if (!verified)

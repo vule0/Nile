@@ -406,11 +406,25 @@
     }
   },
   {
-    "id": "jnjln",
-    "product name": "MacBook Pro",
+    "id": "P001",
+    "product name": "MacBook Pro (M1 chip)",
     "description": "Selling my MacBookPro. Nothing wrong with it, just trynna to explore the Windows ecosystem. Let me know if ya interested. Dale!",
     "category": "Electronics",
-    "price": "1800",
+    "price": "1600",
+    "condition": "New",
+    "seller": {
+      "name": "Liam Sullivan",
+      "username": "lsullivan",
+      "rating": 4.7,
+      "verified": true
+    }
+  },
+  {
+    "id": "P8287",
+    "product name": "Plant",
+    "description": "Lovely plant to lighten your day.",
+    "category": "Miscellaneous",
+    "price": "15.99",
     "condition": "New",
     "seller": {
       "name": "Liam Sullivan",

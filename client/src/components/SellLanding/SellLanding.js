@@ -34,9 +34,7 @@ const SellLanding = ({ user, setMenu, setCategory, menu }) => {
   }
 
   const handleDelete = (e) => {
-    const i = postings.findIndex((el) => el === e)
-    if (i === -1) return
-    setPostings(x => x.splice(i, 1))
+    setPostings(arr => arr.filter(x => x !== e))
     fecthData(routes.postProduct, {query: productQueryCodes.deletePost, id: e.id}, undefined, 1)
   }
 
