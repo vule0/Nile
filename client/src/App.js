@@ -17,8 +17,8 @@ function App() {
     verified: true,
     email: "lsullivan@example.com",
     items_sold: 121,
-  }) // this should be retieved from the signin page
-  const [menu, setMenu] = useState(menus.sell)
+  }) // sample user...this should be retieved from the signin page
+  const [menu, setMenu] = useState(menus.home)
   const [postId, setPostId] = useState(0)
   const [category, setCategory] = useState(productCategory.misc)
   const [seller, setSeller] = useState(undefined)
