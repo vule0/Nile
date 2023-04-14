@@ -8,7 +8,7 @@ import {
     Button,
     } from "@mui/material"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import {routes} from "../../utils/enum"
+import {routes, userQueryCodes} from "../../utils/enum"
 
 const Signup = ({ setMenu, setCategory, menu, category}) => {
 
@@ -17,13 +17,17 @@ const Signup = ({ setMenu, setCategory, menu, category}) => {
     const [username, setUsername] = useState('')
     const [name, setName] = useState('')
 
-    const handleSubmit = async event =>{
+    const handleSubmit = async (event) =>{
         event.preventDefault();
-        console.log(email, password, username, name)
-
-        const data = {name, username, email, password}
-        fecthData(routes.postUser, data, console.log(), 1)
-
+        const data = {
+            query: userQueryCodes.insert,
+            name: name,
+            username: username,
+            email: email,
+            password: password
+        }
+        fecthData(routes.postUser, data, undefined, 1)
+        
     }
     return (
         <div className = "Signup-main-container">
