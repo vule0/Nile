@@ -418,19 +418,5 @@
       "rating": 4.7,
       "verified": true
     }
-  },
-  {
-    "id": "P8287",
-    "product name": "Plant",
-    "description": "Lovely plant to lighten your day.",
-    "category": "Miscellaneous",
-    "price": "15.99",
-    "condition": "New",
-    "seller": {
-      "name": "Liam Sullivan",
-      "username": "lsullivan",
-      "rating": 4.7,
-      "verified": true
-    }
   }
 ]
