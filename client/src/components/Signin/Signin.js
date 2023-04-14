@@ -1,14 +1,13 @@
 import "./Signin.scss"
 import TopBar from "../TopBar/TopBar"
 import {
-  Checkbox,
   Grid,
   TextField,
-  FormControlLabel,
   Paper,
-  Button
+  Button,
   } from "@mui/material"
 import { useEffect, useState } from "react"
+import { menus, productCategory, productQueryCodes, routes } from '../../utils/enum'
 
 const Signin = ({ setMenu, setCategory, menu, category}) => {
   const [email, setEmail] = useState('')
@@ -26,6 +25,8 @@ const Signin = ({ setMenu, setCategory, menu, category}) => {
     console.log(event)
   }
 
+
+
   return (
   <div className="Signin-main-container">
     <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
@@ -41,13 +42,19 @@ const Signin = ({ setMenu, setCategory, menu, category}) => {
       <Grid item xs={12}>
         <TextField label="Username" onChange={handleEmail}></TextField>
       </Grid>
+
       <Grid item xs={12}>
         <TextField label="Password" type={'password'} onChange={handlePass}></TextField>
       </Grid>
     
+      <Grid item xs={5}>
+        <Button onClick={() => {setMenu(menus.signup); console.log("clicked signup")}}>Create an Account</Button>
+      </Grid>
+
       <Grid item xs={12}>
         <Button fullWidth onClick={handleSubmit}> Login </Button>
       </Grid>
+
     </Grid>
   </Paper>
 </div>

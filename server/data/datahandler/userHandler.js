@@ -109,7 +109,7 @@ module.exports = class UserHandler {
   }
 
   //inserts
-  createUser(json, name, uname, email) {
+  createUser(json, name, uname, email, password) {
     const parsed = JSON.parse(json)
     let flag = false
     let response = {}
@@ -132,6 +132,7 @@ module.exports = class UserHandler {
       verified: false,
       email: email,
       items_sold: 0,
+      password: password
     }
 
     // add new user to parent object
