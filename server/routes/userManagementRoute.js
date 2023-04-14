@@ -8,41 +8,42 @@ module.exports = (params) => {
 
   router.post("/", async (req, res) => {
     // open file
+    const data = req.body
+    const query = data.query
     userHandler.readDb().then((json) => {
-      let response = {status: '-2',message: 'no corresponding query'}
+    let response = {status: '-2',message: 'no corresponding query'}
 
-      // here we can mimic the database additions/updates
-      if (query === userQuery.getAllUsers) {
-        response = userHandler.getAllUsers(json)
-      } else if (query === userQuery.getByUserName) {
-        response = userHandler.getByUserName(json, data.username)
-      } else if (query === userQuery.filterByRating) {
-        response = userHandler.filterByRating(json, data.descending, data.threshold)
-      } else if (query === userQuery.filterByItemsSold) {
-        response = userHandler.filterByItemsSold(json, data.descending, 100)
-      } else if (query === userQuery.filterByVerified) {
-        response = userHandler.filterByVerified(json, data.isVerified)
-      } else if (query === userQuery.filterByName) {
-        response = userHandler.filterByName(json, data.name)
-      } else if (query === userQuery.insert) {
-        response = userHandler.createUser(json, data.name, data.username, data.email)
-      } else if (query === userQuery.updateRating) {
-        response = userHandler.updateRating(json, data.username, data.rating)
-      } else if (query === userQuery.updateVerified) {
-        response = userHandler.updateVerified(json, data.username, data.isVerified)
-      } else if (query === userQuery.updateEmail) {
-        response = userHandler.updateEmail(json, data.username, data.email)
-      } else if (query === userQuery.updateItemsSold) {
-        response = userHandler.updateItemsSold(json, data.username, data.itemsSold)
-      } else if (query === userQuery.deleteUser) {
-        response = userHandler.deleteUser(json, data.username)
-      }
-      
-      // send response to the browser
-      console.log('response')
-      res.json(response)
-    })
+    // here we can mimic the database additions/updates
+    if (query === userQuery.getAllUsers) {
+      response = userHandler.getAllUsers(json)
+    } else if (query === userQuery.getByUserName) {
+      response = userHandler.getByUserName(json, data.username)
+    } else if (query === userQuery.filterByRating) {
+      response = userHandler.filterByRating(json, data.descending, data.threshold)
+    } else if (query === userQuery.filterByItemsSold) {
+      response = userHandler.filterByItemsSold(json, data.descending, 100)
+    } else if (query === userQuery.filterByVerified) {
+      response = userHandler.filterByVerified(json, data.isVerified)
+    } else if (query === userQuery.filterByName) {
+      response = userHandler.filterByName(json, data.name)
+    } else if (query === userQuery.insert) {
+      response = userHandler.createUser(json, data.name, data.username, data.email, data.password)
+    } else if (query === userQuery.updateRating) {
+      response = userHandler.updateRating(json, data.username, data.rating)
+    } else if (query === userQuery.updateVerified) {
+      response = userHandler.updateVerified(json, data.username, data.isVerified)
+    } else if (query === userQuery.updateEmail) {
+      response = userHandler.updateEmail(json, data.username, data.email)
+    } else if (query === userQuery.updateItemsSold) {
+      response = userHandler.updateItemsSold(json, data.username, data.itemsSold)
+    } else if (query === userQuery.deleteUser) {
+      response = userHandler.deleteUser(json, data.username)
+    }
+
+    // send response to the browser
+    console.log('response')
+    res.json(response)
   })
-
-  return router
+})
+return router
 }

@@ -6,22 +6,26 @@ import { menus, productCategory } from "../../utils/enum"
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined"
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined"
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
+import LoginIcon from "@mui/icons-material/Login"
 
 const TopBar = ({ menu, setMenu, setCategory, category }) => {
   return (
     <div className="wrapper top-div">
       <span style={{ width: "50px" }} />
-      <Tooltip title='Home'>
+      <Tooltip title="Home">
         <IconButton
           className={menu === menus.home ? "active" : "inactive"}
-          onClick={() => {setMenu(menus.home); setCategory(productCategory.misc)}}
+          onClick={() => {
+            setMenu(menus.home)
+            setCategory(productCategory.misc)
+          }}
         >
           <Avatar>N</Avatar>
         </IconButton>
       </Tooltip>
 
-      <Tooltip title='User Profile'>
+      <Tooltip title="User Profile">
         <IconButton
           sx={{ ml: "10px" }}
           className={menu === menus.user ? "active" : "inactive"}
@@ -31,7 +35,7 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
         </IconButton>
       </Tooltip>
 
-      <Tooltip title='Messages'>
+      <Tooltip title="Messages">
         <IconButton
           sx={{ ml: "10px" }}
           className={menu === menus.messages ? "active" : "inactive"}
@@ -41,7 +45,7 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
         </IconButton>
       </Tooltip>
 
-      <Tooltip title='Shop'>
+      <Tooltip title="Shop">
         <IconButton
           sx={{ ml: "10px" }}
           className={menu === menus.showcase ? "active" : "inactive"}
@@ -54,7 +58,7 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
         </IconButton>
       </Tooltip>
 
-      <Tooltip title='Sell'>
+      <Tooltip title="Sell">
         <IconButton
           sx={{ ml: "10px" }}
           className={menu === menus.sell ? "active" : "inactive"}
@@ -64,6 +68,18 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
           }}
         >
           <AttachMoneyIcon fontSize="large" />
+        </IconButton>
+      </Tooltip>
+      
+      <Tooltip title="Sign-In">
+        <IconButton
+          sx={{ ml: "10px" }}
+          className={menu === menus.showcase ? "active" : "inactive"}
+          onClick={() => {
+            setMenu(menus.signin)
+          }}
+        >
+          <LoginIcon fontSize="large" />
         </IconButton>
       </Tooltip>
     </div>
