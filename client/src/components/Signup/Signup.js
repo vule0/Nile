@@ -27,8 +27,8 @@ const Signup = ({ setMenu, setCategory, menu}) => {
             password: password
         }
         fecthData(routes.postUser, data, undefined, 1)
-        
     }
+    
     return (
         <div className = "Signup-main-container">
         <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={productCategory.misc} />
@@ -45,6 +45,7 @@ const Signup = ({ setMenu, setCategory, menu}) => {
                         type="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                         />
                     </Grid>
                   <Grid item xs={12}>
@@ -53,6 +54,7 @@ const Signup = ({ setMenu, setCategory, menu}) => {
                       label="Username"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
+                      required
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -62,6 +64,7 @@ const Signup = ({ setMenu, setCategory, menu}) => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -71,6 +74,7 @@ const Signup = ({ setMenu, setCategory, menu}) => {
                       type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} style={{marginTop:'2rem'}}>

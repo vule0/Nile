@@ -33,6 +33,7 @@ module.exports.userQueryCodes = {
   deleteUser: 9,
   getByUserName: 10,
   getAllUsers: 11,
+  logIn: 12,
 }
 
 module.exports.productQueryCodes = {

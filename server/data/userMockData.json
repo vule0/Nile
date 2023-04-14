@@ -6,7 +6,7 @@
     "verified": true,
     "email": "oanderson@example.com",
     "items_sold": 100,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Liam Sullivan",
@@ -15,7 +15,7 @@
     "verified": true,
     "email": "lsullivan@example.com",
     "items_sold": 121,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Natalie Martinez",
@@ -24,7 +24,7 @@
     "verified": true,
     "email": "nmartinez@example.com",
     "items_sold": 10,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "William Kim",
@@ -33,7 +33,7 @@
     "verified": true,
     "email": "wkim@example.com",
     "items_sold": 1024,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Emily Zhang",
@@ -42,7 +42,7 @@
     "verified": true,
     "email": "ezhang@example.com",
     "items_sold": 12,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Michael Brown",
@@ -51,7 +51,7 @@
     "verified": true,
     "email": "mbrown@example.com",
     "items_sold": 100,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Sophia Hernandez",
@@ -60,7 +60,7 @@
     "verified": true,
     "email": "shernandez@example.com",
     "items_sold": 120,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Daniel Lee",
@@ -69,7 +69,7 @@
     "verified": true,
     "email": "dlee@example.com",
     "items_sold": 315,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Avery Green",
@@ -78,7 +78,7 @@
     "verified": true,
     "email": "agreen@example.com",
     "items_sold": 5,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Isabella Rodriguez",
@@ -87,7 +87,7 @@
     "verified": true,
     "email": "irodriguez@example.com",
     "items_sold": 141,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Jacob Taylor",
@@ -96,7 +96,7 @@
     "verified": true,
     "email": "jtaylor@example.com",
     "items_sold": 100,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Emma Brown",
@@ -105,7 +105,7 @@
     "verified": true,
     "email": "ebrown@example.com",
     "items_sold": 100,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "William Chen",
@@ -114,7 +114,7 @@
     "verified": true,
     "email": "wchen@example.com",
     "items_sold": 1,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Emily Kim",
@@ -123,7 +123,7 @@
     "verified": true,
     "email": "ekim@example.com",
     "items_sold": 10,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Andrew Lee",
@@ -132,7 +132,7 @@
     "verified": true,
     "email": "alee@example.com",
     "items_sold": 21,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Sophie Johnson",
@@ -141,7 +141,7 @@
     "verified": true,
     "email": "sjohnson@example.com",
     "items_sold": 100,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "David Nguyen",
@@ -150,7 +150,7 @@
     "verified": true,
     "email": "dnguyen@example.com",
     "items_sold": 11,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Olivia Rodriguez",
@@ -159,7 +159,7 @@
     "verified": true,
     "email": "orodriguez@example.com",
     "items_sold": 14,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Michael Thompson",
@@ -168,7 +168,7 @@
     "verified": true,
     "email": "mthompson@example.com",
     "items_sold": 101,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Isabella Davis",
@@ -177,7 +177,7 @@
     "verified": true,
     "email": "idavis@example.com",
     "items_sold": 115,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Matthew Garcia",
@@ -186,7 +186,7 @@
     "verified": true,
     "email": "mgarcia@example.com",
     "items_sold": 431,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Ava Martinez",
@@ -195,7 +195,7 @@
     "verified": true,
     "email": "amartinez@example.com",
     "items_sold": 18,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Alexandra Wilson",
@@ -204,7 +204,7 @@
     "verified": false,
     "email": "awilson@example.com",
     "items_sold": 0,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Emma Brown",
@@ -213,7 +213,7 @@
     "verified": true,
     "email": "ebrown@example.com",
     "items_sold": 1200,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "William Lee",
@@ -222,7 +222,7 @@
     "verified": true,
     "email": "wlee@example.com",
     "items_sold": 14,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Sophia Smith",
@@ -231,7 +231,7 @@
     "verified": true,
     "email": "ssmith@example.com",
     "items_sold": 1003,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Ethan Kim",
@@ -240,7 +240,7 @@
     "verified": true,
     "email": "ekim@example.com",
     "items_sold": 120,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Mia Wilson",
@@ -249,7 +249,7 @@
     "verified": true,
     "email": "mwilson@example.com",
     "items_sold": 200,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Noah Taylor",
@@ -258,7 +258,7 @@
     "verified": true,
     "email": "ntaylor@example.com",
     "items_sold": 299,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Avery Scott",
@@ -267,7 +267,7 @@
     "verified": true,
     "email": "ascott@example.com",
     "items_sold": 102,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Raymond Abbot",
@@ -276,7 +276,7 @@
     "verified": false,
     "email": "rrott01@example.com",
     "items_sold": 0,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Emerald Scott",
@@ -285,7 +285,7 @@
     "verified": false,
     "email": "iescott@example.com",
     "items_sold": 0,
-    "password": 123
+    "password": "123"
   },
   {
     "name": "Jose Lopez",
@@ -294,6 +294,15 @@
     "verified": false,
     "email": "jlopez@examples.com",
     "items_sold": 100,
-    "password": 123
+    "password": "123"
+  },
+  {
+    "name": "Claire Park",
+    "username": "vu'sgirlfriend4life ",
+    "rating": null,
+    "verified": false,
+    "email": "claire_park.5@icloud.com",
+    "items_sold": 0,
+    "password": ""
   }
 ]

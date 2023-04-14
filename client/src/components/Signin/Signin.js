@@ -6,23 +6,31 @@ import {
   Paper,
   Button,
   } from "@mui/material"
-import { useEffect, useState } from "react"
-import { menus, productCategory, productQueryCodes, routes } from '../../utils/enum'
+import { useState } from "react"
+import { menus, productCategory, routes, userQueryCodes } from '../../utils/enum'
+import { fecthData } from "../../utils/helperFunctions/helper"
 
-const Signin = ({ setMenu, setCategory, menu, category}) => {
-  const [email, setEmail] = useState('')
+const Signin = ({ setMenu, setCategory, menu, category, setUser}) => {
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleEmail = (event) =>{
-    console.log(email)
-    setEmail(event.target.value)
+  const handleUsername = (event) =>{
+    setUsername(event.target.value)
   }
   const handlePass = (event) =>{
-    console.log(password)
     setPassword(event.target.value)
   }
-  const handleSubmit = (event) =>{
-    console.log(event)
+  const handleSubmit = async (event) =>{
+    event.preventDefault()
+
+    const data = {
+      query: userQueryCodes.logIn,
+      username: username,
+      password: password
+    }
+
+    fecthData(routes.postUser, data, undefined, 1)
+    
   }
 
 
@@ -40,7 +48,7 @@ const Signin = ({ setMenu, setCategory, menu, category}) => {
       alignItems={'center'}
     >
       <Grid item xs={12}>
-        <TextField label="Username" onChange={handleEmail}></TextField>
+        <TextField label="Username" onChange={handleUsername}></TextField>
       </Grid>
 
       <Grid item xs={12}>

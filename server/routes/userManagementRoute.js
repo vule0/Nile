@@ -38,7 +38,11 @@ module.exports = (params) => {
       response = userHandler.updateItemsSold(json, data.username, data.itemsSold)
     } else if (query === userQuery.deleteUser) {
       response = userHandler.deleteUser(json, data.username)
+    } else if (query === userQuery.logIn){
+      response = userHandler.logIn(json, data.username, data.password)
     }
+    
+
 
     // send response to the browser
     console.log('response')

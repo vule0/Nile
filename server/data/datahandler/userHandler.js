@@ -76,6 +76,19 @@ module.exports = class UserHandler {
     return parsed
   }
 
+  logIn(json, username, password){
+    const parsedJson = JSON.parse(json)
+    const user = parsedJson.filter((e) => e.username === username && e.password === password)
+    if (user.length){
+      return user[0]
+    }
+    else return{
+      status: 100,
+      message: "User not found",
+    }
+  }
+
+
   filterByItemsSold(json, descending, threshhold) {
     if (descending === undefined) descending = false
     if (threshhold === undefined) threshhold = 0
