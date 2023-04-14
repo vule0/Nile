@@ -8,10 +8,9 @@ import Detailed from "./components/Detailed/Detailed"
 import SellLanding from "./components/SellLanding/SellLanding"
 import { menus, productCategory, routes, userQueryCodes } from "./utils/enum"
 import { fecthData } from "./utils/helperFunctions/helper"
-
 // import Signin from "./components/Signin/Signin"
 import Signup from "./components/Signup/Signup"
-import { menus, productCategory } from "./utils/enum"
+
 function App() {
   const [user, setUser] = useState({
     name: "Liam Sullivan",
@@ -48,10 +47,7 @@ function App() {
       {menu === menus.user && (
         <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
-      {menu === menus.signin && (
-        <Signin menu={menu} setMenu={setMenu} setCategory={setCategory} />
-      )}
-
+      
       {menu === menus.signup && (
         <Signup menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
