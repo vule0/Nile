@@ -74,7 +74,7 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
       <Tooltip title="Sign-In">
         <IconButton
           sx={{ ml: "10px" }}
-          className={menu === menus.showcase ? "active" : "inactive"}
+          className={menu === menus.signin ? "active" : "inactive"}
           onClick={() => {
             setMenu(menus.signin)
           }}

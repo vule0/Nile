@@ -8,9 +8,9 @@ import {
     Button,
     } from "@mui/material"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import {routes, userQueryCodes} from "../../utils/enum"
+import {productCategory, routes, userQueryCodes} from "../../utils/enum"
 
-const Signup = ({ setMenu, setCategory, menu, category}) => {
+const Signup = ({ setMenu, setCategory, menu}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -31,7 +31,7 @@ const Signup = ({ setMenu, setCategory, menu, category}) => {
     }
     return (
         <div className = "Signup-main-container">
-        <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
+        <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={productCategory.misc} />
         <Grid style={{padding:100}}>
           <Grid>
             <Paper elevation={5} style={{padding:'2rem'}}>

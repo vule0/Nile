@@ -50,6 +50,11 @@ const Showcase = ({ category, setMenu, setCategory, menu, setPostId }) => {
     setPaginatedArray(y)
   }
 
+  const handlePageChange = (event, value) => {
+    setPage(value)
+    window.scrollTo(0, 0)
+  }
+
   useEffect(() => {
     fecthData(routes.postProduct, data, setPaginatedArray)
     fecthData(routes.postProduct, data, setFetchedData)
@@ -141,12 +146,7 @@ const Showcase = ({ category, setMenu, setCategory, menu, setPostId }) => {
             count={paginatedArray.length}
             defaultPage={1}
             boundaryCount={2}
-            getItemAriaLabel={(item, pageNumber, active) => {
-              if (active) {
-                setPage(pageNumber - 1)
-                window.scrollTo(0, 0)
-              }
-            }}
+            onChange={handlePageChange}
           />
         )}
       </Stack>
