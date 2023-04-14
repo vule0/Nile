@@ -7,9 +7,11 @@ import {
     Paper,
     Button,
     } from "@mui/material"
+import { fecthData } from "../../utils/helperFunctions/helper"
+import {routes} from "../../utils/enum"
 
 const Signup = ({ setMenu, setCategory, menu, category}) => {
-    console.log("HELLO THERE")
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
@@ -20,19 +22,9 @@ const Signup = ({ setMenu, setCategory, menu, category}) => {
         console.log(email, password, username, name)
 
         const data = {name, username, email, password}
-        
+        fecthData(routes.postUser, data, console.log(), 1)
+
     }
-    // return(
-    //     <div className="Signup-main-container">
-    //     <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
-    //     <Paper>
-
-
-
-    //     </Paper>
-
-    //     </div>
-    // )
     return (
         <div className = "Signup-main-container">
         <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
