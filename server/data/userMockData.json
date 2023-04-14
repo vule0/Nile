@@ -295,23 +295,5 @@
     "email": "jlopez@examples.com",
     "items_sold": 100,
     "password": 123
-  },
-  {
-    "name": "vule",
-    "username": "vule2003",
-    "rating": null,
-    "verified": false,
-    "email": "vu@gmial.com",
-    "items_sold": 0,
-    "password": "testing123"
-  },
-  {
-    "name": "Vu Le",
-    "username": "vuman12345",
-    "rating": null,
-    "verified": false,
-    "email": "vule@hotmail.com",
-    "items_sold": 0,
-    "password": "testpassword123"
   }
 ]
