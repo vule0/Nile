@@ -76,18 +76,20 @@ module.exports = class UserHandler {
     return parsed
   }
 
-  logIn(json, username, password){
+  logIn(json, username, password) {
     const parsedJson = JSON.parse(json)
-    const user = parsedJson.filter((e) => e.username === username && e.password === password)
-    if (user.length){
+    const user = parsedJson.filter(
+      (e) => e.username === username && e.password === password
+    )
+    if (user.length) {
+      console.log(user)
       return user[0]
-    }
-    else return{
-      status: 100,
-      message: "User not found",
-    }
+    } else
+      return {
+        status: 100,
+        message: "User not found",
+      }
   }
-
 
   filterByItemsSold(json, descending, threshhold) {
     if (descending === undefined) descending = false
@@ -145,7 +147,7 @@ module.exports = class UserHandler {
       verified: false,
       email: email,
       items_sold: 0,
-      password: password
+      password: password,
     }
 
     // add new user to parent object

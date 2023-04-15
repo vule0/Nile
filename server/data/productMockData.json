@@ -1,19 +1,5 @@
 [
   {
-    "id": "P1001",
-    "product name": "Leather Handbag",
-    "description": "A stylish and spacious handbag made of genuine leather.",
-    "category": "Fashion",
-    "price": 149000000000.99,
-    "condition": "Like New",
-    "seller": {
-      "name": "Oliver Anderson",
-      "username": "oanderson",
-      "rating": 4.9,
-      "verified": true
-    }
-  },
-  {
     "id": "P1002",
     "product name": "Crystal Necklace",
     "description": "An exquisite necklace adorned with beautiful crystals. (I am including a mystery gift with the purchase of this item). More info? dm me through Nile.com",
@@ -406,16 +392,30 @@
     }
   },
   {
-    "id": "P001",
+    "id": "P2001",
     "product name": "MacBook Pro (M1 chip)",
     "description": "Selling my MacBookPro. Nothing wrong with it, just trynna to explore the Windows ecosystem. Let me know if ya interested. Dale!",
     "category": "Electronics",
-    "price": "1600",
+    "price": "1800.99",
     "condition": "New",
     "seller": {
       "name": "Liam Sullivan",
       "username": "lsullivan",
       "rating": 4.7,
+      "verified": true
+    }
+  },
+  {
+    "id": "P128",
+    "product name": "Leather Bag",
+    "description": "Nice bag for sale!!",
+    "category": "Fashion",
+    "price": "120.99",
+    "condition": "It Is What It Is",
+    "seller": {
+      "name": "Oliver Anderson",
+      "username": "oanderson",
+      "rating": 5,
       "verified": true
     }
   }

@@ -70,20 +70,6 @@ const TopBar = ({ user, menu, setMenu, setCategory, category }) => {
           <AttachMoneyIcon fontSize="large" />
         </IconButton>
       </Tooltip>
-      
-      <Tooltip title="Sign-In">
-        <IconButton
-          sx={{ ml: "10px" }}
-          className={menu === menus.signin ? "active" : "inactive"}
-          onClick={() => {
-            setMenu(menus.signin)
-          }}
-        >
-          <LoginIcon fontSize="large" />
-        </IconButton>
-      </Tooltip>
-      {/* <Typography sx={{ ml: "950px"}} value={user}>
-      </Typography> */}
     </div>
   )
 }

@@ -304,5 +304,14 @@
     "email": "vule@gmail.com",
     "items_sold": 0,
     "password": "password12345"
+  },
+  {
+    "name": "Jose",
+    "username": "pepe",
+    "rating": null,
+    "verified": false,
+    "email": "pepe@example.com",
+    "items_sold": 0,
+    "password": "123"
   }
 ]

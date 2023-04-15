@@ -20,7 +20,7 @@ function App() {
     email: "lsullivan@example.com",
     items_sold: 121,
   }) // sample user...this should be retieved from the signin page
-  const [menu, setMenu] = useState(menus.home)
+  const [menu, setMenu] = useState(menus.signin)
   const [postId, setPostId] = useState(0)
   const [category, setCategory] = useState(productCategory.misc)
   const [seller, setSeller] = useState(undefined)
@@ -42,14 +42,14 @@ function App() {
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}
-          user={seller}
+          seller={seller}
         />
       )}
       {menu === menus.user && (
         <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
       {menu === menus.signin && (
-        <Signin setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <Signin  user={user} setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
 
       {menu === menus.signup && (

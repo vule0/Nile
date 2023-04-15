@@ -44,6 +44,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => 
     setRating(event.currentTarget.value)
   }
   const handleFiltering = () => {
+    setPage(0)
     let x = filterByPrice(fetchedData, priceMin, priceMax)
     let y = filterByRating(x, rating)
     setPaginatedArray(y)
@@ -145,7 +146,14 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => 
             count={paginatedArray.length}
             defaultPage={1}
             boundaryCount={2}
-            onChange={handlePageChange}
+            // onChange={handlePageChange}
+            getItemAriaLabel={(_, page, selected) => {
+              if (selected) {
+                setPage(page - 1)
+                window.scrollTo(0, 0)
+              }
+              
+            }}
           />
         )}
       </Stack>

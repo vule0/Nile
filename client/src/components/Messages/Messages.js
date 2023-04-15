@@ -22,7 +22,7 @@ import {
   Divider,
 } from "@mui/material"
 
-const Messages = ({ user, setMenu, setCategory, menu }) => {
+const Messages = ({ user: seller, setMenu, setCategory, menu }) => {
   const [otherParties, setOtherParties] = useState([])
   const [otherPartyName, setOtherPartyName] = useState("Support")
   const [messages, setMessages] = useState([])
@@ -36,14 +36,14 @@ const Messages = ({ user, setMenu, setCategory, menu }) => {
     ).then((otherParties) => {
       let otherPartiesFlat = otherParties.flat()
       let data = {}
-      if (user === undefined) {
+      if (seller === undefined) {
         data = {
           query: messageQueryCodes.getByOtherParty,
           otherParty: otherPartiesFlat[0],
         }
         setOtherPartyName(otherPartiesFlat[0])
       } else {
-          const idx = otherPartiesFlat.findIndex(e => e === user)
+          const idx = otherPartiesFlat.findIndex(e => e === seller)
           // if user previously cammunicated
           if (idx !== -1) {
             const e = otherPartiesFlat[idx]
@@ -54,11 +54,11 @@ const Messages = ({ user, setMenu, setCategory, menu }) => {
         }
         // otherwise
         else {
-          setOtherParties((x) => [user, ...x])
-          setOtherPartyName(user)
+          setOtherParties((x) => [seller, ...x])
+          setOtherPartyName(seller)
           data = {
             query: messageQueryCodes.getByOtherParty,
-            otherParty: user,
+            otherParty: seller,
           }
         }
       }

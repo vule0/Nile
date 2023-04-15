@@ -29,7 +29,13 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
       password: password
     }
 
-    fecthData(routes.postUser, data, setUser, 1)
+
+    fecthData(routes.postUser, data, setUser, 1).then(user => {
+      console.log(user)
+      
+      // if validation
+      setMenu(menus.home)
+    })
     
   }
 
@@ -37,7 +43,7 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
 
   return (
   <div className="Signin-main-container">
-    <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={productCategory.misc} />
+    
   <div className="content" style={{ padding: 100 }}>
   <Paper>
     <Grid
