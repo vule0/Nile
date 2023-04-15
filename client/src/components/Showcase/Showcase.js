@@ -21,7 +21,7 @@ import {
   userQueryCodes,
 } from "../../utils/enum"
 
-const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => {
+const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId, administrator }) => {
   const data = {
     query: productQueryCodes.filterByCategory,
     username: "wchen",
@@ -62,7 +62,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => 
 
   return (
     <div className="Showcase-main-container">
-      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category}/>
+      <TopBar user={user} menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} administrator={administrator}/>
       <Stack className="showcase-scroll">
         <div className="header">
           <p>{category} Category</p>

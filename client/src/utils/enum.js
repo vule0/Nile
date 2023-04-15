@@ -6,7 +6,8 @@ module.exports.menus = {
   detailed: 4,
   signin: 5,
   signup: 6,
-  sell: 7
+  sell: 7,
+  administrator: 8
 }
 
 module.exports.productCategory = {

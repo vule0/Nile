@@ -8,6 +8,8 @@ import Detailed from "./components/Detailed/Detailed"
 import SellLanding from "./components/SellLanding/SellLanding"
 import Signup from "./components/Signup/Signup"
 import Signin from './components/Signin/Signin'
+import Administrator from './components/Administrator/Administrator'
+
 import { menus, productCategory, routes, userQueryCodes } from "./utils/enum"
 import { fecthData } from "./utils/helperFunctions/helper"
 
@@ -25,6 +27,7 @@ function App() {
   const [postId, setPostId] = useState(0)
   const [category, setCategory] = useState(productCategory.misc)
   const [seller, setSeller] = useState(undefined)
+  const [administrator, setAdministrator] = useState(false)
 
   return (
     <div className="App">
@@ -36,6 +39,7 @@ function App() {
           setCategory={setCategory}
           setPostId={setPostId}
           category={category}
+          administrator={administrator}
         />
       )}
       {menu === menus.messages && (
@@ -44,13 +48,15 @@ function App() {
           setMenu={setMenu}
           setCategory={setCategory}
           seller={seller}
+          administrator={administrator}
         />
       )}
       {menu === menus.user && (
-        <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <User user={user} menu={menu} setMenu={setMenu} setCategory={setCategory} administrator={administrator}/>
       )}
       {menu === menus.signin && (
-        <Signin  user={user} setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <Signin  user={user} setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} 
+        administrator={administrator} setAdministrator={setAdministrator}/>
       )}
 
       {menu === menus.signup && (
@@ -65,16 +71,19 @@ function App() {
           setCategory={setCategory}
           category={category}
           setPostId={setPostId}
+          administrator={administrator}
         />
       )}
       {menu === menus.detailed && (
         <Detailed
+          user={user}
           setSeller={setSeller}
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}
           postId={postId}
           category={category}
+          administrator={administrator}
         />
       )}
       {menu === menus.sell && (
@@ -84,6 +93,19 @@ function App() {
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}
+          administrator={administrator}
+        />
+      )}
+
+      {menu === menus.administrator && (
+        <Administrator
+          user={user}
+          category={category}
+          menu={menu}
+          setMenu={setMenu}
+          setCategory={setCategory}
+          administrator={administrator}
+          setAdministrator={setAdministrator}
         />
       )}
     </div>

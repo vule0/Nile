@@ -23,7 +23,7 @@ import Sell from "./Sell/Sell"
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 const theme = createTheme()
 
-const SellLanding = ({ user, setMenu, setCategory, menu }) => {
+const SellLanding = ({ user, setMenu, setCategory, menu, administrator }) => {
   const [postings, setPostings] = useState([])
   const [posting, setPosting] = useState(undefined)
   const [action, setAction] = useState(true)
@@ -61,10 +61,12 @@ const SellLanding = ({ user, setMenu, setCategory, menu }) => {
       <CssBaseline />
       <AppBar position="relative">
         <TopBar
+          user={user}
           category={productCategory.misc}
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}
+          administrator={administrator}
         />
       </AppBar>
       {action && (

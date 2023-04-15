@@ -9,9 +9,9 @@ import {
 import nilelogo from "../../assets/imgs/nilelogo.JPG"
 import { useState } from "react"
 import { menus, productCategory, routes, userQueryCodes } from '../../utils/enum'
-import { fecthData } from "../../utils/helperFunctions/helper"
+import { fecthData, getInitials } from "../../utils/helperFunctions/helper"
 
-const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
+const Signin = ({ user, setUser, setMenu, setCategory, menu, category, administrator, setAdministrator}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -34,10 +34,13 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
 
     fecthData(routes.postUser, data, setUser, 1).then(user => {
       // if validation
+      console.log(user.name)
+      console.log(getInitials(user.name))
       if (user.status === 100){
         setErrorMessage("Incorrect user credentials.")
       }
       else{
+        setAdministrator(true)
         setMenu(menus.home)
         setUsername('')
         setPassword('')

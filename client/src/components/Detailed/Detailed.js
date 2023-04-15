@@ -19,7 +19,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
 import ThumbUpIcon from "@mui/icons-material/ThumbUp"
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch"
 
-const Detailed = ({ category, setMenu, setCategory, menu, postId, setSeller }) => {
+const Detailed = ({ user, category, setMenu, setCategory, menu, postId, setSeller }) => {
   const [postArr, setPost] = useState([])
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const Detailed = ({ category, setMenu, setCategory, menu, postId, setSeller }) =
   return (
     <div className="Detailed-main-div">
       <TopBar
+        user={user}
         menu={menu}
         setMenu={setMenu}
         setCategory={setCategory}
