@@ -12,14 +12,15 @@ import { menus, productCategory, routes, userQueryCodes } from "./utils/enum"
 import { fecthData } from "./utils/helperFunctions/helper"
 
 function App() {
-  const [user, setUser] = useState({
-    name: "Liam Sullivan",
-    username: "lsullivan",
-    rating: 4.7,
-    verified: true,
-    email: "lsullivan@example.com",
-    items_sold: 121,
-  }) // sample user...this should be retieved from the signin page
+  // const [user, setUser] = useState({
+  //   name: "Liam Sullivan",
+  //   username: "lsullivan",
+  //   rating: 4.7,
+  //   verified: true,
+  //   email: "lsullivan@example.com",
+  //   items_sold: 121,
+  // }) // sample user...this should be retieved from the signin page
+  const [user, setUser] = useState(undefined)
   const [menu, setMenu] = useState(menus.signin)
   const [postId, setPostId] = useState(0)
   const [category, setCategory] = useState(productCategory.misc)
@@ -53,7 +54,7 @@ function App() {
       )}
 
       {menu === menus.signup && (
-        <Signup menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <Signup menu={menu} setMenu={setMenu} setCategory={setCategory} setUser={setUser} />
       )}
 
       {menu === menus.showcase && (

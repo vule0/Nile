@@ -143,7 +143,7 @@ module.exports = class UserHandler {
     const newUser = {
       name: name,
       username: uname,
-      rating: null,
+      rating: 0,
       verified: false,
       email: email,
       items_sold: 0,

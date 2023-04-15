@@ -6,17 +6,20 @@ import {
     TextField,
     Paper,
     Button,
+    Typography,
+    Alert
     } from "@mui/material"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import {productCategory, routes, userQueryCodes} from "../../utils/enum"
+import {productCategory, routes, userQueryCodes, menus} from "../../utils/enum"
 
-const Signup = ({ setMenu, setCategory, menu}) => {
+const Signup = ({ setMenu, setCategory, menu, setUser}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const [name, setName] = useState('')
-
+    const [message, setMessage] = useState('')
+    const [severity, setSeverity] = useState('')
     const handleSubmit = async (event) =>{
         event.preventDefault();
         const data = {
@@ -26,7 +29,19 @@ const Signup = ({ setMenu, setCategory, menu}) => {
             email: email,
             password: password
         }
-        fecthData(routes.postUser, data, undefined, 1)
+        fecthData(routes.postUser, data, setUser , 1).then(user => {
+          if (user.status === 200){
+            setSeverity("success")
+            setMessage("Account successfully created. Redirecting in 3 seconds.")
+            setTimeout(() => setMenu(menus.signin), 5000)
+          }
+          else{
+            setSeverity("error")
+            setMessage("Account already exists. Please try again")
+          }
+
+        })
+
     }
     
     return (
@@ -35,9 +50,14 @@ const Signup = ({ setMenu, setCategory, menu}) => {
         <Grid style={{padding:100}}>
           <Grid>
             <Paper elevation={5} style={{padding:'2rem'}}>
-              <h1>Create Account</h1>
               <form onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
+                <Grid container spacing={5}>
+                    <Grid item xs={12}>
+                      <Typography variant="h3">Create an Account</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                    {message && <Alert severity={`${severity}`}>{message}</Alert>}
+                    </Grid>
                     <Grid item xs={12}>
                         <TextField 
                         fullWidth

@@ -37,7 +37,6 @@ const categories = [
 const Home = ({ user, setMenu, setCategory, menu, category, setPostId }) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
-  console.log(user)
   const getRecommendedData = () => {
     const data = { query: productQueryCodes.getRecommended }
     fecthData(routes.postProduct, data, setRecommendedData, 1)
