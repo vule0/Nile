@@ -10,7 +10,7 @@ import { useState } from "react"
 import { menus, productCategory, routes, userQueryCodes } from '../../utils/enum'
 import { fecthData } from "../../utils/helperFunctions/helper"
 
-const Signin = ({ setMenu, setCategory, menu, category, setUser}) => {
+const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -29,7 +29,7 @@ const Signin = ({ setMenu, setCategory, menu, category, setUser}) => {
       password: password
     }
 
-    fecthData(routes.postUser, data, undefined, 1)
+    fecthData(routes.postUser, data, setUser, 1)
     
   }
 

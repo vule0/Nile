@@ -1,6 +1,6 @@
 import "./TopBar.scss"
 import { Avatar } from "@mui/material"
-import { IconButton } from "@mui/material"
+import { IconButton, Typography} from "@mui/material"
 import Tooltip from "@mui/material/Tooltip"
 import { menus, productCategory } from "../../utils/enum"
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined"
@@ -9,7 +9,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
 import LoginIcon from "@mui/icons-material/Login"
 
-const TopBar = ({ menu, setMenu, setCategory, category }) => {
+const TopBar = ({ user, menu, setMenu, setCategory, category }) => {
   return (
     <div className="wrapper top-div">
       <span style={{ width: "50px" }} />
@@ -82,6 +82,8 @@ const TopBar = ({ menu, setMenu, setCategory, category }) => {
           <LoginIcon fontSize="large" />
         </IconButton>
       </Tooltip>
+      {/* <Typography sx={{ ml: "950px"}} value={user}>
+      </Typography> */}
     </div>
   )
 }

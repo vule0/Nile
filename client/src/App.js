@@ -29,6 +29,7 @@ function App() {
     <div className="App">
       {menu === menus.home && (
         <Home
+          user={user}
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}
@@ -48,7 +49,7 @@ function App() {
         <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
       {menu === menus.signin && (
-        <Signin menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <Signin setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
 
       {menu === menus.signup && (
@@ -57,6 +58,7 @@ function App() {
 
       {menu === menus.showcase && (
         <Showcase
+          user = {user}
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}

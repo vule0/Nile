@@ -21,7 +21,7 @@ import {
   userQueryCodes,
 } from "../../utils/enum"
 
-const Showcase = ({ category, setMenu, setCategory, menu, setPostId }) => {
+const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => {
   const data = {
     query: productQueryCodes.filterByCategory,
     username: "wchen",
@@ -34,7 +34,6 @@ const Showcase = ({ category, setMenu, setCategory, menu, setPostId }) => {
   const [page, setPage] = useState(0)
   const [paginatedArray, setPaginatedArray] = useState([[]])
   const [fetchedData, setFetchedData] = useState([[]])
-
   const handleMin = (event) => {
     setPriceMin(event.currentTarget.value)
   }
