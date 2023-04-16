@@ -1,5 +1,4 @@
 import "./Signup.scss"
-import TopBar from "../TopBar/TopBar"
 import { useState } from "react"
 import {
   Grid,
@@ -12,12 +11,7 @@ import {
 } from "@mui/material"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import {
-  productCategory,
-  routes,
-  userQueryCodes,
-  menus,
-} from "../../utils/enum"
+import { routes, userQueryCodes, menus } from "../../utils/enum"
 
 const Signup = ({ setMenu, setCategory, menu, setUser }) => {
   const [email, setEmail] = useState("")
@@ -26,6 +20,7 @@ const Signup = ({ setMenu, setCategory, menu, setUser }) => {
   const [name, setName] = useState("")
   const [message, setMessage] = useState("")
   const [severity, setSeverity] = useState("")
+  
   const handleSubmit = async (event) => {
     event.preventDefault()
     const data = {
@@ -38,13 +33,18 @@ const Signup = ({ setMenu, setCategory, menu, setUser }) => {
     fecthData(routes.postUser, data, setUser, 1).then((user) => {
       if (user.status === 200) {
         setSeverity("success")
-        setMessage("Account successfully created. Redirecting in 3 seconds.")
-        setTimeout(() => setMenu(menus.signin), 5000)
+        setMessage(
+          "Congratulations!! Your account successfully created. You can view postings, and get familiar with the site, but cannot yet sell items until your account has been verified by a member of the verification team."
+        )
       } else {
         setSeverity("error")
         setMessage("Account already exists. Please try again")
       }
     })
+  }
+
+  const handleOkay = () => {
+    setMenu(menus.signin)
   }
 
   return (
@@ -70,7 +70,18 @@ const Signup = ({ setMenu, setCategory, menu, setUser }) => {
                   </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                  {message && <Alert severity={`${severity}`}>{message}</Alert>}
+                  {message && (
+                    <Alert
+                      severity={`${severity}`}
+                      action={
+                        <Button variant="contained" color={severity} size="small" onClick={handleOkay}>
+                          Okay
+                        </Button>
+                      }
+                    >
+                      {message}
+                    </Alert>
+                  )}
                 </Grid>
                 <Grid item xs={12}>
                   <TextField

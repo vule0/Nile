@@ -1,4 +1,24 @@
 .User-main-container {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
+    &>.user-info-blur {
+        filter: blur(5px);
+    }
+
+    .edit-menu {
+        background-color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50vmax;
+        z-index: 10;
+        padding-bottom: 20px;
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+  box-shadow: -1px -1px 5px lightgray, 1px 1px 5px lightgray;
+
+    }
 }

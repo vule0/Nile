@@ -7,7 +7,7 @@ import MailOutlinedIcon from "@mui/icons-material/MailOutlined"
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined"
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
-import LoginIcon from "@mui/icons-material/Login"
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const TopBar = ({ user, menu, setMenu, setCategory, category }) => {
   return (
@@ -68,6 +68,19 @@ const TopBar = ({ user, menu, setMenu, setCategory, category }) => {
           }}
         >
           <AttachMoneyIcon fontSize="large" />
+        </IconButton>
+      </Tooltip>
+
+      <Tooltip title="Logout">
+        <IconButton
+          sx={{ position:'absolute', right:'20px' }}
+          className={menu === menus.sell ? "active" : "inactive"}
+          onClick={() => {
+            setMenu(menus.signin)
+            setCategory(category)
+          }}
+        >
+          <LogoutIcon fontSize="large" />
         </IconButton>
       </Tooltip>
     </div>

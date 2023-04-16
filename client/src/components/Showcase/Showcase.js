@@ -16,9 +16,7 @@ import FilterListIcon from "@mui/icons-material/FilterList"
 import {
   routes,
   menus,
-  productCategory,
   productQueryCodes,
-  userQueryCodes,
 } from "../../utils/enum"
 
 const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => {
@@ -51,7 +49,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => 
   }
 
   const handlePageChange = (event, value) => {
-    setPage(value)
+    setPage(value - 1) // we subtract 1 cause array is zero based
     window.scrollTo(0, 0)
   }
 
@@ -146,14 +144,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId }) => 
             count={paginatedArray.length}
             defaultPage={1}
             boundaryCount={2}
-            // onChange={handlePageChange}
-            getItemAriaLabel={(_, page, selected) => {
-              if (selected) {
-                setPage(page - 1)
-                window.scrollTo(0, 0)
-              }
-              
-            }}
+            onChange={handlePageChange}
           />
         )}
       </Stack>

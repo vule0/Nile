@@ -10,6 +10,7 @@ module.exports = (params) => {
     // open file
     const data = req.body
     const query = data.query
+    console.log(data)
     userHandler.readDb().then((json) => {
     let response = {status: '-2',message: 'no corresponding query'}
 
@@ -40,12 +41,14 @@ module.exports = (params) => {
       response = userHandler.deleteUser(json, data.username)
     } else if (query === userQuery.logIn){
       response = userHandler.logIn(json, data.username, data.password)
+    } else if (query === userQuery.updatePassword){
+      response = userHandler.updatePassword(json, data.username, data.password)
     }
+
     
 
 
     // send response to the browser
-    console.log('response')
     res.json(response)
   })
 })

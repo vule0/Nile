@@ -100,7 +100,7 @@ const SellLanding = ({ user, setMenu, setCategory, menu }) => {
                 spacing={2}
                 justifyContent="center"
               >
-                <Button variant="contained" onClick={handleNewPosting}>
+                <Button variant="contained" onClick={handleNewPosting} disabled={!user?.verified}>
                   Create New Posting <AddIcon />
                 </Button>
               </Stack>
@@ -120,7 +120,7 @@ const SellLanding = ({ user, setMenu, setCategory, menu }) => {
               {postings.length === 0 ? (
                 <Grid item xs={100}>
                   <Alert className="empty" severity="info">
-                    No Postings Yet
+                    {user?.verified ? 'No Postings Yet' : 'We are still reviewing your information, and you are not yet a verified user. In order to have postings you need to be a verified user.'}
                   </Alert>
                 </Grid>
               ) : (
@@ -169,7 +169,7 @@ const SellLanding = ({ user, setMenu, setCategory, menu }) => {
           </Container>
         </main>
       )}
-      {!action && (
+      {!action && user?.verified && (
         <Sell user={user} postingObj={posting} setAction={setAction} />
       )}
     </ThemeProvider>

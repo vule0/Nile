@@ -19,6 +19,7 @@ function App() {
   //   verified: true,
   //   email: "lsullivan@example.com",
   //   items_sold: 121,
+  //   password: '123'
   // }) // sample user...this should be retieved from the signin page
   const [user, setUser] = useState(undefined)
   const [menu, setMenu] = useState(menus.signin)
@@ -47,7 +48,7 @@ function App() {
         />
       )}
       {menu === menus.user && (
-        <User menu={menu} setMenu={setMenu} setCategory={setCategory} />
+        <User user={user} setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} />
       )}
       {menu === menus.signin && (
         <Signin  user={user} setUser={setUser} menu={menu} setMenu={setMenu} setCategory={setCategory} />

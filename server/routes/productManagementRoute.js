@@ -65,6 +65,7 @@ module.exports = (params) => {
 
         // send response to the browser
         console.log(response)
+        console.log('******************************************')
         res.json(response)
       })
     else res.end()

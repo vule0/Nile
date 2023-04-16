@@ -67,6 +67,7 @@ module.exports = class ProductHandler {
   getByUserName(json, uname) {
     const parsed = JSON.parse(json)
     const products = parsed.filter((e) => e.seller.username === uname)
+
     if (products.length === 0)
       return {
         status: 100,
@@ -151,7 +152,7 @@ module.exports = class ProductHandler {
       }
     if (!(category && price && condition && name && uname && rating))
       return {
-        status: -1,
+        status: -2,
         message:
           "Not sufficient data provided to create post.\nMake sure you complete all the required fields.",
       }

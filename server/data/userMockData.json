@@ -4,9 +4,9 @@
     "username": "oanderson",
     "rating": 5,
     "verified": true,
-    "email": "oanderson@example.com",
+    "email": "oanderson001@example.com",
     "items_sold": 100,
-    "password": "123"
+    "password": "password"
   },
   {
     "name": "Liam Sullivan",
@@ -306,9 +306,18 @@
     "password": "password12345"
   },
   {
-    "name": "Jose",
+    "name": "Kate",
+    "username": "katea0608",
+    "rating": 0,
+    "verified": false,
+    "email": "katemakenzie@usf.edu",
+    "items_sold": 0,
+    "password": "1329455kate"
+  },
+  {
+    "name": "Jose Lopez",
     "username": "pepe",
-    "rating": null,
+    "rating": 0,
     "verified": false,
     "email": "pepe@example.com",
     "items_sold": 0,

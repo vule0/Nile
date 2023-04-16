@@ -287,7 +287,47 @@ module.exports = class UserHandler {
         status: 200,
         message: "OK",
       }
+    console.log(response)
+    return response
+  }
 
+  updatePassword(json, uname, password) {
+    const parsed = JSON.parse(json)
+    let flag = true
+    let response = {}
+    // update password
+    parsed.forEach((e) => {
+      if (e.username === uname) {
+        e.password = password
+        flag = false
+      }
+    })
+
+    if (flag) {
+      return {
+        status: 100,
+        message: "User not found",
+      }
+    }
+
+    // update json file
+    writeFile(this.db, JSON.stringify(parsed, null, 2), (e) => {
+      if (e) {
+        response = {
+          status: -1,
+          message: "Failed to write updated data to file",
+        }
+        return
+      }
+    })
+
+    if (Object.keys(response).length === 0)
+      response = {
+        status: 200,
+        message: "OK",
+      }
+
+    console.log(response)
     return response
   }
 

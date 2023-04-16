@@ -34,6 +34,7 @@ module.exports.userQueryCodes = {
   getByUserName: 10,
   getAllUsers: 11,
   logIn: 12,
+  updatePassword: 13
 }
 
 module.exports.productQueryCodes = {

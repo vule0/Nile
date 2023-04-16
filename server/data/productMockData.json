@@ -408,10 +408,24 @@
   {
     "id": "P128",
     "product name": "Leather Bag",
-    "description": "Nice bag for sale!!",
+    "description": "Nice bag for sale!! Run errands (or even go to school!) stylish.",
     "category": "Fashion",
-    "price": "120.99",
+    "price": "110.99",
     "condition": "It Is What It Is",
+    "seller": {
+      "name": "Oliver Anderson",
+      "username": "oanderson",
+      "rating": 5,
+      "verified": true
+    }
+  },
+  {
+    "id": "P8780",
+    "product name": "Plant",
+    "description": "Freshen your environment with this lovely plant. Go green!",
+    "category": "Miscellaneous",
+    "price": "10.99",
+    "condition": "New",
     "seller": {
       "name": "Oliver Anderson",
       "username": "oanderson",
