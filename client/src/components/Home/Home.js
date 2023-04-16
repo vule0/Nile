@@ -34,21 +34,20 @@ const categories = [
   "Electronics",
 ]
 
-const Home = ({ user, setMenu, setCategory, menu, category, setPostId }) => {
+const Home = ({ user, setMenu, setCategory, menu, category, setPostId, administrator}) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
   const getRecommendedData = () => {
     const data = { query: productQueryCodes.getRecommended }
     fecthData(routes.postProduct, data, setRecommendedData, 1)
   }
-
   const handleClick = (event) => setSelector(event.currentTarget.id)
 
   useEffect(() => getRecommendedData(), [])
 
   return (
     <div className="Home-main-container">
-      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} />
+      <TopBar user={user} menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} administrator={administrator}/>
 
       <span style={{ marginTop: "10vh" }} />
 

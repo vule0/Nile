@@ -23,7 +23,7 @@ import Rating from "@mui/material/Rating"
 import ThumbUpIcon from "@mui/icons-material/ThumbUp"
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch"
 import NavigateNextIcon from "@mui/icons-material/NavigateNext"
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser"
 import { getInitials, fecthData } from "../../utils/helperFunctions/helper"
 import { useState, useRef, useEffect } from "react"
 
@@ -43,7 +43,8 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
   }
 
   const validateEmail = (email) => {
-    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    let validRegex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     if (email.match(validRegex)) {
       console.log("Great!")
@@ -150,9 +151,7 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
             error={error}
             onChange={handleCurrentPasswordOnChange}
             type="password"
-            helperText={
-              error ? "Invalid Password." : ""
-            }
+            helperText={error ? "Invalid Password." : ""}
           />
           <Button onClick={handleUnlockResetPassword}>
             <NavigateNextIcon fontSize="large" />
@@ -169,7 +168,7 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
               menu === "password" ? "Enter New Password" : "Enter New Email"
             }
             error={error}
-            helperText={menu === 'email' ? 'Incorrect email format' : ''}
+            helperText={menu === "email" ? "Incorrect email format" : ""}
             onChange={handleNewEvent}
             ref={passwordAttempt}
           />
@@ -189,7 +188,7 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
   )
 }
 
-const User = ({ user, setMenu, setCategory, menu, setUser }) => {
+const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
   const [action, setAction] = useState(false)
   const [menuToEdit, setMenuToEdit] = useState(undefined)
 
@@ -205,6 +204,7 @@ const User = ({ user, setMenu, setCategory, menu, setUser }) => {
         setMenu={setMenu}
         setCategory={setCategory}
         category={productCategory.misc}
+        administrator={administrator}
       />
 
       {action && (
@@ -255,7 +255,17 @@ const User = ({ user, setMenu, setCategory, menu, setUser }) => {
               </ListItemAvatar>
               <ListItemText
                 primary={`Verification Status:`}
-                secondary={user?.verified ? <Typography sx={{color:'green'}} fontSize={'small'}>Verified</Typography> : <Typography sx={{color:'#B45309'}} fontSize={'small'}>Pending</Typography>}
+                secondary={
+                  user?.verified ? (
+                    <Typography sx={{ color: "green" }} fontSize={"small"}>
+                      Verified
+                    </Typography>
+                  ) : (
+                    <Typography sx={{ color: "#B45309" }} fontSize={"small"}>
+                      Pending
+                    </Typography>
+                  )
+                }
               />
             </ListItem>
 
@@ -312,7 +322,6 @@ const User = ({ user, setMenu, setCategory, menu, setUser }) => {
               </ListItemAvatar>
               <ListItemText type={"password"} primary=" Change My Password" />
             </ListItemButton>
-
           </List>
         </Grid>
       </Grid>

@@ -22,7 +22,7 @@ import {
   Divider,
 } from "@mui/material"
 
-const Messages = ({ user: seller, setMenu, setCategory, menu }) => {
+const Messages = ({ user: seller, setMenu, setCategory, menu, administrator }) => {
   const [otherParties, setOtherParties] = useState([])
   const [otherPartyName, setOtherPartyName] = useState("Support")
   const [messages, setMessages] = useState([])
@@ -79,7 +79,7 @@ const Messages = ({ user: seller, setMenu, setCategory, menu }) => {
 
   return (
     <div className="Messages-main-container">
-      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={productCategory.misc} />
+      <TopBar menu={menu} setMenu={setMenu} setCategory={setCategory} category={productCategory.misc} administrator={administrator} />
       <span style={{ marginTop: "10vh" }} />
       <div className="content">
         <Box className="chat-list" sx={{ bgcolor: "background.paper" }}>

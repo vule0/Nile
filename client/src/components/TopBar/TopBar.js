@@ -8,8 +8,10 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined"
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
 import LogoutIcon from '@mui/icons-material/Logout';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
-const TopBar = ({ user, menu, setMenu, setCategory, category }) => {
+
+const TopBar = ({ user, menu, setMenu, setCategory, category, administrator}) => {
   return (
     <div className="wrapper top-div">
       <span style={{ width: "50px" }} />
@@ -83,6 +85,19 @@ const TopBar = ({ user, menu, setMenu, setCategory, category }) => {
           <LogoutIcon fontSize="large" />
         </IconButton>
       </Tooltip>
+      {administrator &&
+      <Tooltip title="Administrator">
+          <IconButton 
+          sx={{ml:"10px"}}
+          className={menu === menus.administrator ? "active" : "inactive"}
+          onClick={() =>{
+            setMenu(menus.administrator)
+          }}
+          >
+            <AdminPanelSettingsIcon fontSize="large"/>
+            </IconButton>
+      </Tooltip>
+      }
     </div>
   )
 }

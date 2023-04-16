@@ -246,7 +246,7 @@ module.exports = class UserHandler {
     if (Object.keys(response).length === 0)
       response = {
         status: 200,
-        message: "OK",
+        message: "OK Updated verification",
       }
 
     return response
