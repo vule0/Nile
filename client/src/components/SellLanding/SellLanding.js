@@ -122,7 +122,7 @@ const SellLanding = ({ user, setMenu, setCategory, menu, administrator }) => {
               {postings.length === 0 ? (
                 <Grid item xs={100}>
                   <Alert className="empty" severity="info">
-                    {user?.verified ? 'No Postings Yet' : 'We are still reviewing your information, and you are not yet a verified user. In order to have postings you need to be a verified user.'}
+                    {user?.verified ? 'No Postings Yet' : 'We are still reviewing your information. In order to have postings you need to be a verified user.'}
                   </Alert>
                 </Grid>
               ) : (
