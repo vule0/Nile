@@ -342,5 +342,14 @@
     "email": "123@gmail.com",
     "items_sold": 0,
     "password": "123"
+  },
+  {
+    "name": "Carlos",
+    "username": "carlitos",
+    "rating": 0,
+    "verified": true,
+    "email": "carlitos@exmple.com",
+    "items_sold": 0,
+    "password": "123"
   }
 ]
