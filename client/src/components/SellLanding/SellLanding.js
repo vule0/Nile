@@ -66,7 +66,6 @@ const SellLanding = ({ user, setMenu, setCategory, menu, administrator }) => {
           menu={menu}
           setMenu={setMenu}
           setCategory={setCategory}
-          administrator={administrator}
         />
       </AppBar>
       {action && (

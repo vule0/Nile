@@ -78,10 +78,10 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
     }
 
     if (!postingObj) {
-      objectToSubmit.name = user.name
-      objectToSubmit.username = user.username
-      objectToSubmit.rating = user.rating
-      objectToSubmit.isVerified = user.verified
+      objectToSubmit.name = user?.name
+      objectToSubmit.username = user?.username
+      objectToSubmit.rating = user?.rating
+      objectToSubmit.isVerified = user?.verified
     }
 
     console.log(objectToSubmit)
