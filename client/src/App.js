@@ -56,24 +56,9 @@ function App() {
           setCategory={setCategory}
         />
       )}
-      {menu === menus.signin && (
-        <Signin
-          user={user}
-          setUser={setUser}
-          menu={menu}
-          setMenu={setMenu}
-          setCategory={setCategory}
-        />
-      )}
+      {menu === menus.signin && <Signin setUser={setUser} setMenu={setMenu} />}
 
-      {menu === menus.signup && (
-        <Signup
-          menu={menu}
-          setMenu={setMenu}
-          setCategory={setCategory}
-          setUser={setUser}
-        />
-      )}
+      {menu === menus.signup && <Signup setMenu={setMenu} setUser={setUser} />}
 
       {menu === menus.showcase && (
         <Showcase

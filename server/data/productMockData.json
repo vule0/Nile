@@ -148,7 +148,7 @@
     "condition": "New",
     "seller": {
       "name": "Emma Brown",
-      "username": "ebrown",
+      "username": "emmabrown",
       "rating": 4.7,
       "verified": true
     }
@@ -344,7 +344,7 @@
     "condition": "New",
     "seller": {
       "name": "Ethan Kim",
-      "username": "ekim",
+      "username": "ethankim",
       "rating": 4.9,
       "verified": true
     }

@@ -11,7 +11,7 @@ import { useState } from "react"
 import { menus, productCategory, routes, userQueryCodes } from '../../utils/enum'
 import { fecthData, getInitials } from "../../utils/helperFunctions/helper"
 
-const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
+const Signin = ({setUser, setMenu}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -34,9 +34,9 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
 
     fecthData(routes.postUser, data, setUser, 1).then(user => {
       // if validation
-      console.log(user.name)
-      console.log(getInitials(user.name))
-      if (user.status === 100){
+      console.log(user?.name)
+      console.log(getInitials(user?.name))
+      if (user?.status === 100){
         setErrorMessage("Incorrect user credentials.")
       }
       else{
@@ -59,18 +59,18 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
       justify={'center'}
       alignItems={'center'}
     > <Grid item xs={12}>  
-      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
+      {errorMessage && <Alert aria-label='alert' severity="error">{errorMessage}</Alert>}
     </Grid>
       <Grid item xs={12}>
         <TextField label="Username" onChange={handleUsername} required ></TextField>
       </Grid>
 
       <Grid item xs={12}>
-        <TextField label="Password" type={'password'} onChange={handlePass} required ></TextField>
+        <TextField  data-testid='Password'  label="Password" onChange={handlePass} required ></TextField>
       </Grid>
 
       <Grid item xs={12}>
-        <Button fullWidth onClick={handleSubmit} variant="contained"> Login </Button>
+        <Button fullWidth onClick={handleSubmit} variant="contained" name='login'> Login </Button>
       </Grid>
 
       <Grid item xs={12}>

@@ -13,7 +13,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import { fecthData } from "../../utils/helperFunctions/helper"
 import { routes, userQueryCodes, menus } from "../../utils/enum"
 
-const Signup = ({ setMenu, setCategory, menu, setUser }) => {
+const Signup = ({ setMenu, setUser }) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("")
