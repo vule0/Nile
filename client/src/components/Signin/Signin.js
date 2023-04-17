@@ -11,7 +11,7 @@ import { useState } from "react"
 import { menus, productCategory, routes, userQueryCodes } from '../../utils/enum'
 import { fecthData, getInitials } from "../../utils/helperFunctions/helper"
 
-const Signin = ({ user, setUser, setMenu, setCategory, menu, category, administrator, setAdministrator}) => {
+const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -40,7 +40,6 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category, administr
         setErrorMessage("Incorrect user credentials.")
       }
       else{
-        setAdministrator(true)
         setMenu(menus.home)
         setUsername('')
         setPassword('')

@@ -253,7 +253,20 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
                   <VerifiedUserIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText
+              {user?.administrator ? <ListItemText
+                primary={`Administrator:`}
+                secondary={
+                  user?.verified ? (
+                    <Typography sx={{ color: "green" }} fontSize={"small"}>
+                      Verified
+                    </Typography>
+                  ) : (
+                    <Typography sx={{ color: "#B45309" }} fontSize={"small"}>
+                      Pending
+                    </Typography>
+                  )
+                }
+              /> : <ListItemText
                 primary={`Verification Status:`}
                 secondary={
                   user?.verified ? (
@@ -266,7 +279,7 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
                     </Typography>
                   )
                 }
-              />
+              />}
             </ListItem>
 
             <Divider />
