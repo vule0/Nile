@@ -10,12 +10,27 @@ import { getInitials } from "../../../utils/helperFunctions/helper"
 const ProductCard = ({ name, username, price, productName, onClick }) => {
   return (
     <div className="Category-main-container" onClick={onClick}>
-      <div className="up-div">{/* Main Image */}</div>
+      <div className="up-div">
+        {/* Main Image */}
+        <img
+          src="https://source.unsplash.com/random"
+          alt={"User Picture"}
+          loading="lazy"
+          style={{ width: "100%" }}
+        />
+      </div>
       <div className="bottom-div">
         <nav aria-label="secondary mailbox folders">
           <List disablePadding>
             <ListItem>
-              <ListItemText primary={<Typography sx={{fontWeight:'bold'}}>{productName}</Typography>} secondary={`By ${username}`} />
+              <ListItemText
+                primary={
+                  <Typography sx={{ fontWeight: "bold" }}>
+                    {productName}
+                  </Typography>
+                }
+                secondary={`By ${username}`}
+              />
               <Avatar> {getInitials(name)} </Avatar>
             </ListItem>
             <Divider variant="middle" />

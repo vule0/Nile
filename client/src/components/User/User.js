@@ -206,7 +206,7 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
         category={productCategory.misc}
         administrator={administrator}
       />
-
+      {/* Will triger when edit password or edit email is called */}
       {action && (
         <EditMenu
           setAction={setAction}
