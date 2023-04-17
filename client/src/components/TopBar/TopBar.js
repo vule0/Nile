@@ -85,7 +85,7 @@ const TopBar = ({ user, menu, setMenu, setCategory, category, administrator}) =>
           <LogoutIcon fontSize="large" />
         </IconButton>
       </Tooltip>
-      {administrator &&
+      {user?.administrator &&
       <Tooltip title="Administrator">
           <IconButton 
           sx={{ml:"10px"}}
