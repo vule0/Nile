@@ -150,7 +150,7 @@ module.exports = class ProductHandler {
         message:
           "Not a verified user. Not allowed to sell product in our platform yet. Check your verification status to obtain information about your verfication process",
       }
-    if (!(category && price && condition && name && uname && rating))
+    if (!(category && price && condition && name && uname))
       return {
         status: -2,
         message:
