@@ -11,7 +11,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 
-const TopBar = ({ user, menu, setMenu, setCategory, category, administrator}) => {
+const TopBar = ({ user, menu, setMenu, setCategory, category}) => {
   return (
     <div className="wrapper top-div">
       <span style={{ width: "50px" }} />
