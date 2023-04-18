@@ -324,5 +324,14 @@
     "items_sold": 0,
     "password": "123",
     "administrator": true
+  },
+  {
+    "name": "vu",
+    "username": "vu",
+    "rating": 0,
+    "verified": true,
+    "email": "vu@gmail.com",
+    "items_sold": 0,
+    "password": "123"
   }
 ]

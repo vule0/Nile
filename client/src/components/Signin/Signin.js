@@ -1,5 +1,4 @@
 import "./Signin.scss"
-import TopBar from "../TopBar/TopBar"
 import {
   Grid,
   TextField,
@@ -8,7 +7,7 @@ import {
   } from "@mui/material"
 import nilelogo from "../../assets/imgs/nilelogo.JPG"
 import { useState } from "react"
-import { menus, productCategory, routes, userQueryCodes } from '../../utils/enum'
+import { menus, routes, userQueryCodes } from '../../utils/enum'
 import { fecthData, getInitials } from "../../utils/helperFunctions/helper"
 
 const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
@@ -38,6 +37,7 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
       console.log(getInitials(user.name))
       if (user.status === 100){
         setErrorMessage("Incorrect user credentials.")
+
       }
       else{
         setMenu(menus.home)
@@ -62,11 +62,22 @@ const Signin = ({ user, setUser, setMenu, setCategory, menu, category}) => {
       {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
     </Grid>
       <Grid item xs={12}>
-        <TextField label="Username" onChange={handleUsername} required ></TextField>
+        <TextField onKeyPress={(e) => {
+          if (e.key === "Enter"){
+            handleSubmit(e)
+          }
+        }} 
+        label="Username" onChange={handleUsername} required ></TextField>
       </Grid>
 
       <Grid item xs={12}>
-        <TextField label="Password" type={'password'} onChange={handlePass} required ></TextField>
+        <TextField onKeyPress={(e) => {
+          if (e.key === "Enter"){
+            handleSubmit(e)
+          }
+        }} 
+        
+        label="Password" type={'password'} onChange={handlePass} required ></TextField>
       </Grid>
 
       <Grid item xs={12}>
