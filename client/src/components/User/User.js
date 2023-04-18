@@ -26,6 +26,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext"
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser"
 import { getInitials, fecthData } from "../../utils/helperFunctions/helper"
 import { useState, useRef, useEffect } from "react"
+import axios from "axios"
 
 const EditMenu = ({ menu, password, setAction, username, setUser }) => {
   const [newEmail, setNewEmail] = useState(undefined)
@@ -129,6 +130,7 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
       })
     })
   }
+
   return (
     <Grid container className="edit-menu" spacing={{ xs: 2 }}>
       <Grid item xs={8} sm={8} md={8}>
@@ -191,10 +193,62 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
 const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
   const [action, setAction] = useState(false)
   const [menuToEdit, setMenuToEdit] = useState(undefined)
+  const [imageUrl, setImageUrl] = useState(user?.imageurl)
+
+  const data = {query: userQueryCodes.getByUserName, username: user.username}
+  const getUser = () => {
+    fecthData(routes.postUser, data, setUser, 1)
+  }
+
+
+  useEffect(() => getUser(), [])
 
   const handleEdit = (edit) => {
     setMenuToEdit(edit)
     setAction(true)
+  }
+  
+  const handleFileUpload = async (event) => {
+
+    const file = event.target.files[0]
+    console.log(file)
+
+    const formData = new FormData();
+  
+    const reader = new FileReader();
+    reader.readAsBinaryString(file);
+  
+    return new Promise((resolve, reject) => {
+      reader.onload = () => {
+        const base64String = btoa(reader.result);
+        formData.append("image", base64String);
+  
+        axios
+          .post(
+            `https://api.imgbb.com/1/upload?key=3e8faf68ce1f8e09f24bc31d36a5e27e`,
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          )
+          .then((response) => {
+            console.log("API response ↓");
+            console.log(response);
+            const imageUrl = response.data.data.display_url;
+            const data = {query: userQueryCodes.updateImageUrl, username: user.username, imageurl: imageUrl}
+            fecthData(routes.postUser, data, undefined, 1)
+            setImageUrl(imageUrl)
+            resolve(imageUrl);
+          })
+          .catch((error) => {
+            console.log("API error ↓");
+            console.log(error);
+            reject(error);
+          });
+      };
+    });
   }
 
   return (
@@ -223,13 +277,23 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
         className={action ? "user-info-blur" : ""}
       >
         <Grid item xs={8} sx={{ height: "90vh" }}>
+          {imageUrl ?
           <img
-            src="https://source.unsplash.com/random"
+            src={`${imageUrl}`}
             alt={"User Picture"}
             loading="lazy"
             style={{ width: "60vw" }}
           />
+          : <img
+          src={user?.imageurl ? `${user.imageurl}` : "https://source.unsplash.com/random"}
+          alt={"User Picture"}
+          loading="lazy"
+          style={{ width: "60vw" }}/>
+          }         
+          <Button variant="contained" component="label"onChange={handleFileUpload}>Upload Image<input type="file" hidden/></Button>
+
         </Grid>
+
 
         <Grid item>
           <List

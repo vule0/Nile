@@ -232,6 +232,8 @@ module.exports = class UserHandler {
       }
     }
 
+    
+
     // update json file
     writeFile(this.db, JSON.stringify(parsed, null, 2), (e) => {
       if (e) {
@@ -247,6 +249,48 @@ module.exports = class UserHandler {
       response = {
         status: 200,
         message: "OK Updated verification",
+      }
+
+    return response
+  }
+
+
+  updateImageUrl(json, uname, imageurl) {
+    const parsed = JSON.parse(json)
+    let flag = true
+    let response = {}
+    // update verified
+    parsed.forEach((e) => {
+      if (e.username === uname) {
+        e.imageurl = imageurl
+        flag = false
+      }
+    })
+
+    if (flag) {
+      return {
+        status: 100,
+        message: "User not found",
+      }
+    }
+
+    
+
+    // update json file
+    writeFile(this.db, JSON.stringify(parsed, null, 2), (e) => {
+      if (e) {
+        response = {
+          status: -1,
+          message: "Failed to write updated data to file",
+        }
+        return
+      }
+    })
+
+    if (Object.keys(response).length === 0)
+      response = {
+        status: 200,
+        message: "OK Updated imageurl",
       }
 
     return response
