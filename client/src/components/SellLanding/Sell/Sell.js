@@ -8,6 +8,7 @@ import Radio from "@mui/material/Radio"
 import RadioGroup from "@mui/material/RadioGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import FormControl from "@mui/material/FormControl"
+import { Alert } from "@mui/material"
 import { fecthData } from "../../../utils/helperFunctions/helper"
 import { productQueryCodes, routes, productCategory, imageQueryCodes } from "../../../utils/enum"
 
@@ -22,6 +23,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
   const [productName, setProductName] = useState(postingObj ? postingObj["product name"] : undefined)
   const [description, setDescription] = useState(postingObj?.description)
   const [imageUrl, setImageUrl] = useState(undefined)
+  const [error, setError] = useState(undefined)
   const conditions = [
     "New",
     "Like New",
@@ -37,7 +39,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
     productName: productName,
     description: description,
     category: checkedCategory,
-    price: price,
+    price: parseFloat(price),
     condition: checkedCondition,
     name: postingObj?.seller.name,
     username: postingObj?.seller.username,
@@ -140,7 +142,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
     <div className="Sell-main-container">
       <div className="content">
         <Grid
-          sx={{ flexGrow: 1, border: "1px solid lightgray", mb: "20px" }}
+          sx={{ flexGrow: 1, border: "1px solid lightgray", mb: "20px"}}
           container
         >
           {files.map((e, i) => {
@@ -166,7 +168,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
           Upload Image
           <input type="file" hidden />
         </Button>
-
+        {error && <Alert className="errormsg" severity="error">{error}</Alert>}
         <Grid>
           <h4>Title & Price</h4>
           <TextField
@@ -248,7 +250,16 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
           <Button
             variant="contained"
             component="label"
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
+            onClick={() => {
+              if (files.length == 0){
+                setError("Please upload an image")
+              }
+              else{
+                console.log(files.length)
+                handleSubmit()
+              }
+            }}
             sx={{ marginRight: "20px" }}
           >
             {postingObj ? "Update Post" : "Create Post"}
