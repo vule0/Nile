@@ -273,7 +273,7 @@
     "name": "Raymond Abbot",
     "username": "rrott01",
     "rating": 2,
-    "verified": false,
+    "verified": true,
     "email": "rrott01@example.com",
     "items_sold": 0,
     "password": "123"
@@ -328,28 +328,11 @@
   {
     "name": "vu",
     "username": "vu",
-    "rating": 0.1,
-    "verified": true,
-    "email": "vuman123@yahoo.com",
-    "items_sold": 0,
-    "password": "123"
-  },
-  {
-    "name": "vu",
-    "username": "vu123",
     "rating": 0,
     "verified": true,
-    "email": "123@gmail.com",
+    "email": "vu@gmail.com",
     "items_sold": 0,
-    "password": "123"
-  },
-  {
-    "name": "Carlos",
-    "username": "carlitos",
-    "rating": 0,
-    "verified": true,
-    "email": "carlitos@exmple.com",
-    "items_sold": 0,
-    "password": "123"
+    "password": "123",
+    "imageurl": "https://i.ibb.co/fvCbFsx/8b424ab063e8.jpg"
   }
 ]

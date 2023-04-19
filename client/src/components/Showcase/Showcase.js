@@ -27,19 +27,43 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId, admin
   }
 
   const [priceMin, setPriceMin] = useState(0)
-  const [priceMax, stepriceMax] = useState(1000)
+  const [priceMax, stePriceMax] = useState(2000)
   const [rating, setRating] = useState(0)
   const [page, setPage] = useState(0)
   const [paginatedArray, setPaginatedArray] = useState([[]])
   const [fetchedData, setFetchedData] = useState([[]])
+  
   const handleMin = (event) => {
-    setPriceMin(event.currentTarget.value)
+    let val = event.currentTarget.value
+    if (val < 0 || val > priceMax) {
+      // error
+      alert(`Price needs to be between $0 and $${priceMax}`)
+      setPriceMin(0)
+      return
+    }
+    setPriceMin(val)
   }
   const handleMax = (event) => {
-    stepriceMax(event.currentTarget.value)
+    let val = event.currentTarget.value
+    if (val < 0 || val > 2000) {
+      // error
+      stePriceMax(2000)
+      alert('Price needs to be less than $2,000')
+      return 
+    }
+    stePriceMax(val)
   }
   const handleRating = (event) => {
-    setRating(event.currentTarget.value)
+    let val = event.currentTarget.value
+    
+    if (val < 0 || val > 5) {
+      // error
+      console.log(val)
+      alert('Rating needs to be between 0 and 5.')
+      setRating(0)
+      return
+    }
+    setRating(val)
   }
   const handleFiltering = () => {
     setPage(0)
@@ -73,24 +97,18 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId, admin
               id="outlined-number"
               label="From: $"
               type="number"
-              defaultValue={0}
+              value={priceMin}
               onChange={handleMin}
-              InputProps={{ inputProps: { min: 0, max: 1000 } }}
-              InputLabelProps={{
-                shrink: true,
-              }}
+              InputLabelProps={{shrink: true}}
             />
             <TextField
               id="outlined-number"
               label="To: $"
               type="number"
               variant="outlined"
-              defaultValue={1000}
+              value={priceMax}
               onChange={handleMax}
-              InputProps={{ inputProps: { min: 0, max: 1000 } }}
-              InputLabelProps={{
-                shrink: true,
-              }}
+              InputLabelProps={{shrink: true}}
             />
           </div>
 
@@ -101,7 +119,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId, admin
               fullWidth
               label="⭐️'s and up"
               type="number"
-              defaultValue={0}
+              value={rating}
               onChange={handleRating}
               InputProps={{ inputProps: { min: 0, max: 5 } }}
               InputLabelProps={{
@@ -126,6 +144,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId, admin
               return (
                 <ProductCard
                   key={i}
+                  imageUrl={e.imageurl ? `${e.imageurl}` : "https://source.unsplash.com/random"}
                   name={e.seller.name}
                   username={e.seller.username}
                   price={e.price}

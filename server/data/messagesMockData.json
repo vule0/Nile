@@ -75,6 +75,11 @@
         "date": "feb 14th, 2023",
         "self": true,
         "text": "i want this"
+      },
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "hello"
       }
     ]
   },
@@ -131,6 +136,23 @@
         "date": "feb 14th, 2023",
         "self": true,
         "text": "Hey there Daniel"
+      }
+    ]
+  },
+  {
+    "to": {
+      "name": "Natalie Martinez",
+      "username": "username",
+      "rating": 4.8,
+      "verified": true,
+      "email": "email@example.com",
+      "items_sold": 100
+    },
+    "messages": [
+      {
+        "date": "feb 14th, 2023",
+        "self": true,
+        "text": "Hello"
       }
     ]
   }

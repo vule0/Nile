@@ -43,6 +43,8 @@ module.exports = (params) => {
       response = userHandler.logIn(json, data.username, data.password)
     } else if (query === userQuery.updatePassword){
       response = userHandler.updatePassword(json, data.username, data.password)
+    } else if (query === userQuery.updateImageUrl){
+      response = userHandler.updateImageUrl(json, data.username, data.imageurl)
     }
 
     

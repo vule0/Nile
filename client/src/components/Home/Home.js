@@ -37,6 +37,7 @@ const categories = [
 const Home = ({ user, setMenu, setCategory, menu, category, setPostId, administrator}) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
+  
   const getRecommendedData = () => {
     const data = { query: productQueryCodes.getRecommended }
     fecthData(routes.postProduct, data, setRecommendedData, 1)
@@ -75,7 +76,9 @@ const Home = ({ user, setMenu, setCategory, menu, category, setPostId, administr
           {recommendedData.map((e, i) => {
             return (
               <ProductCard
+                user={user}
                 key={i}
+                imageUrl={e.imageurl ? `${e.imageurl}` : "https://source.unsplash.com/random"}
                 name={e.seller.name}
                 username={e.seller.username}
                 price={e.price}
