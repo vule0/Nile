@@ -36,7 +36,7 @@ const Messages = ({ seller, setMenu, setCategory, menu, administrator }) => {
     ).then((otherParties) => {
       let otherPartiesFlat = otherParties.flat()
       let data = {}
-      if (seller === undefined) {
+      if (seller === undefined) { // not contancting specific seller form product
         data = {
           query: messageQueryCodes.getByOtherParty,
           otherParty: otherPartiesFlat[0],
@@ -44,13 +44,17 @@ const Messages = ({ seller, setMenu, setCategory, menu, administrator }) => {
         setOtherPartyName(otherPartiesFlat[0])
       } else {
           const idx = otherPartiesFlat.findIndex(e => e === seller)
-          // if user previously cammunicated
+          // if user previously communicated
           if (idx !== -1) {
             const e = otherPartiesFlat[idx]
             delete otherPartiesFlat[idx]
             otherPartiesFlat.unshift(e)
             setOtherParties(otherPartiesFlat)
             setOtherPartyName(otherPartiesFlat[0])
+            data = {
+              query: messageQueryCodes.getByOtherParty,
+              otherParty: otherPartiesFlat[0],
+            }
         }
         // otherwise
         else {
