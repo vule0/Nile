@@ -282,13 +282,13 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
             src={`${imageUrl}`}
             alt={"User Picture"}
             loading="lazy"
-            style={{ width: "60vw" }}
+            style={{ width: "35vw" }}
           />
           : <img
           src={user?.imageurl ? `${user.imageurl}` : "https://source.unsplash.com/random"}
           alt={"User Picture"}
           loading="lazy"
-          style={{ width: "60vw" }}/>
+          style={{ width: "35vw" }}/>
           }         
           <Button variant="contained" component="label"onChange={handleFileUpload}>Upload Image<input type="file" hidden/></Button>
 
