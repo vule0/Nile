@@ -273,7 +273,7 @@
     "name": "Raymond Abbot",
     "username": "rrott01",
     "rating": 2,
-    "verified": false,
+    "verified": true,
     "email": "rrott01@example.com",
     "items_sold": 0,
     "password": "123"

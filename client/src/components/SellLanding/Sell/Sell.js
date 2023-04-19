@@ -50,7 +50,6 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0]
-    console.log(file)
 
     if (file) setFiles((x) => [...x, file])
   }
@@ -109,10 +108,9 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
             }
           )
           .then((response) => {
-            console.log("API response ↓");
-            console.log(response);
-            const imageUrl = response.data.data.display_url;
-            console.log(imageUrl);
+            // console.log("API response ↓");
+            // console.log(response);
+            const imageUrl = response.data.data.display_url
             resolve(imageUrl);
           })
           .catch((error) => {
@@ -125,13 +123,10 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
   };
 
   const handleSubmit = async () => {
-    const fileObj = {
-      imgs: files,
-    }
-
     const imageUrl = await fileUploadHandler()
+    console.log(imageUrl)
     objectToSubmit.imageurl = imageUrl
-
+    console.log(objectToSubmit)
     if (!postingObj) {
       objectToSubmit.name = user.name
       objectToSubmit.username = user.username
@@ -139,7 +134,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
       objectToSubmit.isVerified = user.verified
     }
 
-    console.log(objectToSubmit)
+    // console.log(objectToSubmit)
     fecthData(routes.postProduct, objectToSubmit, console.log(), 1)
     setAction(true)
   }

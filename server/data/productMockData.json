@@ -393,7 +393,7 @@
     "id": "P4170",
     "product name": "pickle",
     "description": "yum",
-    "category": "Electronics",
+    "category": "Miscellaneous",
     "price": 5,
     "condition": "New",
     "seller": {
@@ -416,6 +416,7 @@
       "username": "pepe",
       "rating": 2,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/mGBTQtG/3e460c44975b.jpg"
   }
 ]

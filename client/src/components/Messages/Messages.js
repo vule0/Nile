@@ -22,7 +22,7 @@ import {
   Divider,
 } from "@mui/material"
 
-const Messages = ({ user: seller, setMenu, setCategory, menu, administrator }) => {
+const Messages = ({ seller, setMenu, setCategory, menu, administrator }) => {
   const [otherParties, setOtherParties] = useState([])
   const [otherPartyName, setOtherPartyName] = useState("Support")
   const [messages, setMessages] = useState([])

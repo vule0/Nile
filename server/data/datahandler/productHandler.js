@@ -173,6 +173,7 @@ module.exports = class ProductHandler {
       },
       imageurl: imageurl,
     }
+    console.log(newProduct.imageurl)
 
     let exists = {}
     parsed.filter((e, i) => {
