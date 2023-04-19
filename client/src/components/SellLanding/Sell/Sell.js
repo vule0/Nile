@@ -8,8 +8,12 @@ import Radio from "@mui/material/Radio"
 import RadioGroup from "@mui/material/RadioGroup"
 import FormControlLabel from "@mui/material/FormControlLabel"
 import FormControl from "@mui/material/FormControl"
+import { Alert } from "@mui/material"
 import { fecthData } from "../../../utils/helperFunctions/helper"
-import { productQueryCodes, routes, productCategory } from "../../../utils/enum"
+import { productQueryCodes, routes, productCategory, imageQueryCodes } from "../../../utils/enum"
+
+import axios from "axios"
+
 
 const Sell = ({ user, postingObj = undefined, setAction }) => {
   const [files, setFiles] = useState([])
@@ -18,6 +22,8 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
   const [price, setPrice] = useState(postingObj?.price)
   const [productName, setProductName] = useState(postingObj ? postingObj["product name"] : undefined)
   const [description, setDescription] = useState(postingObj?.description)
+  const [imageUrl, setImageUrl] = useState(undefined)
+  const [error, setError] = useState(undefined)
   const conditions = [
     "New",
     "Like New",
@@ -33,17 +39,19 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
     productName: productName,
     description: description,
     category: checkedCategory,
-    price: price,
+    price: parseFloat(price),
     condition: checkedCondition,
     name: postingObj?.seller.name,
     username: postingObj?.seller.username,
     rating: postingObj?.seller.rating,
     isVerified: postingObj?.seller.verified,
+    imageurl: postingObj?.imageUrl
   }
 
   const handleFileChange = (event) => {
     const file = event.target.files[0]
     console.log(file)
+
     if (file) setFiles((x) => [...x, file])
   }
 
@@ -72,10 +80,51 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
     setAction(true)
   }
 
-  const handleSubmit = () => {
+  const fileUploadHandler = async () => {
+    const formData = new FormData();
+    console.log(files[0]);
+  
+    const reader = new FileReader();
+    reader.readAsBinaryString(files[0]);
+  
+    return new Promise((resolve, reject) => {
+      reader.onload = () => {
+        const base64String = btoa(reader.result);
+        formData.append("image", base64String);
+  
+        axios
+          .post(
+            `https://api.imgbb.com/1/upload?key=3e8faf68ce1f8e09f24bc31d36a5e27e`,
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          )
+          .then((response) => {
+            console.log("API response ↓");
+            console.log(response);
+            const imageUrl = response.data.data.display_url;
+            console.log(imageUrl);
+            resolve(imageUrl);
+          })
+          .catch((error) => {
+            console.log("API error ↓");
+            console.log(error);
+            reject(error);
+          });
+      };
+    });
+  };
+
+  const handleSubmit = async () => {
     const fileObj = {
       imgs: files,
     }
+
+    const imageUrl = await fileUploadHandler()
+    objectToSubmit.imageurl = imageUrl
 
     if (!postingObj) {
       objectToSubmit.name = user.name
@@ -93,7 +142,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
     <div className="Sell-main-container">
       <div className="content">
         <Grid
-          sx={{ flexGrow: 1, border: "1px solid lightgray", mb: "20px" }}
+          sx={{ flexGrow: 1, border: "1px solid lightgray", mb: "20px"}}
           container
         >
           {files.map((e, i) => {
@@ -119,7 +168,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
           Upload Image
           <input type="file" hidden />
         </Button>
-
+        {error && <Alert className="errormsg" severity="error">{error}</Alert>}
         <Grid>
           <h4>Title & Price</h4>
           <TextField
@@ -201,7 +250,16 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
           <Button
             variant="contained"
             component="label"
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
+            onClick={() => {
+              if (files.length == 0){
+                setError("Please upload an image")
+              }
+              else{
+                console.log(files.length)
+                handleSubmit()
+              }
+            }}
             sx={{ marginRight: "20px" }}
           >
             {postingObj ? "Update Post" : "Create Post"}

@@ -12,7 +12,8 @@ module.exports.userQuery = {
   getByUserName: 10,
   getAllUsers: 11,
   logIn: 12,
-  updatePassword: 13
+  updatePassword: 13,
+  updateImageUrl: 14,
 }
 
 module.exports.productQuery = {

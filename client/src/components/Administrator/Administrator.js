@@ -1,4 +1,4 @@
-import { menus, routes, userQueryCodes } from "../../utils/enum"
+import { routes, userQueryCodes } from "../../utils/enum"
 import { fecthData } from "../../utils/helperFunctions/helper"
 import TopBar from "../TopBar/TopBar"
 import "./Administrator.scss"

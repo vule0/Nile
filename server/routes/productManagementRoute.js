@@ -59,7 +59,8 @@ module.exports = (params) => {
             data.name,
             data.username,
             data.rating,
-            data.isVerified
+            data.isVerified,
+            data.imageurl
           )
         }
 

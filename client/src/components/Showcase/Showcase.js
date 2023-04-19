@@ -144,6 +144,7 @@ const Showcase = ({ user, category, setMenu, setCategory, menu, setPostId, admin
               return (
                 <ProductCard
                   key={i}
+                  imageUrl={e.imageurl ? `${e.imageurl}` : "https://source.unsplash.com/random"}
                   name={e.seller.name}
                   username={e.seller.username}
                   price={e.price}

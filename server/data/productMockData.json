@@ -4,14 +4,15 @@
     "product name": "Crystal Necklace",
     "description": "An exquisite necklace adorned with beautiful crystals. (I am including a mystery gift with the purchase of this item). More info? dm me through Nile.com",
     "category": "Fashion",
-    "price": "100.99",
+    "price": 100.99,
     "condition": "New",
     "seller": {
       "name": "Liam Sullivan",
       "username": "lsullivan",
       "rating": 4.7,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/FKj2zMm/image.png"
   },
   {
     "id": "P1003",
@@ -25,7 +26,8 @@
       "username": "nmartinez",
       "rating": 4.5,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/DzBZF59/image.png"
   },
   {
     "id": "P1004",
@@ -39,7 +41,8 @@
       "username": "wkim",
       "rating": 4.6,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/x3KxN5k/image.png"
   },
   {
     "id": "P1005",
@@ -53,7 +56,8 @@
       "username": "ezhang",
       "rating": 4.8,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/7jwvpkT/image.png"
   },
   {
     "id": "P1051",
@@ -67,7 +71,8 @@
       "username": "mbrown",
       "rating": 4.7,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/xXNLpZB/image.png"
   },
   {
     "id": "P1052",
@@ -81,7 +86,8 @@
       "username": "shernandez",
       "rating": 4.5,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/YWm7Vk2/image.png"
   },
   {
     "id": "P1053",
@@ -95,7 +101,8 @@
       "username": "dlee",
       "rating": 4.9,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/ykVjgPj/image.png"
   },
   {
     "id": "P1054",
@@ -109,7 +116,8 @@
       "username": "agreen",
       "rating": 4.8,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/ChZsFDx/image.png"
   },
   {
     "id": "P1055",
@@ -123,7 +131,8 @@
       "username": "irodriguez",
       "rating": 4.6,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/ftZn7xL/image.png"
   },
   {
     "id": "P1056",
@@ -137,7 +146,8 @@
       "username": "jtaylor",
       "rating": 4.5,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/dPtDZMV/image.png"
   },
   {
     "id": "P1057",
@@ -151,12 +161,13 @@
       "username": "emmabrown",
       "rating": 4.7,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/Bf2RkjY/image.png"
   },
   {
     "id": "P1058",
-    "product name": "Wool Coat",
-    "description": "Stay warm and fashionable with this high-quality wool coat.",
+    "product name": "Puffer Jacket",
+    "description": "Stay warm and fashionable with this high-quality puffer jacket.",
     "category": "Fashion",
     "price": 399.99,
     "condition": "New",
@@ -165,7 +176,8 @@
       "username": "wchen",
       "rating": 4.9,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/WyZ7zMs/image.png"
   },
   {
     "id": "P1059",
@@ -179,7 +191,8 @@
       "username": "ekim",
       "rating": 4.6,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/xCXwrBz/image.pngs"
   },
   {
     "id": "P1060",
@@ -193,35 +206,8 @@
       "username": "alee",
       "rating": 4.8,
       "verified": true
-    }
-  },
-  {
-    "id": "P1061",
-    "product name": "Leather Jacket",
-    "description": "Stay stylish and comfortable with this high-quality leather jacket.",
-    "category": "Fashion",
-    "price": 499.99,
-    "condition": "New",
-    "seller": {
-      "name": "Sophie Johnson",
-      "username": "sjohnson",
-      "rating": 4.7,
-      "verified": false
-    }
-  },
-  {
-    "id": "P1062",
-    "product name": "Bluetooth Speaker",
-    "description": "Enjoy high-quality audio wherever you go with this portable Bluetooth speaker.",
-    "category": "Electronics",
-    "price": 149.99,
-    "condition": "New",
-    "seller": {
-      "name": "David Nguyen",
-      "username": "dnguyen",
-      "rating": 4.9,
-      "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/FBKT5Hk/image.png"
   },
   {
     "id": "P1063",
@@ -235,7 +221,8 @@
       "username": "orodriguez",
       "rating": 4.5,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/0QccfFm/image.png"
   },
   {
     "id": "P1064",
@@ -249,35 +236,8 @@
       "username": "mthompson",
       "rating": 4.8,
       "verified": true
-    }
-  },
-  {
-    "id": "P1065",
-    "product name": "Sunglasses",
-    "description": "Protect your eyes from the sun in style with these fashionable sunglasses.",
-    "category": "Fashion",
-    "price": 99.99,
-    "condition": "New",
-    "seller": {
-      "name": "Isabella Davis",
-      "username": "idavis",
-      "rating": 4.6,
-      "verified": false
-    }
-  },
-  {
-    "id": "P1066",
-    "product name": "Digital Camera",
-    "description": "Capture your memories with stunning clarity with this advanced digital camera.",
-    "category": "Electronics",
-    "price": 799.99,
-    "condition": "New",
-    "seller": {
-      "name": "Matthew Garcia",
-      "username": "mgarcia",
-      "rating": 4.7,
-      "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/nsW3bmg/image.png"
   },
   {
     "id": "P1067",
@@ -291,21 +251,8 @@
       "username": "amartinez",
       "rating": 4.5,
       "verified": false
-    }
-  },
-  {
-    "id": "P1075",
-    "product name": "Wireless Headphones",
-    "description": "Experience high-quality audio without the hassle of wires with these wireless headphones.",
-    "category": "Electronics",
-    "price": 199.99,
-    "condition": "New",
-    "seller": {
-      "name": "Emma Brown",
-      "username": "ebrown",
-      "rating": 4.8,
-      "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/D8NZ9kK/image.png"
   },
   {
     "id": "P1076",
@@ -319,21 +266,8 @@
       "username": "wlee",
       "rating": 4.7,
       "verified": false
-    }
-  },
-  {
-    "id": "P1077",
-    "product name": "Fitness Tracker",
-    "description": "Stay motivated and track your progress with this advanced fitness tracker.",
-    "category": "Fitness",
-    "price": 129.99,
-    "condition": "New",
-    "seller": {
-      "name": "Sophia Smith",
-      "username": "ssmith",
-      "rating": 4.6,
-      "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/4S1kct4/image.png"
   },
   {
     "id": "P1078",
@@ -347,7 +281,8 @@
       "username": "ethankim",
       "rating": 4.9,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/9bgMFNg/image.png"
   },
   {
     "id": "P1079",
@@ -361,7 +296,8 @@
       "username": "mwilson",
       "rating": 4.5,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/b6bwFTz/image.png"
   },
   {
     "id": "P1080",
@@ -375,7 +311,8 @@
       "username": "ntaylor",
       "rating": 4.7,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/QMCKzWq/image.png"
   },
   {
     "id": "P1081",
@@ -389,76 +326,82 @@
       "username": "ascott",
       "rating": 4.6,
       "verified": false
-    }
+    },
+    "imageurl": "https://i.ibb.co/rQvH6qs/image.png"
   },
   {
     "id": "P2001",
     "product name": "MacBook Pro (M1 chip)",
     "description": "Selling my MacBookPro. Nothing wrong with it, just trynna to explore the Windows ecosystem. Let me know if ya interested. Dale!",
     "category": "Electronics",
-    "price": "1800.99",
+    "price": 1800.99,
     "condition": "New",
     "seller": {
       "name": "Liam Sullivan",
       "username": "lsullivan",
       "rating": 4.7,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/w4ZwpCp/image.png"
   },
   {
     "id": "P128",
     "product name": "Leather Bag",
     "description": "Nice bag for sale!! Run errands (or even go to school!) stylish.",
     "category": "Fashion",
-    "price": "110.99",
+    "price": 110.99,
     "condition": "It Is What It Is",
     "seller": {
       "name": "Oliver Anderson",
       "username": "oanderson",
       "rating": 5,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/KKFgM1X/image.png"
   },
   {
     "id": "P8780",
     "product name": "Plant",
     "description": "Freshen your environment with this lovely plant. Go green!",
     "category": "Miscellaneous",
-    "price": "10.99",
+    "price": 10.99,
     "condition": "New",
     "seller": {
       "name": "Oliver Anderson",
       "username": "oanderson",
       "rating": 5,
       "verified": true
-    }
+    },
+    "imageurl": "https://png.pngtree.com/png-clipart/20220829/ourmid/pngtree-indoor-plant-png-image_6129530.png"
   },
   {
-    "id": "P7738",
-    "product name": "123er",
-    "description": "123",
-    "category": "Home",
-    "price": "700",
+    "id": "P7132",
+    "product name": "microwave",
+    "description": "50",
+    "category": "Electronics",
+    "price": 50,
     "condition": "It Is What It Is",
     "seller": {
       "name": "vu",
       "username": "vu",
-      "rating": 0.1,
-      "verified": true
-    }
-  },
-  {
-    "id": "P6838",
-    "product name": "123",
-    "description": "123",
-    "category": "Electronics",
-    "price": "123",
-    "condition": "It Is What It Is",
-    "seller": {
-      "name": "vu",
-      "username": "vu123",
       "rating": 0,
       "verified": true
-    }
+    },
+    "imageurl": "https://i.ibb.co/D1Kj3FD/41420a37aefc.jpg"
+  },
+  {
+    "id": "P4170",
+    "product name": "pickle",
+    "description": "yum",
+    "category": "Electronics",
+    "price": 5,
+    "condition": "New",
+    "seller": {
+      "name": "vu",
+      "username": "vu",
+      "rating": 0,
+      "verified": true
+    },
+    "imageurl": "https://i.ibb.co/RH4RnsR/d07760d5b79f.jpg"
   }
 ]
