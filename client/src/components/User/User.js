@@ -170,7 +170,9 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
               menu === "password" ? "Enter New Password" : "Enter New Email"
             }
             error={error}
-            helperText={menu === "email" && error ? "Incorrect email format" : ""}
+            helperText={
+              menu === "email" && error ? "Incorrect email format" : ""
+            }
             onChange={handleNewEvent}
             ref={passwordAttempt}
           />
@@ -195,11 +197,10 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
   const [menuToEdit, setMenuToEdit] = useState(undefined)
   const [imageUrl, setImageUrl] = useState(user?.imageurl)
 
-  const data = {query: userQueryCodes.getByUserName, username: user.username}
+  const data = { query: userQueryCodes.getByUserName, username: user.username }
   const getUser = () => {
     fecthData(routes.postUser, data, setUser, 1)
   }
-
 
   useEffect(() => getUser(), [])
 
@@ -207,22 +208,21 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
     setMenuToEdit(edit)
     setAction(true)
   }
-  
-  const handleFileUpload = async (event) => {
 
+  const handleFileUpload = async (event) => {
     const file = event.target.files[0]
     console.log(file)
 
-    const formData = new FormData();
-  
-    const reader = new FileReader();
-    reader.readAsBinaryString(file);
-  
+    const formData = new FormData()
+
+    const reader = new FileReader()
+    reader.readAsBinaryString(file)
+
     return new Promise((resolve, reject) => {
       reader.onload = () => {
-        const base64String = btoa(reader.result);
-        formData.append("image", base64String);
-  
+        const base64String = btoa(reader.result)
+        formData.append("image", base64String)
+
         axios
           .post(
             `https://api.imgbb.com/1/upload?key=3e8faf68ce1f8e09f24bc31d36a5e27e`,
@@ -234,21 +234,25 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
             }
           )
           .then((response) => {
-            console.log("API response ↓");
-            console.log(response);
-            const imageUrl = response.data.data.display_url;
-            const data = {query: userQueryCodes.updateImageUrl, username: user.username, imageurl: imageUrl}
+            console.log("API response ↓")
+            console.log(response)
+            const imageUrl = response.data.data.display_url
+            const data = {
+              query: userQueryCodes.updateImageUrl,
+              username: user.username,
+              imageurl: imageUrl,
+            }
             fecthData(routes.postUser, data, undefined, 1)
             setImageUrl(imageUrl)
-            resolve(imageUrl);
+            resolve(imageUrl)
           })
           .catch((error) => {
-            console.log("API error ↓");
-            console.log(error);
-            reject(error);
-          });
-      };
-    });
+            console.log("API error ↓")
+            console.log(error)
+            reject(error)
+          })
+      }
+    })
   }
 
   return (
@@ -277,23 +281,34 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
         className={action ? "user-info-blur" : ""}
       >
         <Grid item xs={8} sx={{ height: "90vh" }}>
-          {imageUrl ?
-          <img
-            src={`${imageUrl}`}
-            alt={"User Picture"}
-            loading="lazy"
-            style={{ width: "60vw" }}
-          />
-          : <img
-          src={user?.imageurl ? `${user.imageurl}` : "https://source.unsplash.com/random"}
-          alt={"User Picture"}
-          loading="lazy"
-          style={{ width: "60vw" }}/>
-          }         
-          <Button variant="contained" component="label"onChange={handleFileUpload}>Upload Image<input type="file" hidden/></Button>
-
+          {imageUrl ? (
+            <img
+              src={`${imageUrl}`}
+              alt={"User Picture"}
+              loading="lazy"
+              style={{ width: "60vw" }}
+            />
+          ) : (
+            <img
+              src={
+                user?.imageurl
+                  ? `${user.imageurl}`
+                  : "https://source.unsplash.com/random"
+              }
+              alt={"User Picture"}
+              loading="lazy"
+              style={{ width: "60vw" }}
+            />
+          )}
+          <Button
+            variant="contained"
+            component="label"
+            onChange={handleFileUpload}
+          >
+            Upload Image
+            <input type="file" hidden />
+          </Button>
         </Grid>
-
 
         <Grid item>
           <List
@@ -317,33 +332,37 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
                   <VerifiedUserIcon />
                 </Avatar>
               </ListItemAvatar>
-              {user?.administrator ? <ListItemText
-                primary={`Administrator:`}
-                secondary={
-                  user?.verified ? (
-                    <Typography sx={{ color: "green" }} fontSize={"small"}>
-                      Verified
-                    </Typography>
-                  ) : (
-                    <Typography sx={{ color: "#B45309" }} fontSize={"small"}>
-                      Pending
-                    </Typography>
-                  )
-                }
-              /> : <ListItemText
-                primary={`Verification Status:`}
-                secondary={
-                  user?.verified ? (
-                    <Typography sx={{ color: "green" }} fontSize={"small"}>
-                      Verified
-                    </Typography>
-                  ) : (
-                    <Typography sx={{ color: "#B45309" }} fontSize={"small"}>
-                      Pending
-                    </Typography>
-                  )
-                }
-              />}
+              {user?.administrator ? (
+                <ListItemText
+                  primary={`Administrator:`}
+                  secondary={
+                    user?.verified ? (
+                      <Typography sx={{ color: "green" }} fontSize={"small"}>
+                        Verified
+                      </Typography>
+                    ) : (
+                      <Typography sx={{ color: "#B45309" }} fontSize={"small"}>
+                        Pending
+                      </Typography>
+                    )
+                  }
+                />
+              ) : (
+                <ListItemText
+                  primary={`Verification Status:`}
+                  secondary={
+                    user?.verified ? (
+                      <Typography sx={{ color: "green" }} fontSize={"small"}>
+                        Verified
+                      </Typography>
+                    ) : (
+                      <Typography sx={{ color: "#B45309" }} fontSize={"small"}>
+                        Pending
+                      </Typography>
+                    )
+                  }
+                />
+              )}
             </ListItem>
 
             <Divider />

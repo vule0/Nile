@@ -64,7 +64,13 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
   }
 
   const handlePrice = (event) => {
-    setPrice(event.target.value)
+    const val = event.target.value
+    if (val < 0) {
+      alert('Please, make sure price is over $0.00')
+      setPrice(0)
+      return
+    }
+    setPrice(val)
   }
 
   const handleDescription = (event) => {
@@ -185,7 +191,7 @@ const Sell = ({ user, postingObj = undefined, setAction }) => {
             required
             id="outlined-required"
             label="Enter Price $$$"
-            defaultValue={postingObj ? postingObj.price : ""}
+            value={price}
             onChange={handlePrice}
           />
         </Grid>

@@ -403,5 +403,19 @@
       "verified": true
     },
     "imageurl": "https://i.ibb.co/RH4RnsR/d07760d5b79f.jpg"
+  },
+  {
+    "id": "P1855",
+    "product name": "Samsung Tv",
+    "description": "Selling my 55\" Samsung Tv. It is in immaculate condition....4k Ultra HD crazy vivid picture. Got it for $2500 over a year ago, so you can see this is a great deal. Let me know if interested.",
+    "category": "Electronics",
+    "price": 1200,
+    "condition": "Like New",
+    "seller": {
+      "name": "Jose Lopez",
+      "username": "pepe",
+      "rating": 2,
+      "verified": true
+    }
   }
 ]

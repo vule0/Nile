@@ -138,8 +138,8 @@ const SellLanding = ({ user, setMenu, setCategory, menu, administrator }) => {
                       <CardMedia
                         component="img"
                         style={{ width: "100%", height: "100%", objectFit:"contain"}}
-                        image={`${card.imageurl}`}
-                        alt="random"
+                        image={card?.imageurl ? card.imageurl : 'https://images.unsplash.com/source-404?fit=crop&fm=jpg&h=800&q=60&w=1200'}
+                        alt="product image"
                       />
                       <CardContent sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2">

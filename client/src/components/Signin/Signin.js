@@ -33,8 +33,6 @@ const Signin = ({ setUser, setMenu }) => {
 
     fecthData(routes.postUser, data, setUser, 1).then((user) => {
       // if validation
-      console.log(user?.name)
-      console.log(getInitials(user?.name))
       if (user?.status === 100) {
         setErrorMessage("Incorrect user credentials.")
       } else {
@@ -58,10 +56,9 @@ const Signin = ({ setUser, setMenu }) => {
         >
           {" "}
           <Grid item xs={12}>
-            {(
-              // severity={errorMessage === '' ? '' : 'error'}
+            {errorMessage && (
               <Alert aria-label="alert" severity="error">
-                <p data-testid='alert-login'>{errorMessage}</p>
+                {errorMessage}
               </Alert>
             )}
           </Grid>
@@ -80,6 +77,7 @@ const Signin = ({ setUser, setMenu }) => {
               onChange={handlePass}
               inputProps={{ "data-testid": "password" }}
               required
+              type="password"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
