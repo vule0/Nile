@@ -168,7 +168,7 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
               menu === "password" ? "Enter New Password" : "Enter New Email"
             }
             error={error}
-            helperText={menu === "email" ? "Incorrect email format" : ""}
+            helperText={menu === "email" && error ? "Incorrect email format" : ""}
             onChange={handleNewEvent}
             ref={passwordAttempt}
           />

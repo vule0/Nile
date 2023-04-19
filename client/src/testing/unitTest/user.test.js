@@ -17,15 +17,16 @@ test('displays "Incorrect user credentials." when suitable ', async () => {
   const user = userEvent.setup()
   const el = render(<Signin setUser={console.log()} setMenu={console.log()} />)
 
-  await user.click(screen.getAllByRole('textbox')[0], {name: /Username/i})
+  await user.click(screen.getByTestId('username'))
   await user.keyboard("pepe")
-  await user.click(screen.getAllByRole('textbox')[1])
+  await user.click(screen.getByTestId('password'))
   await user.keyboard("1234")
-  await user.click(screen.getByRole("button", { name: /Login/i }))
-
   // ...assertions...
-  expect(screen.getAllByRole('textbox')[0].value).toStrictEqual('pepe') // username
-  expect(screen.getAllByRole('textbox')[1].value).toStrictEqual('123') // password
+  expect(screen.getByTestId('username').value).toBe('pepe')
+  expect(screen.getByTestId('password').value).toBe('1234')
+  await user.click(screen.getByTestId("login-submit"))
+  // expect(screen.getByTestId('login-submit').value).toBe('1234')
+
   
 })
 
