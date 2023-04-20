@@ -142,10 +142,10 @@ module.exports = class ProductHandler {
     verified,
     imageurl
   ) {
-    if (!id) id = 'P' + String(this.getRandomInt(0, 10000))
+    if (!id) id = "P" + String(this.getRandomInt(0, 10000))
     const parsed = JSON.parse(json)
     let response = {}
-    
+
     if (!verified)
       return {
         status: -1,
