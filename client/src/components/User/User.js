@@ -1,15 +1,7 @@
 import "./User.scss"
 import TopBar from "../TopBar/TopBar"
 import { productCategory, routes, userQueryCodes } from "../../utils/enum"
-import {
-  Grid,
-  Paper,
-  TextField,
-  Button,
-  Typography,
-  IconButton,
-  Icon,
-} from "@mui/material"
+import { Grid, TextField, Button, Typography, IconButton } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 //MUI Imports
 import List from "@mui/material/List"
@@ -24,36 +16,49 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp"
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch"
 import NavigateNextIcon from "@mui/icons-material/NavigateNext"
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser"
-import { getInitials, fecthData } from "../../utils/helperFunctions/helper"
+import {
+  getInitials,
+  fecthData,
+  validateEmail,
+} from "../../utils/helperFunctions/helper"
 import { useState, useRef, useEffect } from "react"
 import axios from "axios"
 
-const EditMenu = ({ menu, password, setAction, username, setUser }) => {
+const EditMenu = ({
+  menu,
+  password,
+  setAction,
+  username,
+  setUser,
+  setMenu,
+}) => {
   const [newEmail, setNewEmail] = useState(undefined)
   const [newPassword, setNewPassword] = useState(undefined)
   const [unlockTextField, setUnlockTextField] = useState(false)
   const [error, setError] = useState(false)
   const passwordAttempt = useRef(undefined)
 
+  /* unlocks textField if edit email, 
+   otherwise if edit password we lock it 
+   until user successfully enters current password */
   useEffect(() => {
     if (menu === "email") setUnlockTextField(true)
   }, [])
 
-  const handleCurrentPasswordOnChange = (event) => {
-    passwordAttempt.current = event.currentTarget.value
+  const handleUnlockResetPassword = () => {
+    if (menu === "email") return
+
+    if (passwordAttempt.current === password) {
+      setUnlockTextField(true)
+      setError(false)
+    } else {
+      setUnlockTextField(false)
+      setError(true)
+    }
   }
 
-  const validateEmail = (email) => {
-    let validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-
-    if (email.match(validRegex)) {
-      console.log("Great!")
-      return true
-    } else {
-      console.log("Invalid email address!")
-      return false
-    }
+  const handleCurrentPasswordOnChange = (event) => {
+    passwordAttempt.current = event.currentTarget.value
   }
 
   const handleClose = () => {
@@ -65,39 +70,28 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
     passwordAttempt.current = undefined
   }
 
-  const handleUnlockResetPassword = () => {
-    if (menu !== "password") {
-      setUnlockTextField(false)
-      return
-    }
-
-    if (passwordAttempt.current === password) {
-      setUnlockTextField(true)
-      setError(false)
-    } else {
-      setUnlockTextField(false)
-      setError(true)
-    }
-  }
-
-  const handleNewEvent = (event) => {
+  // updates password or email as input changes
+  const handlePasswordEmailChange = (event) => {
     const val = event.currentTarget.value
     if (menu === "password" && unlockTextField) {
       setNewPassword(val)
     } else if (menu === "email") {
       setNewEmail(val)
+    } else {
+      console.log(
+        "Neither edit password nor email in the state...something weird happened."
+      )
     }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let data = {}
-    if (menu === "email") {
-      if (!validateEmail(newEmail)) {
-        setError(true)
-        console.log(error)
-        return
-      }
-      // else
+    if (menu === "email" && !validateEmail(newEmail)) {
+      setError(true)
+      return
+    }
+
+    if (menu === "email" && validateEmail(newEmail)) {
       setError(false)
       data = {
         query: userQueryCodes.updateEmail,
@@ -112,23 +106,24 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
       }
     }
 
-    fecthData(routes.postUser, data, undefined, 1).then((data) => {
-      // update logged user information
-      data = {
-        query: userQueryCodes.getByUserName,
-        username: username,
-      }
+    // send updated password to api
+    await fecthData(routes.postUser, data, undefined, 1)
 
-      fecthData(routes.postUser, data, setUser, 1).then(() => {
-        // reset states
-        setAction(false)
-        setUnlockTextField(false)
-        setError(false)
-        setNewEmail(undefined)
-        setNewPassword(undefined)
-        passwordAttempt.current = undefined
-      })
-    })
+    data = {
+      query: userQueryCodes.getByUserName,
+      username: username,
+    }
+
+    // update user's information by fetching the updated data
+    await fecthData(routes.postUser, data, setUser, 1)
+
+    // reset states
+    setAction(false)
+    setUnlockTextField(false)
+    setError(false)
+    setNewEmail(undefined)
+    setNewPassword(undefined)
+    passwordAttempt.current = undefined
   }
 
   return (
@@ -173,7 +168,7 @@ const EditMenu = ({ menu, password, setAction, username, setUser }) => {
             helperText={
               menu === "email" && error ? "Incorrect email format" : ""
             }
-            onChange={handleNewEvent}
+            onChange={handlePasswordEmailChange}
             ref={passwordAttempt}
           />
         </Grid>
@@ -196,13 +191,13 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
   const [action, setAction] = useState(false)
   const [menuToEdit, setMenuToEdit] = useState(undefined)
   const [imageUrl, setImageUrl] = useState(user?.imageurl)
-
   const data = { query: userQueryCodes.getByUserName, username: user.username }
+
+  useEffect(() => getUser(), [])
+
   const getUser = () => {
     fecthData(routes.postUser, data, setUser, 1)
   }
-
-  useEffect(() => getUser(), [])
 
   const handleEdit = (edit) => {
     setMenuToEdit(edit)
@@ -211,18 +206,13 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
 
   const handleFileUpload = async (event) => {
     const file = event.target.files[0]
-    console.log(file)
-
     const formData = new FormData()
-
     const reader = new FileReader()
     reader.readAsBinaryString(file)
-
     return new Promise((resolve, reject) => {
       reader.onload = () => {
         const base64String = btoa(reader.result)
         formData.append("image", base64String)
-
         axios
           .post(
             `https://api.imgbb.com/1/upload?key=3e8faf68ce1f8e09f24bc31d36a5e27e`,
@@ -234,8 +224,8 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
             }
           )
           .then((response) => {
-            console.log("API response ↓")
-            console.log(response)
+            // console.log("API response ↓")
+            // console.log(response)
             const imageUrl = response.data.data.display_url
             const data = {
               query: userQueryCodes.updateImageUrl,
@@ -280,22 +270,23 @@ const User = ({ user, setMenu, setCategory, menu, setUser, administrator }) => {
         sx={{ mt: "10vh" }}
         className={action ? "user-info-blur" : ""}
       >
-        <Grid item xs={8} sx={{ height: "90vh" }}>
-          {imageUrl ?
-          <img
-            src={`${imageUrl}`}
-            alt={"User Picture"}
-            loading="lazy"
-            style={{ width: "35vw" }}
-          />
-          : <img
-          src={user?.imageurl ? `${user.imageurl}` : "https://source.unsplash.com/random"}
-          alt={"User Picture"}
-          loading="lazy"
-          style={{ width: "35vw" }}/>
-          }         
-          <Button variant="contained" component="label"onChange={handleFileUpload}>Upload Image<input type="file" hidden/></Button>
-
+        <Grid item xs={8}>
+            <img
+              src={imageUrl ? imageUrl : "https://source.unsplash.com/random"}
+              alt={"User Picture"}
+              loading="lazy"
+              style={{ width: "50vw" }}
+            />
+          <Grid item>
+            <Button
+              variant="contained"
+              component="label"
+              onChange={handleFileUpload}
+            >
+              Upload Image
+              <input type="file" hidden />
+            </Button>
+          </Grid>
         </Grid>
 
         <Grid item>

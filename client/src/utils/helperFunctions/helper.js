@@ -83,3 +83,15 @@ module.exports.getInitials = (name) => {
   if (split.length === 1) return split[0][0]
   return `${split[0][0]}${split[1][0]}`
 }
+
+module.exports.validateEmail = (email) => {
+  let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  
+  if (email.match(validRegex)) {
+    console.log("Great!")
+    return true
+  } else {
+    console.log("Invalid email address!")
+    return false
+  }
+}

@@ -3,7 +3,6 @@ import TopBar from "../TopBar/TopBar"
 import ProductCard from "./ProductCard/ProductCard"
 import CategoryCard from "./CategoryCard/CategoryCard"
 import { Tooltip } from "@mui/material"
-// images
 import fashionCategory from "../../assets/imgs/fashionCategory.jpg"
 import electronicsCategory from "../../assets/imgs/electronicsCategory.jpg"
 import fitnessCategory from "../../assets/imgs/fitnessCategory.jpg"
@@ -13,7 +12,12 @@ import kitchenCategory from "../../assets/imgs/kitchenCategory.jpg"
 import watchesCategory from "../../assets/imgs/watchesCategory.jpg"
 import { useEffect, useState } from "react"
 import { fecthData } from "../../utils/helperFunctions/helper"
-import { menus, productCategory, productQueryCodes, routes } from '../../utils/enum'
+import {
+  menus,
+  productCategory,
+  productQueryCodes,
+  routes,
+} from "../../utils/enum"
 
 const imgs = [
   homeCategory,
@@ -24,6 +28,7 @@ const imgs = [
   watchesCategory,
   electronicsCategory,
 ]
+
 const categories = [
   "Home",
   "Fashion",
@@ -34,21 +39,37 @@ const categories = [
   "Electronics",
 ]
 
-const Home = ({ user, setMenu, setCategory, menu, category, setPostId, administrator}) => {
+const Home = ({
+  user,
+  setMenu,
+  setCategory,
+  menu,
+  category,
+  setPostId,
+  administrator,
+}) => {
   const [selector, setSelector] = useState(0)
   const [recommendedData, setRecommendedData] = useState([])
-  
+
   const getRecommendedData = () => {
     const data = { query: productQueryCodes.getRecommended }
     fecthData(routes.postProduct, data, setRecommendedData, 1)
   }
-  const handleClick = (event) => setSelector(event.currentTarget.id)
+
+  const handleCategorySelector = (event) => setSelector(event.currentTarget.id)
 
   useEffect(() => getRecommendedData(), [])
 
   return (
     <div className="Home-main-container">
-      <TopBar user={user} menu={menu} setMenu={setMenu} setCategory={setCategory} category={category} administrator={administrator}/>
+      <TopBar
+        user={user}
+        menu={menu}
+        setMenu={setMenu}
+        setCategory={setCategory}
+        category={category}
+        administrator={administrator}
+      />
 
       <span style={{ marginTop: "10vh" }} />
 
@@ -59,11 +80,16 @@ const Home = ({ user, setMenu, setCategory, menu, category, setPostId, administr
           category={categories[selector]}
           img={imgs[selector]}
         />
+        
         <div className="selectors">
           {categories.map((cat, i) => {
             return (
               <Tooltip key={i} title={cat}>
-                <div id={`${i}`} onClick={handleClick} className="selector" />
+                <div
+                  id={`${i}`}
+                  onClick={handleCategorySelector}
+                  className="selector"
+                />
               </Tooltip>
             )
           })}
@@ -78,12 +104,20 @@ const Home = ({ user, setMenu, setCategory, menu, category, setPostId, administr
               <ProductCard
                 user={user}
                 key={i}
-                imageUrl={e.imageurl ? `${e.imageurl}` : "https://source.unsplash.com/random"}
+                imageUrl={
+                  e.imageurl
+                    ? `${e.imageurl}`
+                    : "https://source.unsplash.com/random"
+                }
                 name={e.seller.name}
                 username={e.seller.username}
                 price={e.price}
-                productName={e['product name']}
-                onClick={() => {setCategory(productCategory.misc); setPostId(e.id); setMenu(menus.detailed)}}
+                productName={e["product name"]}
+                onClick={() => {
+                  setCategory(productCategory.misc)
+                  setPostId(e.id)
+                  setMenu(menus.detailed)
+                }}
               />
             )
           })}
