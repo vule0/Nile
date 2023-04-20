@@ -1,15 +1,13 @@
 import "./Signin.scss"
-import TopBar from "../TopBar/TopBar"
 import { Grid, TextField, Button, Alert } from "@mui/material"
 import nilelogo from "../../assets/imgs/nilelogo.JPG"
 import { useState } from "react"
 import {
   menus,
-  productCategory,
   routes,
   userQueryCodes,
 } from "../../utils/enum"
-import { fecthData, getInitials } from "../../utils/helperFunctions/helper"
+import { fecthData } from "../../utils/helperFunctions/helper"
 
 const Signin = ({ setUser, setMenu }) => {
   const [username, setUsername] = useState("")
@@ -22,9 +20,14 @@ const Signin = ({ setUser, setMenu }) => {
   const handlePass = (event) => {
     setPassword(event.target.value)
   }
-  const handleSubmit = async (event) => {
-    event.preventDefault()
 
+  const handleEnterKey = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit()
+    }
+  }
+
+  const handleSubmit = async () => {
     const data = {
       query: userQueryCodes.logIn,
       username: username,
@@ -66,6 +69,7 @@ const Signin = ({ setUser, setMenu }) => {
             <TextField
               label="Username"
               onChange={handleUsername}
+              onKeyDown={handleEnterKey}
               inputProps={{ "data-testid": "username" }}
               required
             ></TextField>
@@ -73,11 +77,13 @@ const Signin = ({ setUser, setMenu }) => {
           <Grid item xs={12}>
             <TextField
               data-testid="Password"
+              onKeyDown={handleEnterKey}
               label="Password"
               onChange={handlePass}
               inputProps={{ "data-testid": "password" }}
               required
               type="password"
+              
             ></TextField>
           </Grid>
           <Grid item xs={12}>
@@ -97,6 +103,7 @@ const Signin = ({ setUser, setMenu }) => {
               onClick={() => {
                 setMenu(menus.signup)
               }}
+              type="submit"
             >
               Create an Account
             </Button>
