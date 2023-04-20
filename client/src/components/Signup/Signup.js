@@ -47,6 +47,12 @@ const Signup = ({ setMenu, setUser }) => {
     setMenu(menus.signin)
   }
 
+  const handleEnterKey = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit()
+    }
+  }
+
   return (
     <div className="Signup-main-container">
       <Grid style={{ padding: 100 }}>
@@ -90,6 +96,7 @@ const Signup = ({ setMenu, setUser }) => {
                     type="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    onKeyDown={handleEnterKey}
                     required
                   />
                 </Grid>
@@ -99,6 +106,7 @@ const Signup = ({ setMenu, setUser }) => {
                     label="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    onKeyDown={handleEnterKey}
                     required
                   />
                 </Grid>
@@ -109,6 +117,7 @@ const Signup = ({ setMenu, setUser }) => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    onKeyDown={handleEnterKey}
                     required
                   />
                 </Grid>
@@ -119,6 +128,7 @@ const Signup = ({ setMenu, setUser }) => {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    onKeyDown={handleEnterKey}
                     required
                   />
                 </Grid>
