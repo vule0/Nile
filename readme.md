@@ -1,3 +1,7 @@
+# Nile - CEN4020 Final Project
+### An e-commerce software system designed for transactions between customers and sellers while addressing the issue of security for online stores
+**MongoDB, Express, React, Node**
+
 Demo Video: 
 
 https://user-images.githubusercontent.com/88700462/234790480-e8ae3ef0-6d0c-4766-9b0c-75594b8c614d.mp4
